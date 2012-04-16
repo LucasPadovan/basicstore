@@ -1,0 +1,25 @@
+<h1><%= t('.title') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('.product') %></th>
+    <th><%= t('.cart') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @line_items.each do |line_item| %>
+  <tr>
+    <td><%= line_item.product_id %></td>
+    <td><%= line_item.cart_id %></td>
+    <td><%= link_to t('.show'), line_item %></td>
+    <td><%= link_to t('.edit'), edit_line_item_path(line_item) %></td>
+    <td><%= link_to t('.destroy'), line_item, :confirm => t('.confirm'), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('.newline'), new_line_item_path %>

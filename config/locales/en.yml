@@ -1,0 +1,250 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  
+  layouts:
+    application:
+      title:  "Cristopher Smith Animestore"
+      home:   "Home"
+      faq:    "Questions"
+      news:   "News"
+      contact:  "Contact"
+      orders:   "Orders"
+      catalog:  "Catalog"
+      users:    "Users"
+      paytypes: "Payment Types"
+      exit:     "LogOut"
+      
+      show: "Show"
+      edit: "Edit"
+      destroy:  "Destroy"
+      back: "Back"
+  
+      
+  admin:
+    index:
+      title:    "Welcome"
+      its:        "It's "
+      wehave:     
+        one:    "We have one order only"
+        other:  "We have %{count} orders"
+      
+      
+  carts:
+    cart:
+      title:      "Your Cart"
+      total:      "Total"
+      buy:        "Buy"
+      emptycart:  "Empty cart"
+      confirm:    "Are you sure you want to empty your entire cart?"        
+    form:
+      submit:     "Create cart"
+    edit:
+      title:      "Editing cart"
+      show:       "Show"
+      back:       "Back"
+    index:
+      title:      "Listing carts"
+      show:       "Show"
+      edit:       "Edit"
+      destroy:    "Destroy"
+      deleteconfirm:  "Are you sure?"
+    new:
+      title:      "New cart"
+      back:       "Back"
+    show:
+      
+      
+  line_items:
+    form:
+      submit:     "Create line item"
+    line_item:
+      delete:   "Delete"
+      confirm:  "Are you sure you want to delete this item from the cart?"
+    edit:
+    index:
+      title:    "Listing line items"
+      product:  "Product"
+      cart:     "Cart"
+        
+      show:     "Show"
+      edit:     "Edit"
+      destroy:  "Destroy"
+      back:     "Back"
+      confirm:  "Are you sure?"
+      
+      newline:  "New line item"
+    new:
+      title:    "New line item"
+      back:     "Back"
+    show:
+      edit:     "Edit"
+      back:     "Back"
+      product:  "Product"
+      cart:     "Cart"
+      
+  mediopagos:
+    form:
+      submit:     "Create Pay Type"
+      name:       "Name"
+      desc:       "Description"
+    edit:
+      title:    "Editing PayTypes"
+      show:     "Show"
+      back:     "Back"
+    index:
+      title:    "Listing PayTypes"
+      name:     "Name"
+      desc:     "Description"
+      show:     "Show"
+      edit:     "Edit"
+      destroy:  "Delete"
+      confirm:  "Are you sure?"
+      new:      "New PayType"
+    new:
+      title:    "New PayType"
+      back:     "Back"
+    show:
+      name:     "Name"
+      desc:     "Description"
+      edit:     "Edit"
+      back:     "Back"
+      
+      
+  notifier:
+
+
+  orders:
+    form:
+      name:       "Name"
+      address:    "Address"
+      paytype:    "Paytype"
+      prompt:     "Select your pay type"
+      submit:     "Place order"
+    edit:
+      title:  "Editing order"
+      show:   "Show"
+      back:   "Back"
+    index:
+      title:    "Listing orders"
+      name:     "Name"
+      address:  "Address"
+      email:    "Email"
+      paytype:  "PayType"
+      show:     "Show"
+      edit:     "Edit"
+      destroy:  "Delete"
+      confirm:  "Are you sure?"
+      date:     "Created at"
+    new:
+      title:    "New Order"
+      back:     "Back"
+    show:
+      name:     "Name"
+      address:  "Address"
+      email:    "Email"
+      paytype:  "PayType"
+      edit:     "Edit"
+      back:     "Back"
+      
+      
+  products:
+    form:
+      title:      "Title"
+      desc:       "Description"
+      imgurl:     "Image Url"
+      price:      "Price"
+      submit:     "Create product"
+      productType: "Product type"
+      promptTP:   "Select product type"
+      cant:       "Stock"
+    edit: 
+      title:      "Editing product"
+      show:       "Show"
+      back:       "Back"
+    index:
+      title:    "Listing products"
+      show:     "Show"
+      edit:     "Edit"
+      destroy:  "Delete"
+      confirm:  "Are you sure?"
+      new:      "Add product"
+    new:
+      legend:   "Please, complete all the fields to create the new product in the database"
+    show:
+      name:     "Title"
+      desc:     "Description"
+      imgurl:   "Image Url"
+      price:    "Price"
+      edit:     "Edit"
+      back:     "Back"
+      backstore: "Back to the store"
+      addcart:  "Add to the cart"
+      
+      
+  session:
+    new:
+      legend:     "Please Log In"
+      name:       "Name:"
+      pass:       "Password:"
+      submitBttn: "Login"
+      
+      
+  store:
+    index:
+      title:      "Products List"
+      addToCart:  "Add to cart"
+
+      
+      
+  users:
+    form:
+      legend:     "Enter User Details"
+      name:       "Name:"
+      pass:       "Password:"
+      confirm:    "Password confirmation:"
+      submit:     "Create user"
+    edit:
+      title:  "Editing user"
+      show:   "Show"
+      back:   "Back"
+    index:
+      title:    "Listing users"
+      name:     "Name"
+      show:     "Show"
+      edit:     "Edit"
+      destroy:  "Delete"
+      confirm:  "Are you sure?"
+      new:      "New user"
+      date:     "Registered"
+    new:
+      title:    "New user"
+      back:     "Back"
+    show:
+      name:       "Name:"
+      hashpass:   "Hashed password:"
+      salt:       "Salt:"
+      edit:       "Edit"
+      back:       "Back"
+
+  activerecord:
+    models:
+      cart:         "cart"
+      mediopago:    "pay Type"
+      order:        "order"
+      product:      "product"
+      user:         "user"
+    attributes:
+      order:
+        email:      "E-mail"
+        mediopago:  "Pay Type"  
+      user:
+        nombre:                 "Name"
+        password_confirmation:  "Password confirmation"
+        
+  thanks: "Thank for your order"
+  
+  time:
+    formats:
+      default: "%d/%m/%Y \n%H:%M"

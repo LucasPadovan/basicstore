@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cristopher Smith Animestore</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+</head>
+<body id="store">
+  <div id="banner">
+    <div id="idiomas">
+      <ul id="locale">
+        <li id="en"><a href="../en"></a></li>
+        <li id="es"><a href="../es"></a></li>
+        <!--<li id="fr"><a href="../fr"></a></li>-->
+        <!--<li id="it"><a href="../it"></a></li>-->
+      </ul>
+    </div>    
+    <%= image_tag("CSA.png") %>
+    <div id="titulo1"><%= @page_title || t('.title') %></div>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <div id="carrito">
+        <% if @cart %>
+          <%= hidden_div_if(@cart.line_items.empty?, id: "cart") do %>
+            <%= render @cart %>
+          <% end %>
+        <% end %>
+      </div>
+      <!--<a href="http://www....">Inicio</a><br />-->
+      <%= link_to t('.home'),  store_path%><br />
+      <%= link_to t('.articles'), productos_path %><br/>
+
+      <% @tiposproductos = Tipoproducto.all %>
+      <% @tiposproductos.each do |t| %>
+        |<%= link_to t.nombre, productos_path(:tipoprod=> t.id) %><br/>
+      <% end %>
+
+      <br/>
+      <%#*Link para ver el carrito mas detalladamente%>
+      <%= link_to  t('.news'), novedades_path %><br />
+      <%= link_to t('.faq'), preguntas_path %><br />
+      <%= link_to t('.contact'), contacto_path %><br />
+
+      <div id="panelControl"><% if session[:user_id] %>
+        <%= link_to t('.orders'), orders_path %><br />
+
+        <% Estadorden::ESTADOS.each do |estado| %>
+        | <%= link_to estado+"s", orders_path(estadoOrden: estado) %><br/>
+        <% end %>
+
+        <%= link_to t('.catalog'), products_path %><br />
+        <%= link_to 'Tipos de productos', tipoproductos_path %> <br/>
+        <%= link_to t('.paytypes'), mediopagos_path %><br />
+        <%= link_to t('.users'), users_path %><br />
+        <%#= link_to 'Carrito', carts_path %><br />
+        <br />
+        <%= button_to t('.exit'), logout_path,:method => :delete %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+      <% end %></div>
+
+      <div id="finalizacion"></div>
+    </div>
+    <div id="main">
+      <%= yield %>  
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Sr./Sra. <%= @order.name %>
+
+Su orden de:
+<% @order.line_items.each do |item| %>
+    <%= item.quantity %> x <%= item.product.titulo %>
+<% end %>
+
+Está actualmente demorada porque alguno de los artículos no dispone de stock.
+Nos comunicaremos con usted en cuanto este disponible y lista para su entrega.
+
+Muchas gracias.
+
+Cristopher Smith Animestore.

@@ -1,0 +1,38 @@
+<div id="product_list">
+  <h1><%= t('.title') %></h1>
+
+  <table>
+
+  <% @products.each do |product| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      
+      <td>
+        <%= image_tag(product.image_url, :class => 'list_image') %>
+      </td>
+      
+      <td class="list_description">
+        <dl>
+          <dt><%=  product.titulo %></dt>
+          <dd><%= truncate(strip_tags(product.descripcion), :length => 80) %></dd>
+          <dd><b>Tipo de Producto:</b> <%= product.tipoproducto.nombre %></dd>
+          <dd><b>Costo actual:</b> $<%= product.precioproductos.last.costo %></dd>
+          <dd><b>Precio al público actual:</b> $<%= product.precioproductos.last.preciopublico %></dd>
+        </dl>
+      </td>
+      
+      <td class="list_actions">
+        <%= link_to t('.show'), product %><br />
+        <%= link_to t('.edit'), edit_product_path(product) %><br />
+        <%= link_to t('.destroy'), product, :confirm => t('.confirm'), :method => :delete %>
+      </td>
+      
+    </tr>
+  <% end %>
+  </table>
+
+<div id="paginacion"><%= will_paginate @products %></div>
+</div>
+
+<br />
+
+<%= link_to t('.new'), new_product_path %>

@@ -1,0 +1,26 @@
+<h1>Histórico de precios de <%= @producto.titulo %></h1>
+
+<table>
+  <tr>
+    <th>Costo</th>
+    <th>Precio venta</th>
+    <th>Detalle</th>
+    <th>Creado</th>
+    <th></th>
+  </tr>
+
+<% @precioproductos.each do |precioproducto| %>
+  <tr>
+    <td><%= precioproducto.costo %></td>
+    <td><%= precioproducto.preciopublico %></td>
+    <td><%= precioproducto.detalle %></td>
+    <td><%= precioproducto.created_at.to_s(:simple) %></td>
+    <td><%= link_to 'Edit', edit_precioproducto_path(precioproducto) %><br/>
+      <%= link_to 'Destroy', precioproducto, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Precioproducto', new_precioproducto_path %>

@@ -1,0 +1,12 @@
+Sr./Sra. <%= @order.name %>
+
+Su orden de:
+<% @order.line_items.each do |item| %>
+    <%= item.quantity %> x <%= item.product.titulo %>
+<% end %>
+
+Fue cancelada por algun inconveniente en el proceso.
+
+Muchas gracias.
+
+Cristopher Smith Animestore.

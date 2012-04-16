@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Order:</b>
+  <%= @estadorden.order_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @estadorden.user_id %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%= @estadorden.estado %>
+</p>
+
+
+<%= link_to 'Edit', edit_estadorden_path(@estadorden) %> |
+<%= link_to 'Back', estadordens_path %>

@@ -1,0 +1,281 @@
+es:
+  
+  layouts:
+    application:
+      title:    "Cristopher Smith Animestore"
+      home:     "Inicio"
+      articles: "Artículos"
+      keychain: "Llaveros"
+      faq:      "Preguntas"
+      news:     "Noticias" 
+      contact:  "Contacto"
+      orders:   "Órdenes"
+      catalog:  "Catálogo"
+      users:    "Usuarios"
+      paytypes: "Medios de Pago"
+      exit:     "Salir"
+      
+      
+  admin:
+    index:
+      title:    "Bienvenido"
+      its:        "Hoy es: "
+      wehave:     
+        one: "Tenemos solo una orden"
+        other: "Tenemos %{count} ordenes"
+      
+      
+  carts:
+    cart:
+      title:      "Su carrito"
+      total:      "Total"
+      buy:        "Comprar"
+      emptycart:  "Vaciar carrito"
+      confirm:    "¿Está seguro que desea vaciar completamente su carrito?"        
+    form:
+      submit:     "Crear Carrito"
+    edit:
+      title:      "Modificando su carrito"
+      show:       "Ver"
+      back:       "Volver"
+    index:
+      title:      "Listado de carritos"
+      show:       "Ver"
+      edit:       "Editar"
+      destroy:    "Eliminar"
+      deleteconfirm:  "¿Está seguro que desea eliminar este carrito?"
+    new:
+      title:      "Nuevo carrito"
+      back:       "Volver"
+    show:
+      
+      
+  line_items:
+    form:
+      submit:     "Crear linea de item"
+    line_item:
+      delete:   "Eliminar"
+      confirm:  "¿Esta seguro que desea eliminar este item completamente de su carrito?"
+    edit:
+    index:   
+      title:    "Listado de linea de items"
+      product:  "Producto"
+      cart:     "Carrito"
+        
+      show:     "Ver"
+      edit:     "Editar"
+      destroy:  "Destruir"
+      back:     "Volver"
+      confirm:  "¿Está seguro?"
+      
+      newline:  "Nueva linea de item"
+    new:
+      title:    "Nueva linea de item"
+      back:     "Volver"
+    show:
+      edit:     "Editar"
+      back:     "Volver"      
+      product:  "Producto"
+      cart:     "Carrito"
+        
+      
+  mediopagos:
+    form:
+      submit:     "Crear Medio de Pago"
+      name:       "Nombre"
+      desc:       "Descripcion"
+    edit:
+      title:    "Editar Medios de Pago"
+      show:     "Ver"
+      back:     "Volver"
+    index:
+      title:    "Listado de Medios de Pago"
+      name:     "Nombre"
+      desc:     "Descripcion"
+      show:     "Ver"
+      edit:     "Editar"
+      destroy:  "Eliminar"
+      confirm:  "¿Está usted seguro que desea eliminar este medio de pago?"
+      new:      "Nuevo medio de pago"
+    new:
+      title:    "Nuevo Medio de Pago"
+      back:     "Volver"
+    show:
+      name:     "Nombre: "
+      desc:     "Descripcion: "
+      edit:     "Editar: "
+      back:     "Volver: "
+      
+      
+  notifier:
+    
+    
+  orders:
+    form:
+      name:       "Nombre"
+      address:    "Dirección"
+      paytype:    "Medio de Pago"
+      prompt:     "Seleccione su medio de pago"
+      submit:     "Enviar orden"
+    edit:
+      title:  "Editando la orden"
+      show:   "Ver"
+      back:   "Volver"
+    index:
+      title:    "Listado de órdenes"
+      name:     "Nombre"
+      address:  "Dirección"
+      email:    "Email"
+      paytype:  "Medio de Pago"
+      show:     "Ver"
+      edit:     "Editar"
+      destroy:  "Eliminar"
+      confirm:  "¿Está usted seguro que desea eliminar esta orden?"
+      date:     "Fecha de creación"
+    new:
+      title:    "Nueva Orden"
+      back:     "Volver"
+    show:
+      name:     "Nombre: "
+      address:  "Dirección: "
+      email:    "Email: "
+      paytype:  "Medio de Pago: "
+      edit:     "Editar"
+      back:     "Volver"
+
+
+  products:
+    form:
+      title:      "Titulo"
+      desc:       "Descripcion"
+      imgurl:     "Url de la imagen"
+      price:      "Precio"
+      submit:     "Crear producto"
+      productType: "Tipo de producto"
+      promptTP:   "Seleccione el tipo de producto"
+      cant:       "Cantidad"
+    edit: 
+      title:      "Editando el producto"
+      show:       "Ver"
+      back:       "Volver"
+    index:
+      title:    "Lista de Productos"
+      show:     "Ver"
+      edit:     "Editar"
+      destroy:  "Eliminar"
+      confirm:  "¿Está usted seguro que desea eliminar este producto?"
+      new:      "Añadir producto"
+    new:
+      legend:   "Por favor, ingrese los datos del producto"
+    show:
+      name:     "Titulo: "
+      desc:     "Descripcion: "
+      imgurl:   "Url de la imagen: "
+      price:    "Precio: "
+      edit:     "Editar"
+      back:     "Volver"
+      backstore: "Volver a la tienda"
+      addcart:  "Añadir al carrito"
+      
+      
+  session:
+    new:
+      legend:     "Por favor haga login"
+      name:       "Nombre:"
+      pass:       "Contraseña:"
+      submitBttn: "Login"
+    
+    
+  store:
+    index:
+      title:      "Novedades"
+      addToCart:  "Añadir al Carrito"
+    productos:
+      title:      "Artículos"
+      addToCart:  "Añadir al Carrito"
+  
+  
+  will_paginate:
+      previous_label: "Página anterior"
+      next_label: "Próxima pagina"
+      
+      
+  users:
+    form:
+      legend:     "Ingrese sus datos"
+      name:       "Nombre:"
+      pass:       "Contraseña:"
+      confirm:    "Confirmacion de contraseña:"
+      submit:     "Crear usuario"
+    edit:
+      title:  "Editando usuario"
+      show:   "Ver"
+      back:   "Volver"
+    index:
+      title:    "Listado de usuarios"
+      name:     "Nombre"
+      show:     "Ver"
+      edit:     "Editar"
+      destroy:  "Eliminar"
+      confirm:  "¿Está usted seguro que desea eliminar este usuario?"
+      new:      "Nuevo usuario"
+      date:     "Registrado el"
+    new:
+      title:    "Nuevo usuario"
+      back:     "Volver"
+    show:
+      name:       "Nombre:"
+      hashpass:   "Contraseña encriptada:"
+      salt:       "Salt:"
+      edit:       "Editar"
+      back:       "Volver"
+      
+  activerecord:
+    models:
+      cart:         "carrito"
+      mediopago:    "medio de pago"
+      order:        "pedido"
+      product:      "producto"
+      user:         "usuario"
+    attributes:
+      order:
+        address:    "Dirección"
+        name:       "Nombre"
+        email:      "E-mail"
+        mediopago:  "Medio de pago"
+      product:
+        titulo:       "Titulo"
+        descripcion:  "Descripcion"
+        image_url:    "Url de la imagen"
+        precio:       "Precio"
+      user:
+        name: "Nombre"
+        password: "Contraseña"
+        password_confirmation: "Confirmacion de Contraseña"
+    errors:
+      messages:
+        inclusion:  "no est&acute; incluido en la lista"
+        blank:      "no puede quedar en blanco"
+        taken:      "no se encuentra disponible"
+        confirmation: "y la confirmacion de contraseña no coinciden"
+        not_a_number: "ingresado no es un número válido"
+      models:
+        product:
+          attributes:
+            precio: 
+              greater_than_or_equal_to: "must be greater than or equal to 0.01"
+        
+        
+  errors:  
+    template:
+      body:     "Hay problemas con los siguientes campos:"
+      header:
+        one:    "1 error ha impedido que este %{model} se guarde"
+        other:  "%{count} errores han impedido que este %{model} se guarde"
+  
+  
+  thanks: "Gracias por su compra"
+  
+  time:
+    formats:
+      default: "%d/%m/%Y \n%H:%M"

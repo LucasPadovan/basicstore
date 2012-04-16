@@ -1,0 +1,16 @@
+<%if notice.present?  %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+  <b><%= t('.product') %></b>
+  <%= @line_item.product_id %>
+</p>
+
+<p>
+  <b><%= t('.cart') %></b>
+  <%= @line_item.cart_id %>
+</p>
+
+
+<%= link_to t('.edit'), edit_line_item_path(@line_item) %> |
+<%= link_to t('.back'), line_items_path %>

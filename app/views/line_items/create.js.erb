@@ -1,0 +1,14 @@
+$('#cart').html("<%=j render @cart %>")
+
+<% li= @cart.line_items.find(@current_item) %>
+
+if ("<%= @cart.line_items.size %>" == 1) {
+    $('#cart').show('blind', 1000);
+}
+else if ("<%= li.quantity %>" == 1 ) {
+    $('#cart tr.<%= @current_item.id %>').show('blind', 500);
+}
+else {
+    $('#cart tr#current_item').css({'background-color':'#FF7C00'}).
+            animate({'background-color':'#000'}, 1000);
+}

@@ -1,0 +1,27 @@
+<h1>Listing estadordens</h1>
+
+<table>
+  <tr>
+    <th>Order</th>
+    <th>User</th>
+    <th>Estado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estadordens.each do |estadorden| %>
+  <tr>
+    <td><%= estadorden.order_id %></td>
+    <td><%= estadorden.user_id %></td>
+    <td><%= estadorden.estado %></td>
+    <td><%= link_to 'Show', estadorden %></td>
+    <td><%= link_to 'Edit', edit_estadorden_path(estadorden) %></td>
+    <td><%= link_to 'Destroy', estadorden, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estadorden', new_estadorden_path %>

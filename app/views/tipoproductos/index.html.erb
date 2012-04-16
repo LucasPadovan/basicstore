@@ -1,0 +1,27 @@
+<h1>Listado de tipos de productos</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipoproductos.each do |tipoproducto| %>
+  <tr>
+    <td><%= tipoproducto.id %></td>
+    <td><%= tipoproducto.nombre %></td>
+    <td><%= tipoproducto.descripcion %></td>
+    <td><%= link_to 'Ver', tipoproducto %></td>
+    <td><%= link_to 'Editar', edit_tipoproducto_path(tipoproducto) %></td>
+    <td><%= link_to 'Destruir', tipoproducto, confirm: 'Estas seguro?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo tipo de producto', new_tipoproducto_path %>

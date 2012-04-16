@@ -1,0 +1,19 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#panelEstados{
+  border: 3px #ff7c00 solid;
+  border-radius: 15px;
+  padding: 10px;
+  padding-right: 20px;
+  position: absolute;
+  left: 750px;
+  top: 100px;
+  font-weight: bold;
+}
+#lineaEstado{
+  position: relative;
+  left: 10px;
+  font-weight: normal;
+}

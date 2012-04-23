@@ -1,8 +1,10 @@
 class Product < ActiveRecord::Base
   
-  default_scope :order => 'titulo'
+  #default_scope :order => 'titulo'
+
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
+
   has_many :orders, :through => :line_items
 
   belongs_to :tipoproducto
@@ -19,7 +21,11 @@ class Product < ActiveRecord::Base
   def self.buscartipo(tipo)
     product = Product.where('tipoproducto_id = ?', tipo)
   end
-  
+
+  def self.novedades
+    Product.last(5).reverse
+  end
+
   private
     def ensure_not_referenced_by_any_line_item
       if line_items.empty?

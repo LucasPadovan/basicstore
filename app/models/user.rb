@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
       generate_salt
       self.hashed_password = self.class.encrypt_password(password,salt)
     end
-  end  
+  end
   
   private
   

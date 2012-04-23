@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     unless @order.estadordens.count > 1
-      @estado = Estadorden.create(user_id: 1, order_id: @order.id, estado: "Leido")
+      @estado = Estadorden.create(user_id: session[:user_id], order_id: @order.id, estado: "Leido")
     end
 
     respond_to do |format|

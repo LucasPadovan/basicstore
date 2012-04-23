@@ -86,7 +86,7 @@ class EstadordensController < ApplicationController
   def nuevo
     @order = Order.find(params[:order_id])
     penultimoestado = @order.estadordens.last.estado
-    @estadorden = Estadorden.create(user_id: params[:user_id],
+    @estadorden = Estadorden.create(user_id: session[:user_id],
                                                       order_id: @order.id,
                                                       estado: params[:estado])
     ultimoestado = @order.estadordens.last.estado

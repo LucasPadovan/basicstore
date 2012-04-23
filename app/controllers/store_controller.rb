@@ -7,8 +7,8 @@ class StoreController < ApplicationController
   def index
     if params[:set_locale]
       redirect_to store_path(:locale => params[:set_locale])
-    else      
-      @products = Product.last(5)
+    else
+      @products = Product.novedades
       @cart = current_cart
     end
   end
@@ -19,9 +19,9 @@ class StoreController < ApplicationController
     elsif params[:tipoprod].present?
       @p = Product.buscartipo(params[:tipoprod])
       @tp= Tipoproducto.find(params[:tipoprod]).nombre
-      @prod = @p.paginate(:page=>params[:page], :order=>'created_at desc', :per_page => 15)
+      @prod = @p.paginate(:page=>params[:page], :order=>'titulo ASC', :per_page => 15)
     else
-      @products = Product.paginate :page=>params[:page], :order=>'created_at desc', :per_page => 15
+      @products = Product.paginate :page=>params[:page], :order=>'titulo ASC', :per_page => 15
     end
     @cart = current_cart
   end

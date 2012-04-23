@@ -54,6 +54,11 @@ h1{
 #store #titulo1 {
     font-family: 'FreestyleScriptITCNormal';
     font-size: 45px;
+    height: 80px;
+}
+#titulo1 img{
+    position: relative;
+    padding-left: 280px;
 }
 
 /* Styles for products/index */
@@ -215,11 +220,12 @@ h3 a:hover{
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px solid;
-    font-family: FreestyleScript;
+    font-family: 'FreestyleScriptITCNormal';
     font: small-caps 40px/40px "Times New Roman",serif;
 /*este color es para las letras y tambien para el borde*/
     color:#ff7c00;
     text-align: center;
+    width: 1250px;
 }
 
 #banner img{
@@ -227,6 +233,9 @@ h3 a:hover{
     position: absolute;
     top: 20px;
     left: 6px;
+}
+#banner #idiomas{
+    float: right;
 }
 
 #colums{
@@ -448,7 +457,7 @@ h3 a:hover{
 
 .imagen{
     float: left;
-    width: 350px;
+    width: 500px;
 }
 div .datos{
     position: relative;

@@ -49,19 +49,19 @@
 
   <% if @order.estadordens.last.estado == "Lista" %>
       <div id="lineaEstado">
-        <%= link_to "Entregada", nuevoEstado_path(user_id: 1, order_id: @order.id, estado: "Entregada") %>
+        <%= link_to "Entregada", nuevoEstado_path(order_id: @order.id, estado: "Entregada") %>
       </div>
   <% end %>
 
   <% Estadorden::ESTADOS.each do |estado| %>
     <% if Order.buscarConEstado(@order, estado) || estado=="Demorada" %>
         <div id="lineaEstado">
-        <%= link_to estado, nuevoEstado_path(user_id: 1, order_id: @order.id, estado: estado) %></div>
+        <%= link_to estado, nuevoEstado_path(order_id: @order.id, estado: estado) %></div>
 
     <% elsif @order.estadordens.last.estado == "Demorada" %>
         <% unless(estado == "Demorada" || estado=="Pendiente" || estado=="Leido") %>
           <div id="lineaEstado">
-            <%= link_to estado, nuevoEstado_path(user_id: 1, order_id: @order.id, estado: estado) %>
+            <%= link_to estado, nuevoEstado_path(order_id: @order.id, estado: estado) %>
           </div>
         <% end %>
     <% end %>

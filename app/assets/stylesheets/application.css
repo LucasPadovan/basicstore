@@ -3,4 +3,7 @@
  *= require ./body
  *= require ./orders
  *= require ./scaffolds
+ *= require purecss
+ *= require purecss-addons
+ *= require ./pure-customization/buttons
 */

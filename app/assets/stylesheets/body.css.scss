@@ -26,6 +26,42 @@ div#panelControl{
   border-top: 1px dotted #FF7C00;
 }
 
+#banner {
+  background-image: -o-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
+  background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
+  background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
+  background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
+
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.3, rgb(0,0,0)),
+      color-stop(0.66, rgb(41,41,41))
+  );
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font-family: 'FreestyleScriptITCNormal';
+  font-family: 'FreestyleScriptITCNormal';
+  font: small-caps 40px/40px "Times New Roman",serif;
+  /*este color es para las letras y tambien para el borde*/
+  color:#ff7c00;
+  text-align: center;
+  width: 100%;
+  height: 80px;
+}
+
+#banner img{
+  float: left;
+  position: absolute;
+  top: 20px;
+  left: 6px;
+}
+#banner #idiomas{
+  float: right;
+}
+
 #store #notice {
   color: #000;
   border: 2px solid red;
@@ -44,11 +80,11 @@ h1{
 #store #titulo1 {
   font-family: 'FreestyleScriptITCNormal';
   font-size: 45px;
-  height: 80px;
 }
 #titulo1 img{
   position: relative;
   padding-left: 280px;
+  top: 0px;
 }
 
 /* Styles for products/index */
@@ -191,41 +227,6 @@ h3 a:hover{
 #store .total_line{
   position:absolute;
   left: 100px;
-}
-
-#banner {
-  /*background es para el color del fondo*/
-  background-image: -o-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-  background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-  background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-  background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.3, rgb(0,0,0)),
-      color-stop(0.66, rgb(41,41,41))
-  );
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid;
-  font-family: 'FreestyleScriptITCNormal';
-  font: small-caps 40px/40px "Times New Roman",serif;
-  /*este color es para las letras y tambien para el borde*/
-  color:#ff7c00;
-  text-align: center;
-  width: 1250px;
-}
-
-#banner img{
-  float: left;
-  position: absolute;
-  top: 20px;
-  left: 6px;
-}
-#banner #idiomas{
-  float: right;
 }
 
 #colums{

@@ -1,25 +1,5 @@
-<h1><%= t('.title') %>:
+<h1><%= t('.title') %>: <%= @products ? 'Todos' : @tp %></h1>
 
-<% if @products %>
-      Todos
-
-<% else %>
-      <%= @tp %>
-      <% @products = @prod %>
-
-<% end %></h1>
-
-  <% @products.each do |product| %>
-    <div class="entry">
-      <%= link_to image_tag(product.image_url), product %>
-      <h3><%= link_to product.titulo , product %></h3>
-      <%= sanitize(product.descripcion) %><br /><br />
-      <div class="price_line">
-        <span class="price"><%= number_to_currency(product.precio) %></span>
-        <%= button_to t('.addToCart'), line_items_path(product_id: product),
-        :remote => true %>
-      </div>
-    </div>
-  <% end %>
+<%= render @products %>
   <div id="paginacion"><%= will_paginate @products %></div>
 <%= "Sin artículos disponibles actualmente" if @products.first.nil? %>

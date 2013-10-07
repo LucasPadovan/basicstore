@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
   }
 
   def self.buscartipo(tipo)
-    product = Product.where('tipoproducto_id = ?', tipo)
+    Product.where('tipoproducto_id = ?', tipo)
   end
 
   def self.novedades

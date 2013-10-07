@@ -22,4 +22,4 @@
           %li= button_to t('.exit'), logout_path, method: :delete
         - else
           %li= link_to 'Login', login_path
-  = render @cart
+  = render partial: 'carts/cart'

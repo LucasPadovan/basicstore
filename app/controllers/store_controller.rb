@@ -2,6 +2,8 @@ class StoreController < ApplicationController
 
   require 'will_paginate/array'
 
+  before_filter :set_current_cart
+
   skip_before_filter :authorize
   
   def index
@@ -9,7 +11,6 @@ class StoreController < ApplicationController
       redirect_to store_path(:locale => params[:set_locale])
     else
       @products = Product.novedades
-      @cart = current_cart
     end
   end
 
@@ -17,13 +18,16 @@ class StoreController < ApplicationController
     if params[:set_locale]
       redirect_to store_path(:locale => params[:set_locale])
     elsif params[:tipoprod].present?
-      @p = Product.buscartipo(params[:tipoprod])
+      @products = Product.buscartipo(params[:tipoprod])
       @tp= Tipoproducto.find(params[:tipoprod]).nombre
-      @prod = @p.paginate(:page=>params[:page], :order=>'titulo ASC', :per_page => 15)
+      @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
     else
-      @products = Product.paginate :page=>params[:page], :order=>'titulo ASC', :per_page => 15
+      @products = Product.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
     end
-    @cart = current_cart
   end
 
+  protected
+  def set_current_cart
+    @cart = current_cart
+  end
 end

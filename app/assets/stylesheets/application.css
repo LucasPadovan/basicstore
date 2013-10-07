@@ -6,4 +6,6 @@
  *= require purecss
  *= require purecss-addons
  *= require ./pure-customization/buttons
+ *= require ./pure-customization/grid
+ *= require ./pure-customization/menus
 */

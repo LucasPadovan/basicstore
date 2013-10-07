@@ -6,19 +6,28 @@
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-
 .pure-button-success {
   background-color: rgb(28, 184, 65); /* this is a green */
 }
-
 .pure-button-error {
   background-color: rgb(202, 60, 60); /* this is a maroon */
 }
-
 .pure-button-warning {
   background-color: rgb(223, 117, 20); /* this is an orange */
 }
-
 .pure-button-secondary {
   background-color: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.pure-button-success:hover {
+  background-color: rgb(27, 165, 58); /* this is a green */
+}
+.pure-button-error:hover {
+  background-color: rgb(171, 46, 46); /* this is a maroon */
+}
+.pure-button-warning:hover {
+  background-color: rgb(187, 94, 20); /* this is an orange */
+}
+.pure-button-secondary:hover {
+  background-color: rgb(54, 150, 186); /* this is a light blue */
 }

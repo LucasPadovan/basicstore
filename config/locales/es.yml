@@ -3,19 +3,20 @@ es:
   layouts:
     application:
       title:    "Cristopher Smith Animestore"
+  shared:
+    general_menu:
       home:     "Inicio"
       articles: "Artículos"
       keychain: "Llaveros"
       faq:      "Preguntas"
-      news:     "Noticias" 
+      news:     "Noticias"
       contact:  "Contacto"
       orders:   "Órdenes"
       catalog:  "Catálogo"
       users:    "Usuarios"
       paytypes: "Medios de Pago"
       exit:     "Salir"
-      
-      
+
   admin:
     index:
       title:    "Bienvenido"
@@ -23,8 +24,7 @@ es:
       wehave:     
         one: "Tenemos solo una orden"
         other: "Tenemos %{count} ordenes"
-      
-      
+
   carts:
     cart:
       title:      "Su carrito"
@@ -48,8 +48,7 @@ es:
       title:      "Nuevo carrito"
       back:       "Volver"
     show:
-      
-      
+
   line_items:
     form:
       submit:     "Crear linea de item"
@@ -77,8 +76,7 @@ es:
       back:     "Volver"      
       product:  "Producto"
       cart:     "Carrito"
-        
-      
+
   mediopagos:
     form:
       submit:     "Crear Medio de Pago"
@@ -105,11 +103,9 @@ es:
       desc:     "Descripcion: "
       edit:     "Editar: "
       back:     "Volver: "
-      
-      
+
   notifier:
-    
-    
+
   orders:
     form:
       name:       "Nombre"
@@ -143,7 +139,6 @@ es:
       edit:     "Editar"
       back:     "Volver"
 
-
   products:
     form:
       title:      "Titulo"
@@ -176,16 +171,14 @@ es:
       back:     "Volver"
       backstore: "Volver a la tienda"
       addcart:  "Añadir al carrito"
-      
-      
+
   session:
     new:
       legend:     "Por favor haga login"
       name:       "Nombre:"
       pass:       "Contraseña:"
       submitBttn: "Login"
-    
-    
+
   store:
     index:
       title:      "Novedades"
@@ -198,7 +191,6 @@ es:
   will_paginate:
       previous_label: "Página anterior"
       next_label: "Próxima pagina"
-      
       
   users:
     form:
@@ -263,16 +255,14 @@ es:
         product:
           attributes:
             precio: 
-              greater_than_or_equal_to: "must be greater than or equal to 0.01"
+              greater_than_or_equal_to: "debe ser mayor o igual a 0.01"
         
-        
-  errors:  
+  errors:
     template:
       body:     "Hay problemas con los siguientes campos:"
       header:
         one:    "1 error ha impedido que este %{model} se guarde"
         other:  "%{count} errores han impedido que este %{model} se guarde"
-  
   
   thanks: "Gracias por su compra"
   

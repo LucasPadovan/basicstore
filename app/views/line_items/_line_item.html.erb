@@ -5,8 +5,8 @@
 <% end %>
   <td><%= line_item.quantity %> &times;
   <%= truncate(strip_tags(line_item.product.titulo), :length => 40) %><br />
-    <%= button_to t('.delete'), line_item, :method=>:delete, 
-      :confirm => t('.confirm')%></td>
+  <%= link_to t('.delete'), line_item_path(line_item), method: :delete,
+    confirm: t('.confirm'), class: 'pure-button pure-button-error' %></td>
   <!--<td class="item_price"><%#= number_to_currency(line_item.total_price) %></td>-->
 
 </tr>

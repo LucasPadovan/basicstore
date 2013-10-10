@@ -1,22 +1,20 @@
 class Product < ActiveRecord::Base
-  
-  #default_scope :order => 'titulo'
-
   has_many :line_items
-  before_destroy :ensure_not_referenced_by_any_line_item
-
   has_many :orders, :through => :line_items
+  has_many :precioproductos
 
   belongs_to :tipoproducto
 
-  has_many :precioproductos
-  
+  before_destroy :ensure_not_referenced_by_any_line_item
+
   validates :titulo, :descripcion, :image_url, :presence => true
   validates :titulo, :uniqueness => true
   validates :image_url, :format =>{
     :with => %r{\.(gif|png|jpg)$}i,
     :message => 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
   }
+
+  attr_accessible :titulo, :descripcion, :image_url, :tipoproducto_id, :cantidad,
 
   def self.buscartipo(tipo)
     Product.where('tipoproducto_id = ?', tipo)

@@ -25,16 +25,18 @@
     <%= f.text_field :image_url, class:"caja_image_url" %>
   </div>
 
-<%= fields_for @precioproducto do |cf| %>
-  <div class="field">
-    <%= cf.label :costo %><br />
-    <%= cf.text_field :costo %>
-  </div>
-  <div class="field">
-    <%= cf.label :preciopublico %><br />
-    <%= cf.text_field :preciopublico %>
-  </div>
-<% end %>
+  <% if params[:action] == 'new' %>
+    <%= fields_for @precioproducto do |cf| %>
+      <div class="field">
+        <%= cf.label :costo %><br />
+        <%= cf.text_field :costo %>
+      </div>
+      <div class="field">
+        <%= cf.label :preciopublico %><br />
+        <%= cf.text_field :preciopublico %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="field">
       <%= f.label :tipoproducto, t('.productType') %><br />

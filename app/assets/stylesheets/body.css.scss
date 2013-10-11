@@ -1,3 +1,59 @@
+.rainbow-background {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #cc0000), color-stop(12.5%, #cc0000), color-stop(12.5%, #ff9900), color-stop(25%, #ff9900), color-stop(25%, #ffff66), color-stop(37.5%, #ffff66), color-stop(37.5%, #669933), color-stop(50%, #669933), color-stop(50%, #33cccc), color-stop(62.5%, #33cccc), color-stop(62.5%, #0099cc), color-stop(75%, #0099cc), color-stop(75%, #3333cc), color-stop(87.5%, #3333cc), color-stop(87.5%, #9966cc), color-stop(100%, #9966cc));
+  background-image: -webkit-linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc);
+  background-image: -moz-linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc);
+  background-image: -o-linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc);
+  background-image: linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+#locale_selector{
+  float: right;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#locale{
+  position: relative;
+}
+#locale li{
+  list-style: none;
+  float: right;
+}
+#locale a{
+  padding:0px;
+  height:50px;
+  display: block;
+}
+
+#en{
+  left:0px;
+  width:50px;
+  background: url('locales.png') -50px -99px;
+}
+#en a:hover{background: url('locales.png') -50px 0px;}
+#es{
+  left:50px;
+  width:50px;
+  background: url('locales.png') -50px -150px;
+}
+#es a:hover{background: url('locales.png') -50px -51px;}
+#fr{
+  left:100px;
+  width:50px;
+  background: url('locales.png') 0px -100px;
+}
+#fr a:hover{background: url('locales.png') 0px 0px;}
+#it{
+  left:150px;
+  width:50px;
+  background: url('locales.png') 0px -150px;
+}
+#it a:hover{background: url('locales.png') 0px -51px;}
+
+
 //#old stuff
 @font-face {
   font-family: 'FreestyleScriptITCNormal';
@@ -7,20 +63,6 @@
   font-style: normal;
 }
 
-/* Global styles */
-
-//body a:hover{
-//  color: #000;
-//  background: #ff7c00;
-//  padding: 3px;
-//  border-radius:10px;
-//}
-//
-//td a{
-//  padding: 3px;
-//  border-radius:10px;
-//}
-
 div#panelControl{
   //margin-top: 10px;
   //padding: 10px;
@@ -28,26 +70,12 @@ div#panelControl{
 }
 
 #banner {
-  background-image: -o-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-  background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-  background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-  background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 30%, rgb(41,41,41) 66%);
-
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.3, rgb(0,0,0)),
-      color-stop(0.66, rgb(41,41,41))
-  );
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 2px solid;
   font-family: 'FreestyleScriptITCNormal';
   font-family: 'FreestyleScriptITCNormal';
   font: small-caps 40px/40px "Times New Roman",serif;
   /*este color es para las letras y tambien para el borde*/
-  color:#ff7c00;
   text-align: center;
   width: 100%;
   height: 80px;
@@ -59,9 +87,7 @@ div#panelControl{
   top: 20px;
   left: 6px;
 }
-#banner #idiomas{
-  float: right;
-}
+
 
 #store #notice {
   color: #000;
@@ -309,50 +335,6 @@ h3 a:visited{
 .depot_from div{
   margin: 0.5em 0;
 }
-
-#locale{
-  position: relative;
-
-}
-#locale li{
-  margin: 0px;
-  padding:0px;
-  list-style:none;
-  float: right;
-  top: 0px;
-
-}
-#locale li, #locale a{
-  padding:0px;
-  height:50px;
-  display: block;
-}
-
-#en{
-  left:0px;
-  width:50px;
-  background: url('locales.png') -50px -99px;
-}
-#en a:hover{background: url('locales.png') -50px 0px;}
-#es{
-  left:50px;
-  width:50px;
-  background: url('locales.png') -50px -150px;
-}
-#es a:hover{background: url('locales.png') -50px -51px;}
-#fr{
-  left:100px;
-  width:50px;
-  background: url('locales.png') 0px -100px;
-}
-#fr a:hover{background: url('locales.png') 0px 0px;}
-#it{
-  left:150px;
-  width:50px;
-  background: url('locales.png') 0px -150px;
-}
-#it a:hover{background: url('locales.png') 0px -51px;}
-
 
 #mediopagos_list .list_actions {
   font-size:    12px;

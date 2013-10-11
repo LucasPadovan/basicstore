@@ -7,22 +7,15 @@
   <%= csrf_meta_tag %>
 </head>
 <body id="store">
-  <div id="banner">
-    <div id="idiomas">
-      <ul id="locale">
-        <li id="en"><a href="../en"></a></li>
-        <li id="es"><a href="../es"></a></li>
-        <!--<li id="fr"><a href="../fr"></a></li>-->
-        <!--<li id="it"><a href="../it"></a></li>-->
-      </ul>
-    </div>
+  <div id="banner" class="rainbow-background">
+    <%= render partial: 'shared/locale_selector' %>
     <%= image_tag("CSA.png") %>
     <div id="titulo1">
       <!--<%= APP_CONFIG['public_domain'] %>-->
     </div>
   </div>
   <div id="layout" class="pure-g-r">
-    <%= render partial: 'shared/general_menu', params: params %>
+    <%#= render partial: 'shared/general_menu', params: params %>
     <div id="main" class="pure-u-7-8">
       <div class="content">
         <%= yield %>

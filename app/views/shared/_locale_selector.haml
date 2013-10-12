@@ -1,8 +1,9 @@
-#locale_selector
-  %ul#std-menu-items
+#locale_selector.btn-group.pull-right.hide
+  %a{href: '#', class: 'btn btn-primary dropdown-toggle', data: { toggle: 'dropdown' }}
+    Idioma
+    %span.caret
+  %ul.dropdown-menu
     %li
-      %ul
-        %li
-          %a{href: '../en' } ingles
-        %li
-          %a{href: '../es' } esañol
+      %a{href: '../en' } Ingles
+    %li
+      %a{href: '../es' } Español

@@ -1,0 +1,10 @@
+- if session[:user_id]
+  #general_menu
+    %ul.nav.nav-list
+      %li= link_to t('.orders'), orders_path
+      - Estadorden::ESTADOS.each do |estado|
+        %li= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
+      %li= link_to t('.catalog'), products_path
+      %li= link_to 'Tipos de productos', tipoproductos_path
+      %li= link_to t('.paytypes'), mediopagos_path
+      %li= link_to t('.users'), users_path

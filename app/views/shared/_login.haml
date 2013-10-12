@@ -1,0 +1,5 @@
+.pull-right
+  - if session[:user_id]
+    = link_to t('.exit'), logout_path, method: :delete, class: 'btn', style: 'color: black;'
+  - else
+    = link_to 'Login', login_path, class: 'btn'

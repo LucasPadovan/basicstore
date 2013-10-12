@@ -4,13 +4,16 @@ es:
     application:
       title:    "Cristopher Smith Animestore"
   shared:
-    general_menu:
+    store_menu:
       home:     "Inicio"
-      articles: "Artículos"
-      keychain: "Llaveros"
-      faq:      "Preguntas"
+      products: "Productos"
+      new_products: "Novedades"
+      offers: "Promociones"
+    footer:
       news:     "Noticias"
+      faq:      "Preguntas"
       contact:  "Contacto"
+    admin_menu:
       orders:   "Órdenes"
       catalog:  "Catálogo"
       users:    "Usuarios"

@@ -1,9 +1,9 @@
 .product
   .product-image-container
     = link_to image_tag(product.image_url, class: 'product-image'), product
-  %h3.product-title= link_to product.titulo , product
+  %h3.product-title= product.titulo
   .product-description
     .description= sanitize(product.descripcion)
     .price= number_to_currency(product.precioproductos.last.preciopublico)
   = link_to t('.addToCart'), line_items_path(product_id: product),
-    remote: true, method: :post, class: 'pure-button pure-button-primary add-to-cart-fill'
+    remote: true, method: :post, class: 'btn btn-warning add-to-cart-fill'

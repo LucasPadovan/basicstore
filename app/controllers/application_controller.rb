@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :set_i18n_locale_from_params
+  before_filter :get_product_types
   protect_from_forgery
 
   private
@@ -35,6 +36,8 @@ class ApplicationController < ActionController::Base
         redirect_to login_url, :notice => "Please log in"
       end
     end
-    
-        
+
+    def get_product_types
+      @product_types= Tipoproducto.all
+    end
 end

@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
-//= require purecss-dropdown
 
 $(document).ready(function(){
     $("#imagen").click(function () {
@@ -12,6 +12,8 @@ $(document).ready(function(){
         }
         return false;
     });
+
+    tooltipsOn();
 });
 
 

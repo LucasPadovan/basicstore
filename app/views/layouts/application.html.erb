@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cristopher Smith Animestore</title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>Basic Store</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tag %>
 </head>
 <body id="store">
-  <div id="banner" class="rainbow-background">
-    <%= render partial: 'shared/locale_selector' %>
-    <%= image_tag("CSA.png") %>
-    <div id="titulo1">
-      <!--<%= APP_CONFIG['public_domain'] %>-->
-    </div>
-  </div>
-  <div id="layout" class="pure-g-r">
-    <%#= render partial: 'shared/general_menu', params: params %>
-    <div id="main" class="pure-u-7-8">
-      <div class="content">
-        <%= yield %>
+  <div class="banner">
+    <div class="rainbow-background">
+      <div class="banner-content">
+        <%= render partial: 'shared/locale_selector' %>
+        <%= render partial: 'shared/login' %>
+        <div class="title">
+          <%= link_to APP_CONFIG['page_title'], store_path, data: { toggle: 'tooltip' }, title: 'Inicio'%>
+        </div>
       </div>
     </div>
   </div>
+  <div class="container container-full">
+    <div class="content">
+      <div class="row-fluid">
+      <%= render partial: 'shared/store_menu', params: params %>
+        <div class="span10">
+        <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
 </body>
+<%= javascript_include_tag 'application' %>
 </html>

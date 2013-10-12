@@ -18,9 +18,14 @@ gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'purecss'
+gem 'therubyracer'
+gem 'less'
+gem 'less-rails'
+gem 'less-rails-bootstrap'
+gem 'twitter-bootstrap-rails'
 gem 'will_paginate'
-gem 'purecss-will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'SrBuj'
 
 group :test do
   gem 'turn', '0.8.2', :require => false

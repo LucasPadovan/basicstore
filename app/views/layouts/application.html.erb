@@ -20,10 +20,11 @@
   <div class="container container-full">
     <div class="content">
       <div class="row-fluid">
-      <%= render partial: 'shared/store_menu', params: params %>
-        <div class="span10">
+        <%= render partial: 'shared/admin_menu', params: params %>
+      <div class="span10">
+        <%= render partial: 'shared/store_menu', params: params %>
         <%= yield %>
-        </div>
+      </div>
       </div>
     </div>
   </div>

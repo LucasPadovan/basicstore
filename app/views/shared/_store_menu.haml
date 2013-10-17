@@ -1,12 +1,7 @@
-#general_menu.span2
-  %ul.nav.nav-list
-    %li= link_to t('.offers'), 'promociones_path'
-    %li= link_to t('.new_products'), novedades_path
-    %hr
-    %h2= t('.products')
-    - @product_types.each do |t|
-      %li.submenu= link_to '| ' + t.nombre, productos_path( tipoprod: t.id )
-  %hr
-  = render partial: 'shared/admin_menu', params: params
--#
--#  = render partial: 'carts/cart'
+%ul.main-nav.nav.nav-list
+  %li= link_to t('.offers'), 'promociones_path'
+  %li= link_to t('.new_products'), novedades_path
+  %li= link_to t('.products'), store_path
+  -#- @product_types.each do |t|
+  -#  %li.submenu= link_to '| ' + t.nombre, productos_path( tipoprod: t.id )
+-#= render partial: 'carts/cart'

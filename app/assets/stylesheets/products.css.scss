@@ -1,3 +1,4 @@
+//Store classes
 .product {
   display: inline-block;
   margin: 7px;
@@ -38,3 +39,13 @@
   height: 100%;
 }
 .product-image-large {}
+
+
+//Admin classes
+.admin-product-image {
+  width: 160px;
+  img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}

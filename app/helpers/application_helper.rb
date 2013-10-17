@@ -5,4 +5,10 @@ module ApplicationHelper
     end
     content_tag("div", attributes, &block)
   end
+
+  def current_section(paths)
+    if paths.any? { |path| current_page?(path) }
+      'current-section'
+    end
+  end
 end

@@ -1,7 +1,7 @@
-%ul.main-nav.nav.nav-list
-  %li= link_to t('.offers'), 'promociones_path'
-  %li= link_to t('.new_products'), novedades_path
-  %li= link_to t('.products'), store_path
+%ul.main-nav
+  %li= link_to t('.offers'), 'promociones_path', class: current_section(['promociones_path'])
+  %li= link_to t('.new_products'), novedades_path, class: current_section([novedades_path])
+  %li= link_to t('.products'), store_path, class: current_section([store_path])
   -#- @product_types.each do |t|
   -#  %li.submenu= link_to '| ' + t.nombre, productos_path( tipoprod: t.id )
 -#= render partial: 'carts/cart'

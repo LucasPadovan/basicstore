@@ -1,10 +1,8 @@
-- if session[:user_id]
-  #general_menu.span2
-    %ul.nav.nav-list
-      %li= link_to t('.orders'), orders_path
-      - Estadorden::ESTADOS.each do |estado|
-        %li= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
-      %li= link_to t('.catalog'), products_path
-      %li= link_to 'Tipos de productos', tipoproductos_path
-      %li= link_to t('.paytypes'), mediopagos_path
-      %li= link_to t('.users'), users_path
+%ul.main-nav
+  %li= link_to t('.orders'), orders_path, class: current_section([orders_path])
+  -#- Estadorden::ESTADOS.each do |estado|
+  -#  %li= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
+  %li= link_to t('.catalog'), products_path, class: current_section([products_path])
+  %li= link_to 'Tipos de productos', tipoproductos_path, class: current_section([tipoproductos_path])
+  %li= link_to t('.paytypes'), mediopagos_path, class: current_section([mediopagos_path])
+  %li= link_to t('.users'), users_path, class: current_section([users_path])

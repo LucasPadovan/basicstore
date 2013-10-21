@@ -1,0 +1,3 @@
+%ul.store-nav
+  - @product_types.each do |t|
+    %li= link_to t.nombre, store_path( product_type: t.nombre ), class: current_subsection( [store_path(product_type: t.nombre)] )

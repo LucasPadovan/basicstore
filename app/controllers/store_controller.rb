@@ -7,23 +7,19 @@ class StoreController < ApplicationController
   skip_before_filter :authorize
   
   def index
-    if params[:set_locale]
-      redirect_to store_path(:locale => params[:set_locale])
+    if params[:product_type].present?
+      @title = params[:product_type]
+      @product_type = Tipoproducto.includes(:products).where('tipoproductos.nombre = ?' , params[:product_type]).first
+      @products = @product_type.products
     else
+      @title = 'Ultimos productos agregados'
       @products = Product.novedades
     end
+    @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
   end
 
-  def productos
-    if params[:set_locale]
-      redirect_to store_path(:locale => params[:set_locale])
-    elsif params[:tipoprod].present?
-      @products = Product.buscartipo(params[:tipoprod])
-      @tp= Tipoproducto.find(params[:tipoprod]).nombre
-      @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
-    else
-      @products = Product.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
-    end
+  def promotions
+
   end
 
   protected

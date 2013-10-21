@@ -1,5 +1,0 @@
-<h1><%= t('.title') %>: <%= @products ? 'Todos' : @tp %></h1>
-
-<%= render @products %>
-  <div id="paginacion"><%= will_paginate @products %></div>
-<%= "Sin artículos disponibles actualmente" if @products.first.nil? %>

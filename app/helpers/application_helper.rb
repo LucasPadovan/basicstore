@@ -11,4 +11,11 @@ module ApplicationHelper
       'current-section'
     end
   end
+
+  def current_subsection(paths)
+    p params
+    if paths.any? { |path| current_page?(path) }
+      'current-subsection'
+    end
+  end
 end

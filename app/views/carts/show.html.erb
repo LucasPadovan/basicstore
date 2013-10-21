@@ -1,1 +1,5 @@
-<%= render @cart %>
+<% unless @cart.line_items.empty? %>
+  <%= render @cart %>
+<% else %>
+  <h1>No tienes productos en el carrito todavia.</h1>
+<% end %>

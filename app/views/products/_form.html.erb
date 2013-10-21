@@ -39,8 +39,8 @@
   <% end %>
 
   <div class="field">
-      <%= f.label :tipoproducto, t('.productType') %><br />
-      <%= f.select :tipoproducto_id, Tipoproducto.all.map{|r|[r.nombre,r.id]}, :prompt => t('.promptTP') %>
+      <%= f.label :product_type, t('.productType') %><br />
+      <%= f.select :product_type_id, ProductType.all.map{|r|[r.nombre,r.id]}, :prompt => t('.promptTP') %>
   </div>
   <div class="field">
     <%= f.label :cantidad, t('.cant') %> <br />

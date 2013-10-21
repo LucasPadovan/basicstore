@@ -1,4 +1,43 @@
 es:
+  activerecord:
+    models:
+      cart:         "Carrito"
+      mediopago:    "Medio de pago"
+      order:        "Pedido"
+      product:      "Producto"
+      product_type: "Tipo de producto"
+      user:         "Usuario"
+    attributes:
+      order:
+        address:    "Dirección"
+        name:       "Nombre"
+        email:      "E-mail"
+        mediopago:  "Medio de pago"
+      product_type:
+        name:         "Nombre"
+        description:  "Descripción"
+        position:     "Posición"
+      product:
+        titulo:       "Titulo"
+        descripcion:  "Descripcion"
+        image_url:    "Url de la imagen"
+        precio:       "Precio"
+      user:
+        name: "Nombre"
+        password: "Contraseña"
+        password_confirmation: "Confirmacion de Contraseña"
+    errors:
+      messages:
+        inclusion:  "no est&acute; incluido en la lista"
+        blank:      "no puede quedar en blanco"
+        taken:      "no se encuentra disponible"
+        confirmation: "y la confirmacion de contraseña no coinciden"
+        not_a_number: "ingresado no es un número válido"
+      models:
+        product:
+          attributes:
+            precio:
+              greater_than_or_equal_to: "debe ser mayor o igual a 0.01"
   
   layouts:
     application:
@@ -142,6 +181,8 @@ es:
       edit:     "Editar"
       back:     "Volver"
 
+  product_types:
+
   products:
     form:
       title:      "Titulo"
@@ -177,10 +218,10 @@ es:
 
   session:
     new:
-      legend:     "Por favor haga login"
+      legend:     "Por favor acceda al sistema"
       name:       "Nombre:"
       pass:       "Contraseña:"
-      submitBttn: "Login"
+      submitBttn: "Ingresar"
 
   store:
     index:
@@ -224,41 +265,6 @@ es:
       salt:       "Salt:"
       edit:       "Editar"
       back:       "Volver"
-      
-  activerecord:
-    models:
-      cart:         "carrito"
-      mediopago:    "medio de pago"
-      order:        "pedido"
-      product:      "producto"
-      user:         "usuario"
-    attributes:
-      order:
-        address:    "Dirección"
-        name:       "Nombre"
-        email:      "E-mail"
-        mediopago:  "Medio de pago"
-      product:
-        titulo:       "Titulo"
-        descripcion:  "Descripcion"
-        image_url:    "Url de la imagen"
-        precio:       "Precio"
-      user:
-        name: "Nombre"
-        password: "Contraseña"
-        password_confirmation: "Confirmacion de Contraseña"
-    errors:
-      messages:
-        inclusion:  "no est&acute; incluido en la lista"
-        blank:      "no puede quedar en blanco"
-        taken:      "no se encuentra disponible"
-        confirmation: "y la confirmacion de contraseña no coinciden"
-        not_a_number: "ingresado no es un número válido"
-      models:
-        product:
-          attributes:
-            precio: 
-              greater_than_or_equal_to: "debe ser mayor o igual a 0.01"
         
   errors:
     template:

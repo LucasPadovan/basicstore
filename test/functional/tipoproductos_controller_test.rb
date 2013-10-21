@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class TipoproductosControllerTest < ActionController::TestCase
+class ProductTypesControllerTest < ActionController::TestCase
   setup do
-    @tipoproducto = tipoproductos(:one)
+    @product_type = product_types(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:tipoproductos)
+    assert_not_nil assigns(:product_types)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class TipoproductosControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create tipoproducto" do
-    assert_difference('Tipoproducto.count') do
-      post :create, tipoproducto: @tipoproducto.attributes
+  test "should create product_type" do
+    assert_difference('Product_type.count') do
+      post :create, product_type: @product_type.attributes
     end
 
-    assert_redirected_to tipoproducto_path(assigns(:tipoproducto))
+    assert_redirected_to product_type_path(assigns(:product_type))
   end
 
-  test "should show tipoproducto" do
-    get :show, id: @tipoproducto.to_param
+  test "should show product_type" do
+    get :show, id: @product_type.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @tipoproducto.to_param
+    get :edit, id: @product_type.to_param
     assert_response :success
   end
 
-  test "should update tipoproducto" do
-    put :update, id: @tipoproducto.to_param, tipoproducto: @tipoproducto.attributes
-    assert_redirected_to tipoproducto_path(assigns(:tipoproducto))
+  test "should update product_type" do
+    put :update, id: @product_type.to_param, product_type: @product_type.attributes
+    assert_redirected_to product_type_path(assigns(:product_type))
   end
 
-  test "should destroy tipoproducto" do
-    assert_difference('Tipoproducto.count', -1) do
-      delete :destroy, id: @tipoproducto.to_param
+  test "should destroy product_type" do
+    assert_difference('Product_type.count', -1) do
+      delete :destroy, id: @product_type.to_param
     end
 
-    assert_redirected_to tipoproductos_path
+    assert_redirected_to product_types_path
   end
 end

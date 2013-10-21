@@ -1,10 +1,12 @@
-class Tipoproducto < ActiveRecord::Base
+class ProductType < ActiveRecord::Base
 
   has_many :products
 
   before_destroy :verificar_no_uso
 
-  validates_uniqueness_of :nombre
+  validates_uniqueness_of :name
+
+  attr_accessible :name, :description, :position
 
   private
     def verificar_no_uso
@@ -15,6 +17,4 @@ class Tipoproducto < ActiveRecord::Base
         return false
       end
     end
-
-
 end

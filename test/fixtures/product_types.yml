@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: Llavero
+  description: MyString
+  position: 1
+
+two:
+  name: Iman
+  description: MyString
+  position: 2

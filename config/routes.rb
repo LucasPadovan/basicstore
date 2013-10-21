@@ -4,7 +4,7 @@ Tienda::Application.routes.draw do
 
   resources :precioproductos
 
-  resources :tipoproductos
+  resources :product_types
 
   resources :mediopagos
 

@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text :descripcion
       t.string :image_url
       t.decimal :precio, :precision =>8, :scale =>2
-      t.integer :tipoproducto_id
+      t.integer :product_type_id
       t.integer :cantidad
 
       t.timestamps

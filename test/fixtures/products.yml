@@ -5,7 +5,7 @@ one:
   descripcion: MyText
   image_url: MyString
   precio: 9.99
-  tipoproducto: one
+  product_type: one
   cantidad: 1
 
 two:
@@ -13,7 +13,7 @@ two:
   descripcion: MyText
   image_url: MyString
   precio: 9.99
-  tipoproducto: one
+  product_type: one
   cantidad: 2
 
 ruby:
@@ -21,5 +21,5 @@ ruby:
   descripcion: una descripcion detallada
   image_url: url1.jpg
   precio: 49.50
-  tipoproducto: one
+  product_type: one
   cantidad: 3

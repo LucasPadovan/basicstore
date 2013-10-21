@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(:version => 20120409005501) do
 
   create_table "carts", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "estadordens", :force => true do |t|
     t.integer  "order_id"
     t.integer  "user_id"
     t.string   "estado"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "line_items", :force => true do |t|
@@ -31,15 +31,15 @@ ActiveRecord::Schema.define(:version => 20120409005501) do
     t.integer  "cart_id"
     t.integer  "order_id"
     t.integer  "quantity",   :default => 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "mediopagos", :force => true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "orders", :force => true do |t|
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20120409005501) do
     t.text     "address"
     t.string   "email"
     t.integer  "mediopago_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "precioproductos", :force => true do |t|
@@ -57,34 +57,37 @@ ActiveRecord::Schema.define(:version => 20120409005501) do
     t.decimal  "preciopublico", :precision => 8, :scale => 2
     t.string   "detalle"
     t.date     "validodesde"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
+
+  create_table "product_types", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "position"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "product_types", ["name"], :name => "index_product_types_on_name"
 
   create_table "products", :force => true do |t|
     t.string   "titulo"
     t.text     "descripcion"
     t.string   "image_url"
     t.decimal  "precio",          :precision => 8, :scale => 2
-    t.integer  "tipoproducto_id"
+    t.integer  "product_type_id"
     t.integer  "cantidad"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tipoproductos", :force => true do |t|
-    t.string   "nombre"
-    t.string   "descripcion"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "hashed_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

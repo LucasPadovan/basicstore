@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   has_many :orders, :through => :line_items
   has_many :precioproductos
 
-  belongs_to :tipoproducto
+  belongs_to :product_type
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -14,13 +14,9 @@ class Product < ActiveRecord::Base
     :message => 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
   }
 
-  attr_accessible :titulo, :descripcion, :image_url, :tipoproducto_id, :cantidad,
+  attr_accessible :titulo, :descripcion, :image_url, :product_type_id, :cantidad
 
-  def self.buscartipo(tipo)
-    Product.where('tipoproducto_id = ?', tipo)
-  end
-
-  def self.novedades
+  def self.last_products
     Product.last(5).reverse
   end
 

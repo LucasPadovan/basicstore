@@ -38,6 +38,6 @@ class ApplicationController < ActionController::Base
     end
 
     def get_product_types
-      @product_types= Tipoproducto.all
+      @product_types= ProductType.order(:position).all
     end
 end

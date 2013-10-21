@@ -7,14 +7,10 @@ class StoreController < ApplicationController
   skip_before_filter :authorize
   
   def index
-    if params[:product_type].present?
-      @title = params[:product_type]
-      @product_type = Tipoproducto.includes(:products).where('tipoproductos.nombre = ?' , params[:product_type]).first
-      @products = @product_type.products
-    else
-      @title = 'Ultimos productos agregados'
-      @products = Product.novedades
-    end
+    product_type = params[:product_type] || 'Novedad'
+    @title = product_type
+    @product_type = ProductType.includes(:products).where('product_types.name = ?' , product_type).first
+    @products = @product_type.products
     @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
   end
 

@@ -8,7 +8,7 @@ class ProductsControllerTest < ActionController::TestCase
       :descripcion => 'Esta es la prueba del primer estilo',
       :image_url => 'url1.jpg',
       :precio => 20.25,
-      :tipoproducto => tipoproductos(:two),
+      :product_type => product_types(:two),
       :cantidad => 3
     }
   end

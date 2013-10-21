@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class TipoproductosHelperTest < ActionView::TestCase
+class ProductTypesHelperTest < ActionView::TestCase
 end

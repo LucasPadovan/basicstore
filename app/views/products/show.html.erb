@@ -13,7 +13,7 @@
   
   <p>
     <b>Tipo de producto: </b>
-    <%= @product.tipoproducto.nombre if @product.tipoproducto %>
+    <%= @product.product_type.nombre if @product.product_type %>
   </p>
 <% if session[:user_id] %>
   <p>

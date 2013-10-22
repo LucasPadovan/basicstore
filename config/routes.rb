@@ -11,7 +11,6 @@ Tienda::Application.routes.draw do
   get 'admin' => 'admin#index'
   get 'contacto' => 'store#contacto'
   get 'preguntas' => 'store#faq'
-  get 'promociones' => 'store#promotions'
   get 'nuevoEstado' => 'estadordens#nuevo'
 
   controller :session do
@@ -37,7 +36,7 @@ Tienda::Application.routes.draw do
       get :who_bought, :on => :member
     end
 
-    root :to => 'store#index', :as => 'store'
+    root :to => 'store#promotions', :as => 'promociones'
 
     resources :orders do
        resources :mediopagos

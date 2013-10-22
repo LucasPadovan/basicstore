@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if @cart.line_items.empty?
-      redirect_to store_url, :notice => "Su carro esta vacio"
+      redirect_to store_index_url, :notice => "Su carro esta vacio"
       return
     end
     
@@ -73,7 +73,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id]=nil
         Notifier.order_received(@order).deliver
-        format.html { redirect_to(store_url, notice: t('.thanks')) }
+        format.html { redirect_to(store_index_url, notice: t('.thanks')) }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
         @cart = current_cart

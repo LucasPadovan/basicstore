@@ -21,7 +21,7 @@ class SessionControllerTest < ActionController::TestCase
   
   test "should logout" do
     delete :destroy
-    assert_redirected_to store_url
+    assert_redirected_to store_index_url
   end
 
   test "should get create" do
@@ -31,7 +31,7 @@ class SessionControllerTest < ActionController::TestCase
 
   test "should get destroy" do
     get :destroy
-    assert_redirected_to store_url
+    assert_redirected_to store_index_url
   end
 
 end

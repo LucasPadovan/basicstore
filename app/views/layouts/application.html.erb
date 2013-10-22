@@ -12,7 +12,7 @@
         <%= render partial: 'shared/locale_selector' %>
         <%= render partial: 'shared/login' %>
         <div class="title">
-          <%= link_to APP_CONFIG['page_title'], store_path, data: { toggle: 'tooltip' }, title: 'Inicio'%>
+          <%= link_to APP_CONFIG['page_title'], promociones_path, data: { toggle: 'tooltip' }, title: 'Inicio'%>
         </div>
       </div>
     </div>
@@ -20,15 +20,14 @@
   <div class="container container-full">
     <div class="content">
       <div class="row-fluid">
-
-      <div class="span12">
-        <% if session[:user_id] %>
-          <%= render partial: 'shared/admin_menu', params: params %>
-        <% else %>
-          <%= render partial: 'shared/store_menu', params: params %>
-        <% end %>
-        <%= yield %>
-      </div>
+        <div class="span12">
+          <% if session[:user_id] %>
+            <%= render partial: 'shared/admin_menu', params: params %>
+          <% else %>
+            <%= render partial: 'shared/store_menu', params: params %>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
     </div>
   </div>

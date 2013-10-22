@@ -48,7 +48,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(store_url) }
+        format.html { redirect_to(store_index_url) }
         format.js {@current_item = @line_item}
         format.json { render json: @line_item,
           status: :created, location: @line_item }
@@ -84,7 +84,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(store_path) }
+      format.html { redirect_to(store_index_path) }
       format.js #preguntar como hacer para que el carrito suba cuando lo elimino y que no sea de golpe.
       format.xml  { head :ok }
     end

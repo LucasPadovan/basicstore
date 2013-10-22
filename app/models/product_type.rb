@@ -9,6 +9,10 @@ class ProductType < ActiveRecord::Base
 
   attr_accessible :name, :description, :position
 
+  def to_s
+    name
+  end
+
   private
     def verificar_no_uso
       if true

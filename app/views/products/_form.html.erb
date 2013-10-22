@@ -39,8 +39,8 @@
   <% end %>
 
   <div class="field">
-      <%= f.label :product_type, t('.productType') %><br />
-      <%= f.select :product_type_id, ProductType.all.map{|r|[r.nombre,r.id]}, :prompt => t('.promptTP') %>
+      <%= f.label :product_types, t('.productType') %><br />
+      <%= f.text_field :product_types, value: '', placeholder: 'Ingrese los tipos de producto' %>
   </div>
   <div class="field">
     <%= f.label :cantidad, t('.cant') %> <br />

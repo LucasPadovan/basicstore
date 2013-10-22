@@ -3,7 +3,8 @@ class Product < ActiveRecord::Base
   has_many :orders, :through => :line_items
   has_many :precioproductos
 
-  belongs_to :product_type
+  has_many :habtm_products
+  has_many :product_types, through: :habtm_products
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -14,7 +15,7 @@ class Product < ActiveRecord::Base
     :message => 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
   }
 
-  attr_accessible :titulo, :descripcion, :image_url, :product_type_id, :cantidad
+  attr_accessible :titulo, :descripcion, :image_url, :cantidad
 
   def self.last_products
     Product.last(5).reverse

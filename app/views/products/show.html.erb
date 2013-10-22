@@ -10,11 +10,13 @@
     <b><%= t('.desc') %></b>
     <%= @product.descripcion %>
   </p>
-  
-  <p>
-    <b>Tipo de producto: </b>
-    <%= @product.product_type.nombre if @product.product_type %>
-  </p>
+  <% if @product.product_types.any? %>
+    <p>
+      <% @product.product_types.each do |pt| %>
+        <span class="badge"><%= pt.name %></span>
+      <% end %>
+    </p>
+  <% end %>
 <% if session[:user_id] %>
   <p>
     <b><%= t('.imgurl') %></b>

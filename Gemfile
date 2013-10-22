@@ -26,6 +26,7 @@ gem 'twitter-bootstrap-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'SrBuj'
+gem 'simple_form'
 
 group :test do
   gem 'turn', '0.8.2', :require => false

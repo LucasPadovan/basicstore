@@ -46,10 +46,17 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     @precioproducto = @product.precioproductos.build(params[:precioproducto])
+    product_types = params[:product][:product_types].split(' ')
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
+        format.html {
+          product_types.each do |pt|
+            product_type = ProductType.where(name: pt).first
+            @product.habtm_products.build(product_type_id: product_type.id).save if product_type
+          end
+          redirect_to(@product, :notice => 'Product was successfully created.')
+        }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
         format.html { render :action => "new" }

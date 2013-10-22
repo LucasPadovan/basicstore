@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @promotion.product_id
+%p
+  %b Title:
+  = @promotion.title
+%p
+  %b Description:
+  = @promotion.description
+%p
+  %b Color combo:
+  = @promotion.color_combo
+%p
+  %b Flat discount:
+  = @promotion.flat_discount
+%p
+  %b Percent discount:
+  = @promotion.percent_discount
+%p
+  %b Start date:
+  = @promotion.start_date
+%p
+  %b End date:
+  = @promotion.end_date
+
+= link_to 'Edit', edit_promotion_path(@promotion)
+\|
+= link_to 'Back', promotions_path

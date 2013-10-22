@@ -1,0 +1,33 @@
+%h1 Listing promotions
+
+%table
+  %tr
+    %th Product
+    %th Title
+    %th Description
+    %th Color combo
+    %th Flat discount
+    %th Percent discount
+    %th Start date
+    %th End date
+    %th
+    %th
+    %th
+
+  - @promotions.each do |promotion|
+    %tr
+      %td= promotion.product_id
+      %td= promotion.title
+      %td= promotion.description
+      %td= promotion.color_combo
+      %td= promotion.flat_discount
+      %td= promotion.percent_discount
+      %td= promotion.start_date
+      %td= promotion.end_date
+      %td= link_to 'Show', promotion
+      %td= link_to 'Edit', edit_promotion_path(promotion)
+      %td= link_to 'Destroy', promotion, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Promotion', new_promotion_path

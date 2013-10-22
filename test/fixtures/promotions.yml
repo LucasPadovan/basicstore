@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product_id: 1
+  title: MyString
+  description: MyText
+  color_combo: MyString
+  flat_discount: 1.5
+  percent_discount: 1.5
+  start_date: 2013-10-22 20:45:12
+  end_date: 2013-10-22 20:45:12
+
+two:
+  product_id: 1
+  title: MyString
+  description: MyText
+  color_combo: MyString
+  flat_discount: 1.5
+  percent_discount: 1.5
+  start_date: 2013-10-22 20:45:12
+  end_date: 2013-10-22 20:45:12

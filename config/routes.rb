@@ -2,7 +2,12 @@ Tienda::Application.routes.draw do
 
   resources :estadordens
 
-  resources :promotions
+  resources :promotions do
+    resources :promotion_lines, as: :lines, except: [:index, :show]
+    collection do
+      post :finalize
+    end
+  end
 
   resources :precioproductos
 
@@ -36,7 +41,6 @@ Tienda::Application.routes.draw do
 
     resources :products do
       get :who_bought, :on => :member
-      resources :promotions
     end
 
     root :to => 'store#promotions', :as => 'promociones'

@@ -1,5 +1,10 @@
 class Promotion < ActiveRecord::Base
-  belongs_to :product
 
-  attr_accessible :color_combo, :description, :end_date, :flat_discount, :percent_discount, :product_id, :start_date, :title
+  has_many :promotion_lines
+
+  accepts_nested_attributes_for :promotion_lines, allow_destroy: true
+
+  attr_accessible :color_combo, :end_date, :start_date, :title, :total, :state, :promotion_lines, :description
+
+  validates :title, presence: true
 end

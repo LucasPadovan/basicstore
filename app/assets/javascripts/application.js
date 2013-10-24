@@ -2,6 +2,7 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require SrBuj
 //= require_tree .
 
 $(document).ready(function(){
@@ -14,6 +15,7 @@ $(document).ready(function(){
     });
 
     tooltipsOn();
+    datepickerOn();
 });
 
 

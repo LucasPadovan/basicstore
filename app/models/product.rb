@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   has_many :line_items
   has_many :orders, :through => :line_items
   has_many :precioproductos
-  has_many :promotions
+  #has_many :promotion_lines
   has_many :habtm_products
   has_many :product_types, through: :habtm_products
 

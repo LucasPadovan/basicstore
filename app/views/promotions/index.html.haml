@@ -2,12 +2,10 @@
 
 %table
   %tr
-    %th Product
     %th Title
-    %th Description
     %th Color combo
-    %th Flat discount
-    %th Percent discount
+    %th Estado
+    %th Total
     %th Start date
     %th End date
     %th
@@ -16,12 +14,10 @@
 
   - @promotions.each do |promotion|
     %tr
-      %td= promotion.product_id
       %td= promotion.title
-      %td= promotion.description
       %td= promotion.color_combo
-      %td= promotion.flat_discount
-      %td= promotion.percent_discount
+      %td= promotion.state
+      %td= promotion.total
       %td= promotion.start_date
       %td= promotion.end_date
       %td= link_to 'Show', promotion

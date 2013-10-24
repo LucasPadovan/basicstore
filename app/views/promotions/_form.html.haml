@@ -2,14 +2,17 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :product_id
-    = f.input :title
-    = f.input :description
-    = f.input :color_combo
-    = f.input :flat_discount
-    = f.input :percent_discount
-    = f.input :start_date
-    = f.input :end_date
+    .span5
+      %h3 Información
+      = f.input :title, input_html: {class: 'span11'}
+      = f.input :start_date, as: :string, input_html: { class: 'datepicker', value: (@start_date ? @start_date.strftime('%d/%m/%Y') : Date.today.strftime('%d/%m/%Y')) }
+      = f.input :end_date, as: :string, input_html: { class: 'datepicker', value: (@end_date ? @end_date.strftime('%d/%m/%Y') : (Date.today+1.months).strftime('%d/%m/%Y'))}
+      = f.input :total, input_html: {class: 'span11'}
+    .span5
+      %h3 Contenido
+      = f.input :color_combo, input_html: {class: 'span11'}
+      = f.input :description, input_html: {rows: 5, class: 'span11'}
+      = f.input :state, input_html: {placeholder: 'Estado con el que se desea crear la promoción?', class: 'span11' }
 
-  .form-actions
-    = f.button :submit
+  .clearfix
+  = f.button :submit, class: 'btn btn-primary'

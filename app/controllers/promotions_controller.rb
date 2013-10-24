@@ -26,8 +26,7 @@ class PromotionsController < ApplicationController
   # GET /promotions/new
   # GET /promotions/new.json
   def new
-    @promotion = ( @product ? @product.promotions.build : Promotion.new )
-
+    @promotion = Promotion.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @promotion }
@@ -42,7 +41,7 @@ class PromotionsController < ApplicationController
   # POST /promotions
   # POST /promotions.json
   def create
-    @promotion = ( @product ? @product.promotions.build(params[:promotion]) : Promotion.new(params[:promotion]) )
+    @promotion = Promotion.new params[:promotion]
 
     respond_to do |format|
       if @promotion.save
@@ -81,6 +80,10 @@ class PromotionsController < ApplicationController
       format.html { redirect_to promotions_url }
       format.json { head :no_content }
     end
+  end
+
+  def finalize
+    #todo: finaliza la creación de la promoción y asigna la promoción como activa o el estado elegido.
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022212849) do
+ActiveRecord::Schema.define(:version => 20131022234512) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -87,6 +87,29 @@ ActiveRecord::Schema.define(:version => 20131022212849) do
     t.integer  "cantidad"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
+  end
+
+  create_table "promotion_lines", :force => true do |t|
+    t.string   "discount_type"
+    t.float    "discount"
+    t.integer  "promotion_id"
+    t.integer  "product_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "promotion_lines", ["promotion_id", "product_id"], :name => "index_promotion_lines_on_promotion_id_and_product_id"
+
+  create_table "promotions", :force => true do |t|
+    t.string   "title"
+    t.string   "color_combo"
+    t.float    "total"
+    t.string   "state"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

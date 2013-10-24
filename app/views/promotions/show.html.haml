@@ -1,30 +1,28 @@
-%p#notice= notice
-
-%p
-  %b Product:
-  = @promotion.product_id
-%p
-  %b Title:
-  = @promotion.title
-%p
-  %b Description:
-  = @promotion.description
-%p
-  %b Color combo:
-  = @promotion.color_combo
-%p
-  %b Flat discount:
-  = @promotion.flat_discount
-%p
-  %b Percent discount:
-  = @promotion.percent_discount
-%p
-  %b Start date:
-  = @promotion.start_date
-%p
-  %b End date:
-  = @promotion.end_date
-
+.span3
+  %p
+    %b Title:
+    = @promotion.title
+  %p
+    %b Descripcion:
+    = @promotion.description
+  %p
+    %b Color combo:
+    = @promotion.color_combo
+  %p
+    %b Estado:
+    = @promotion.state
+  %p
+    %b Total:
+    = @promotion.total
+  %p
+    %b Start date:
+    = @promotion.start_date
+  %p
+    %b End date:
+    = @promotion.end_date
+.span8
+  %h2 Agrega productos a tu promoción!
+  = link_to 'Agregar producto', new_promotion_line_path(@promotion), class: 'btn btn-primary', remote: true, data: {target: 'modal', modal: true}
 = link_to 'Edit', edit_promotion_path(@promotion)
 \|
 = link_to 'Back', promotions_path

@@ -22,6 +22,13 @@ es:
         descripcion:  "Descripcion"
         image_url:    "Url de la imagen"
         precio:       "Precio"
+      promotion:
+        title: "Título"
+        start_date: "Fecha inicio"
+        end_date: "Fecha fin"
+        color_combo: "Combinación de colores"
+        total: "Total"
+        state: "Estado"
       user:
         name: "Nombre"
         password: "Contraseña"
@@ -278,3 +285,9 @@ es:
   time:
     formats:
       default: "%d/%m/%Y \n%H:%M"
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year

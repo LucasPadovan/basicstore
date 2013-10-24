@@ -1,4 +1,5 @@
 %ul.main-nav
+  %li= link_to t('.promotions'), promotions_path, class: current_section([promotions_path])
   %li= link_to t('.orders'), orders_path, class: current_section([orders_path])
   -#- Estadorden::ESTADOS.each do |estado|
   -#  %li= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)

@@ -291,3 +291,9 @@ es:
       - :day
       - :month
       - :year
+  label:
+    show: "Ver"
+    edit: "Editar"
+    delete: "Eliminar"
+  messages:
+    confirmation: "¿Está seguro que desea eliminar este registro?"

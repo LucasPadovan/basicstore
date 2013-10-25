@@ -2,8 +2,6 @@
  *= require_self
  *= require SrBuj
  *= require bootstrap_and_overrides
- *= require twitter/bootstrap
- *= require twitter/bootstrap-responsive
  *= require ./body
  *= require ./nav
  *= require ./orders

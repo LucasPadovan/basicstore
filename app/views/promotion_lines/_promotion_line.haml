@@ -1,0 +1,4 @@
+.well{id: dom_id(promotion_line)}
+  %h3 #{promotion_line.quantity} x #{promotion_line.product.titulo}
+  Descuento: #{promotion_line.discount}#{promotion_line.discount_type}
+  = link_to_destroy promotion_line_path(@promotion, promotion_line), remote: true, data: { target: dom_id(promotion_line) }, class: 'btn btn-danger btn-mini'

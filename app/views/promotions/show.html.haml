@@ -1,16 +1,11 @@
+%h1 Promocion: "#{@promotion.title}"
 .span3
-  %p
-    %b Title:
-    = @promotion.title
   %p
     %b Descripcion:
     = @promotion.description
   %p
     %b Color combo:
     = @promotion.color_combo
-  %p
-    %b Estado:
-    = @promotion.state
   %p
     %b Total:
     = @promotion.total
@@ -20,8 +15,11 @@
   %p
     %b End date:
     = @promotion.end_date
+  .label= @promotion.state
 .span8
   %h2 Agrega productos a tu promoción!
+  #promotion_lines
+    = render partial: 'promotion_lines/promotion_line', collection: @promotion_lines
   = link_to 'Agregar producto', new_promotion_line_path(@promotion), class: 'btn btn-primary', remote: true, data: {target: 'modal', modal: true}
 = link_to 'Edit', edit_promotion_path(@promotion)
 \|

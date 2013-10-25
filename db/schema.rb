@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20131022234512) do
     t.float    "discount"
     t.integer  "promotion_id"
     t.integer  "product_id"
+    t.integer  "quantity"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

@@ -21,6 +21,10 @@ class Product < ActiveRecord::Base
     Product.last(5).reverse
   end
 
+  def to_s
+    titulo
+  end
+
   private
     def ensure_not_referenced_by_any_line_item
       if line_items.empty?

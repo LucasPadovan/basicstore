@@ -1,8 +1,0 @@
-.modal.modal-large
-  = simple_form_for(@promotion_line) do |f|
-    .modal-title
-      %h2 Escoje el producto a agregar
-    .modal-body
-      = render partial: 'form', locals: { f: f }
-    .modal-footer
-      = f.button :submit, class: 'btn btn-primary'

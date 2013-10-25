@@ -17,6 +17,7 @@ class CreatePromotions < ActiveRecord::Migration
       t.float :discount
       t.integer :promotion_id
       t.integer :product_id
+      t.integer :quantity
 
       t.timestamps
     end

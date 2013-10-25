@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  before_filter :get_product
+  before_filter :get_product, except: [:index, :finalize]
 
   # GET /promotions
   # GET /promotions.json
@@ -15,7 +15,8 @@ class PromotionsController < ApplicationController
   # GET /promotions/1
   # GET /promotions/1.json
   def show
-    @promotion = Promotion.find(params[:id])
+    @promotion = Promotion.includes(:promotion_lines).find(params[:id])
+    @promotion_lines = @promotion.promotion_lines
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,7 +43,7 @@ class PromotionsController < ApplicationController
   # POST /promotions.json
   def create
     @promotion = Promotion.new params[:promotion]
-
+    @promotion.state = 'not-published'
     respond_to do |format|
       if @promotion.save
         format.html { redirect_to @promotion, notice: 'Promotion was successfully created.' }
@@ -58,6 +59,7 @@ class PromotionsController < ApplicationController
   # PUT /promotions/1.json
   def update
     @promotion = Promotion.find(params[:id])
+    params[:promotion][:state] = 'not-published'
 
     respond_to do |format|
       if @promotion.update_attributes(params[:promotion])
@@ -84,6 +86,14 @@ class PromotionsController < ApplicationController
 
   def finalize
     #todo: finaliza la creación de la promoción y asigna la promoción como activa o el estado elegido.
+    @promotion = Promotion.new params[:promotion]
+    @promotion.state = 'published'
+
+    redirect_to promotions_path
+  end
+
+  def preview
+    render partial: 'preview', content_type: 'text/html'
   end
 
   private

@@ -1,0 +1,6 @@
+.promotion{ class: "promotion-#{promotion.color_combo}"}
+  .span2
+    %h1= promotion.title
+  .span8
+    - promotion.promotion_lines.each do |line|
+      %p= "#{line.product.titulo} #{line.to_s}"

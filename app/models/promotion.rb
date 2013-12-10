@@ -6,7 +6,7 @@ class Promotion < ActiveRecord::Base
 
   attr_accessible :color_combo, :end_date, :start_date, :title, :total, :promotion_lines, :description
 
-  validates :title, presence: true
+  validates :title, :color_combo, presence: true
 
   scope :published, -> { where(state: 'published') }
 

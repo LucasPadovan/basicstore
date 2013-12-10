@@ -7,6 +7,7 @@
  *= require ./orders
  *= require ./products
  *= require ./fonts
+ *= require ./promotions
  *= require ./customization/buttons
  *= require ./customization/grid
  *= require ./customization/datepicker

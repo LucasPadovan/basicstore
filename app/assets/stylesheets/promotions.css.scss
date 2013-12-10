@@ -1,0 +1,51 @@
+.promotion {
+  color: white;
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  -webkit-box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.8) inset;
+  -moz-box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.8) inset;
+  box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.8) inset;
+}
+
+.promotion-red {
+  background:
+    linear-gradient(
+      rgba(179, 0, 29, 0.45),
+      rgba(179, 0, 29, 0.45)
+    ),
+    image-url("promotions/strip-background-light.jpg");
+}
+.promotion-green {
+  background:
+    linear-gradient(
+      rgba(41, 179, 0, 0.44),
+      rgba(41, 179, 0, 0.44)
+    ),
+    image-url("promotions/strip-background-light.jpg");
+}
+.promotion-blue {
+  background:
+    linear-gradient(
+      rgba(0, 5, 179, 0.43),
+      rgba(0, 5, 179, 0.43)
+    ),
+    image-url("promotions/strip-background-light.jpg");
+}
+.promotion-yellow {
+  background:
+    linear-gradient(
+      rgba(171, 179, 0, 0.43),
+      rgba(171, 179, 0, 0.43)
+    ),
+    image-url("promotions/strip-background-light.jpg");
+}
+.promotion-black {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    image-url("promotions/strip-background-light.jpg");
+}

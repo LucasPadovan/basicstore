@@ -51,10 +51,11 @@ es:
       title:    "Cristopher Smith Animestore"
   shared:
     store_menu:
-      home:     "Inicio"
-      products: "Productos"
+      cart: "Carrito"
+      home: "Inicio"
       new_products: "Novedades"
       offers: "Promociones"
+      products: "Productos"
     footer:
       news:     "Noticias"
       faq:      "Preguntas"

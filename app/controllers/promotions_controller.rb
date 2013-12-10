@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  before_filter :get_product, except: [:index, :finalize]
+  before_filter :get_product, except: :index
 
   # GET /promotions
   # GET /promotions.json
@@ -84,16 +84,22 @@ class PromotionsController < ApplicationController
     end
   end
 
-  def finalize
-    #todo: finaliza la creación de la promoción y asigna la promoción como activa o el estado elegido.
-    @promotion = Promotion.new params[:promotion]
-    @promotion.state = 'published'
-
-    redirect_to promotions_path
-  end
-
   def preview
     render partial: 'preview', content_type: 'text/html'
+  end
+
+  def publish
+    @promotion = Promotion.find(params[:id])
+    @promotion.publish
+    js_notify message: 'Promocion visible al publico'
+    render partial: 'state', content_type: 'text/html'
+  end
+
+  def unpublish
+    @promotion = Promotion.find(params[:id])
+    @promotion.unpublish
+    js_notify message: 'Promocion oculta al publico'
+    render partial: 'state', content_type: 'text/html'
   end
 
   private

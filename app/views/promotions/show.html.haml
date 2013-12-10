@@ -6,21 +6,23 @@
   %p
     %b Color combo:
     = @promotion.color_combo
-  %p
-    %b Total:
-    = @promotion.total
+  -#todo: sacarlo de aca
+  -#%p
+  -#  %b Total:
+  -#  = @promotion.total
   %p
     %b Start date:
-    = @promotion.start_date
+    = "#{l @promotion.start_date}Hs."
   %p
     %b End date:
-    = @promotion.end_date
-  .label= @promotion.state
+    = "#{l @promotion.end_date}Hs."
+  = render partial: 'state'
 .span8
   %h2 Agrega productos a tu promoción!
   #promotion_lines
     = render partial: 'promotion_lines/promotion_line', collection: @promotion_lines
   = link_to 'Agregar producto', new_promotion_line_path(@promotion), class: 'btn btn-primary', remote: true, data: {target: 'modal', modal: true}
-= link_to 'Edit', edit_promotion_path(@promotion)
+.clearfix
+= link_to 'Editar', edit_promotion_path(@promotion)
 \|
-= link_to 'Back', promotions_path
+= link_to 'Volver', promotions_path

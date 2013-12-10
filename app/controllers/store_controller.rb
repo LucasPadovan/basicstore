@@ -14,7 +14,7 @@ class StoreController < ApplicationController
   end
 
   def promotions
-
+    @promotions = Promotion.published
   end
 
   protected

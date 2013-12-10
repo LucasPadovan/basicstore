@@ -64,6 +64,7 @@ es:
       catalog:  "Catálogo"
       users:    "Usuarios"
       paytypes: "Medios de Pago"
+      promotions: "Promociones"
       exit:     "Salir"
 
   admin:

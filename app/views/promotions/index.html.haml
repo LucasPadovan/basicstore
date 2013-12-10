@@ -1,29 +1,30 @@
-%h1 Listing promotions
+%h1 Listado de Promociones
 
-%table
+%table.table.table-striped.table-bordered
   %tr
-    %th Title
+    %th Titulo
+    %th Fecha Inicio
+    %th Fecha Finalizacion
     %th Color combo
     %th Estado
     %th Total
-    %th Start date
-    %th End date
-    %th
-    %th
     %th
 
   - @promotions.each do |promotion|
     %tr
       %td= promotion.title
+      %td= "#{l promotion.start_date}Hs."
+      %td= "#{l promotion.end_date}Hs."
       %td= promotion.color_combo
       %td= promotion.state
       %td= promotion.total
-      %td= promotion.start_date
-      %td= promotion.end_date
-      %td= link_to 'Show', promotion
-      %td= link_to 'Edit', edit_promotion_path(promotion)
-      %td= link_to 'Destroy', promotion, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+        = link_to 'Ver', promotion
+        %br
+        = link_to 'Editar', edit_promotion_path(promotion)
+        %br
+        = link_to 'Eliminar', promotion, :method => :delete, :data => { :confirm => 'Estas seguro?' }
 
 %br
 
-= link_to 'New Promotion', new_promotion_path
+= link_to 'Nueva Promocion', new_promotion_path, class: 'btn btn-primary'

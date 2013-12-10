@@ -4,8 +4,9 @@ Tienda::Application.routes.draw do
 
   resources :promotions do
     resources :promotion_lines, as: :lines, except: [:index, :show]
-    collection do
-      post :finalize
+    member do
+      put :publish
+      put :unpublish
     end
   end
 

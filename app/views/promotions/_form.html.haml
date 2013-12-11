@@ -7,10 +7,9 @@
       = f.input :title, input_html: {class: 'span11'}
       = f.input :start_date, as: :string, input_html: { class: 'datepicker', value: (@start_date ? @start_date.strftime('%d/%m/%Y') : Date.today.strftime('%d/%m/%Y')) }
       = f.input :end_date, as: :string, input_html: { class: 'datepicker', value: (@end_date ? @end_date.strftime('%d/%m/%Y') : (Date.today+1.months).strftime('%d/%m/%Y'))}
-      = f.input :total, input_html: {class: 'span11'}
     .span5
       %h3 Contenido
-      = f.input :color_combo, input_html: {class: 'span11'}
+      = f.input :color_combo, collection: Promotion::AVAILABLE_COLORS, input_html: {class: 'span11'}
       = f.input :description, input_html: {rows: 5, class: 'span11'}
 
   .clearfix

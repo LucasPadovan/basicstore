@@ -13,8 +13,8 @@
   - @promotions.each do |promotion|
     %tr
       %td= promotion.title
-      %td= "#{l promotion.start_date}Hs."
-      %td= "#{l promotion.end_date}Hs."
+      %td= promotion.start_date.strftime('%d/%m/%Y')
+      %td= promotion.end_date.strftime('%d/%m/%Y')
       %td= promotion.color_combo
       %td= promotion.state
       %td= promotion.total

@@ -1,5 +1,7 @@
 class Promotion < ActiveRecord::Base
 
+  AVAILABLE_COLORS = [['Amarillo', 'yellow'], ['Azul', 'blue'], ['Negro', 'black'] , ['Rojo', 'red'], ['Verde', 'green']]
+
   has_many :promotion_lines
 
   accepts_nested_attributes_for :promotion_lines, allow_destroy: true

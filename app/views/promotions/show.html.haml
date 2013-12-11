@@ -12,10 +12,10 @@
   -#  = @promotion.total
   %p
     %b Start date:
-    = "#{l @promotion.start_date}Hs."
+    = @promotion.start_date.strftime('%d/%m/%Y')
   %p
     %b End date:
-    = "#{l @promotion.end_date}Hs."
+    = @promotion.end_date.strftime('%d/%m/%Y')
   = render partial: 'state'
 .span8
   %h2 Agrega productos a tu promoción!

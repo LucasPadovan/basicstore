@@ -10,6 +10,10 @@ class PromotionLinesController < ApplicationController
     @promotion_line = @promotion.promotion_lines.build(params[:promotion_line])
 
     if @promotion_line.save!
+      #todo: hacer con update
+      @promotion.total += @promotion_line.total
+      @promotion.save
+      js_notify message: 'Item de la promocion agregado correctamente', type: 'alert-success'
       render partial: 'promotion_lines/promotion_line', locals: { promotion_line: @promotion_line }, content_type: 'text/html'
     else
       render partial: 'new', status: :unprocessable_entity
@@ -27,9 +31,12 @@ class PromotionLinesController < ApplicationController
   def destroy
     @promotion_line = PromotionLine.find(params[:id])
     if @promotion_line.destroy
+      @promotion_line.promotion.total -= @promotion_line.total
+      @promotion_line.promotion.save
+      js_notify message: 'Item de la promocion eliminado correctamente', type: 'alert-danger'
       render nothing: true, content_type: 'text/html'
     else
-      js_notify 'No se pudo eliminar, intente nuevamente.'
+      js_notify message: 'No se pudo eliminar, intente nuevamente.'
     end
   end
 

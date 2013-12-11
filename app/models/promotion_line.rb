@@ -4,6 +4,8 @@ class PromotionLine < ActiveRecord::Base
 
   attr_accessible :product_id, :promotion_id, :discount, :discount_type, :quantity
 
+  validates :discount, :discount_type, :quantity, presence: true
+
   def to_s
     "-#{discount}#{discount_type}"
   end

@@ -103,14 +103,14 @@ ActiveRecord::Schema.define(:version => 20131022234512) do
 
   create_table "promotions", :force => true do |t|
     t.string   "title"
-    t.string   "color_combo"
-    t.float    "total"
+    t.string   "color_combo", :default => "black"
+    t.float    "total",       :default => 0.0
     t.string   "state"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "users", :force => true do |t|

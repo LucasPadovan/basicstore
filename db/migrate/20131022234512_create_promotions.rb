@@ -2,8 +2,8 @@ class CreatePromotions < ActiveRecord::Migration
   def change
     create_table :promotions do |t|
       t.string :title
-      t.string :color_combo
-      t.float :total
+      t.string :color_combo, default: 'black'
+      t.float :total, default: 0
       t.string :state
       t.text :description
       t.datetime :start_date

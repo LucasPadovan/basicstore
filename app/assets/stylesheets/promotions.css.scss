@@ -36,8 +36,7 @@
 .promotion-yellow {
   background:
     linear-gradient(
-      rgba(171, 179, 0, 0.43),
-      rgba(171, 179, 0, 0.43)
+      rgba(255, 248, 0, 0.56), rgba(194, 186, 0, 0.42)
     ),
     image-url("promotions/strip-background-light.jpg");
 }
@@ -48,4 +47,55 @@
       rgba(0, 0, 0, 0.45)
     ),
     image-url("promotions/strip-background-light.jpg");
+}
+
+.promotion-line {
+  display: inline-block;
+  margin: 7px;
+  border: 1px solid #d2d2d2;
+  border-radius: 0px 0px 3px 3px;
+  width: 200px;
+  background-color: #eaeaea;
+  text-align: center;
+  color: black;
+
+  hr {
+    border-color: black;
+    margin: 5px 0;
+  }
+
+  .promotion-line-title {
+    padding: 3px;
+    background-color: #666666;
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    position: relative;
+    left: -8px;
+    width: 210px;
+    box-shadow: 5px 5px 15px 0px #888888;
+  }
+  .promotion-line-image-container {
+    height: 150px;
+    //width: 100%;
+  }
+  .promotion-line-prices {
+    padding: 5px;
+    .normal-price {
+      margin-top: 10px;
+      text-decoration: line-through;
+      text-align: right;
+      font-size: 1.5em;
+      color: #888888
+    }
+    .off-price {
+      text-align: right;
+      font-size: 2.5em;
+      font-family: pacificoregular;
+    }
+  }
+  .promotion-line-image {
+    height: 100%;
+  }
 }

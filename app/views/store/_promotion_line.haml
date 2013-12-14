@@ -1,8 +1,10 @@
 .promotion-line
+  .discount
+    = "- #{promotion_line.discount}#{promotion_line.discount_type}"
   .promotion-line-image-container
     = link_to image_tag(promotion_line.product.image_url, class: 'promotion-line-image'), promotion_line.product
-  %h3.promotion-line-title= promotion_line.product.titulo
+  %h3.promotion-line-title= "#{promotion_line.quantity} x #{promotion_line.product.titulo}"
   .promotion-line-prices
-    .normal-price= "#{number_to_currency(promotion_line.product.precioproductos.last.preciopublico)} c/u"
+    .normal-price= "#{number_to_currency(promotion_line.quantity * promotion_line.product.precioproductos.last.preciopublico)}"
     %hr
-    .off-price= "#{promotion_line.quantity} x #{number_to_currency(promotion_line.total)}"
+    .off-price= number_to_currency(promotion_line.total)

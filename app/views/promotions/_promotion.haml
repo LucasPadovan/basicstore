@@ -1,11 +1,11 @@
 .promotion{ class: "promotion-#{promotion.color_combo}"}
   .span2
     %h1= promotion.title
-    %br
-    %h1 Total: #{number_to_currency promotion.total}
 
-    = link_to t('.addToCart'), line_items_path(product_id: promotion),
-      remote: true, method: :post, class: 'btn btn-warning'
   .span8
     = render partial: 'store/promotion_line', collection: promotion.promotion_lines
+  .span2.total
+    %h2 Todo por #{number_to_currency promotion.total}
+    = link_to t('store.index.addToCart'), line_items_path(product_id: promotion),
+      remote: true, method: :post, class: 'btn btn-warning btn-large'
   .clearfix

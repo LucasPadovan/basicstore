@@ -3,9 +3,12 @@ Gracias por su pedido, en este momento esta en período de revisión.
 
 Usted ordenó:
 <% @order.line_items.each do |item| %>
-    <%= item.quantity %> x <%= item.product.titulo %>
+    <%= item.quantity %> x <%= item.product.titulo %> = <%= number_to_currency item.product.actual_public_price %>
 <% end %>
+------------------------------------------------------------------------------------
+Total: <%= number_to_currency @order.total %>
 
+Para futuras referncias, el número de su pedido es: <%= @order.number %>
 Estaremos en contacto con usted para definir la forma de entrega.
 
 Muchas gracias.

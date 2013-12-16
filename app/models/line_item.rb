@@ -6,7 +6,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :promotion
 
   def total_price
-    product.precioproductos.last.preciopublico * quantity
+    product.actual_public_price * quantity
   end
 
   def total_costo

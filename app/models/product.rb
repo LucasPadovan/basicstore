@@ -25,6 +25,10 @@ class Product < ActiveRecord::Base
     titulo
   end
 
+  def actual_public_price
+    self.precioproductos.last.preciopublico
+  end
+
   private
     def ensure_not_referenced_by_any_line_item
       if line_items.empty?

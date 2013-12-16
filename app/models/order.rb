@@ -9,11 +9,12 @@ class Order < ActiveRecord::Base
 
   attr_accessor :auto_mediopago
   before_validation :asignar_mediopago
+  after_commit :assign_number
   
-  scope :cheques, where(:mediopago_id=>1)
-  scope :efectivo, where(:mediopago_id=>2)
-  scope :tarjetaC, where(:mediopago_id=>3)
-  scope :tarjetaD, where(:mediopago_id=>4)  
+  scope :cheques, where(mediopago_id: 1)
+  scope :efectivo, where(mediopago_id: 2)
+  scope :tarjetaC, where(mediopago_id: 3)
+  scope :tarjetaD, where(mediopago_id: 4)
   
   def add_line_items_from_cart(cart)
     cart.line_items.each do |item|
@@ -47,4 +48,15 @@ class Order < ActiveRecord::Base
     end
     ordenes
   end
+
+  def total
+    line_items.sum(&:total_price)
+  end
+
+  private
+
+  def assign_number
+    self.update_column :number, 2013 + self.id
+  end
+
 end

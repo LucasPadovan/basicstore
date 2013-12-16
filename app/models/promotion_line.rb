@@ -11,11 +11,10 @@ class PromotionLine < ActiveRecord::Base
   end
 
   def total
-    #todo: precio del producto mas accesible
     if percent?
-      self.quantity * self.product.precioproductos.last.preciopublico * (100 - self.discount) / 100
+      self.quantity * self.product.actual_public_price * (100 - self.discount) / 100
     else
-      self.quantity * (self.product.precioproductos.last.preciopublico - self.discount)
+      self.quantity * (self.product.actual_public_price - self.discount)
     end
   end
 

@@ -10,6 +10,13 @@
 
   .total {
     color: black;
+
+    span {
+      font-size: 2em;
+    }
+  }
+  .title {
+    text-shadow: 0px 5px 10px rgba(0,0,0,0.75);
   }
 }
 

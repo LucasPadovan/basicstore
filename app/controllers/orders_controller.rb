@@ -49,10 +49,7 @@ class OrdersController < ApplicationController
     
     @order = Order.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @order }
-    end
+    render partial: 'new', content_type: 'text/html'
   end
 
   # GET /orders/1/edit
@@ -68,18 +65,15 @@ class OrdersController < ApplicationController
 
     @estado = @order.estadordens.build(estado: "Pendiente", user_id: 1, order_id: @order.id)
 
-    respond_to do |format|
-      if @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id]=nil
-        Notifier.order_received(@order).deliver
-        format.html { redirect_to(store_index_url, notice: t('.thanks')) }
-        format.xml  { render :xml => @order, :status => :created, :location => @order }
-      else
-        @cart = current_cart
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
-      end
+    if @order.save
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      Notifier.order_received(@order).deliver
+      #todo: mensaje de agradecimiento
+      js_redirect to: promociones_path
+    else
+      @cart = current_cart
+      render partial: 'new', status: :unprocessable_entity
     end
   end
 

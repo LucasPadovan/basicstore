@@ -1,12 +1,11 @@
 <% if line_item==@current_item %>
-<tr id="current_item" class="<%= line_item.id %>">
+  <tr id="current_item" class="<%= line_item.id %>">
 <% else %>
-<tr>
+  <tr>
 <% end %>
-  <td><%= line_item.quantity %> &times;
-  <%= truncate(strip_tags(line_item.product.titulo), :length => 40) %><br />
-  <%= link_to t('.delete'), line_item_path(line_item), method: :delete,
-    confirm: t('.confirm'), class: 'pure-button pure-button-error' %></td>
-  <!--<td class="item_price"><%#= number_to_currency(line_item.total_price) %></td>-->
-
+  <td><%= link_to t('.delete'), line_item_path(line_item), method: :delete,
+                  confirm: t('.confirm'), class: 'pure-button pure-button-error' %></td>
+  <td><%= line_item.quantity %></td>
+  <td><%= truncate(strip_tags(line_item.product.titulo), length: 40) %></td>
+  <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
 </tr>

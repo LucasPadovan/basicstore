@@ -48,7 +48,7 @@ es:
   
   layouts:
     application:
-      title:    "Cristopher Smith Animestore"
+      title:    "Un Mundo De Ovejitas"
   shared:
     store_menu:
       cart: "Carrito"
@@ -79,7 +79,7 @@ es:
   carts:
     cart:
       title:      "Su carrito"
-      total:      "Total"
+      total:      "Total: "
       buy:        "Comprar"
       emptycart:  "Vaciar carrito"
       confirm:    "¿Está seguro que desea vaciar completamente su carrito?"        
@@ -164,6 +164,7 @@ es:
       paytype:    "Medio de Pago"
       prompt:     "Seleccione su medio de pago"
       submit:     "Enviar orden"
+      submiting: "Generando pedido"
     edit:
       title:  "Editando la orden"
       show:   "Ver"

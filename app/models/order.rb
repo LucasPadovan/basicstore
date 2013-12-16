@@ -4,8 +4,8 @@ class Order < ActiveRecord::Base
   has_many :estadordens
 
   belongs_to :mediopago
-  validates :name, :address, :email,:mediopago, :presence=>true
-  validates :email,:email_format => true
+  validates :name, :address, :email, :mediopago_id, presence: true
+  validates :email, email_format: true
 
   attr_accessor :auto_mediopago
   before_validation :asignar_mediopago

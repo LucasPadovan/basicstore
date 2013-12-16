@@ -5,5 +5,5 @@
   .product-description
     .description= sanitize(product.descripcion)
     .price= number_to_currency(product.precioproductos.last.preciopublico)
-  = link_to t('.addToCart'), line_items_path(product_id: product),
+  = link_to t('store.index.addToCart'), line_items_path(product_id: product),
     remote: true, method: :post, class: 'btn btn-warning add-to-cart-fill'

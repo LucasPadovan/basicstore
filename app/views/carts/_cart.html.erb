@@ -1,14 +1,31 @@
 <div id="carrito">
-  <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-    <div class="cart_title"><%= t('.title') %></div>
-    <table>
-      <%= render(@cart.line_items) %>
-      <!--<tr class="total_line">-->
-      <!--<td colspan="2"><%#= t('.total') %></td>-->
-      <!--<td class="total_cell"><%#= number_to_currency(cart.total_price) %></td>-->
-      <!--</tr>-->
+  <h1 class="cart_title"><%= t('.title') %></h1>
+  <div class="span8">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Cantidad</th>
+        <th>Detalle</th>
+        <th>Subtotal</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @cart.line_items %>
+      </tbody>
     </table>
-    <%= link_to t('.buy'), new_order_path, class: 'pure-button pure-button-success' %>
-    <%= link_to t('.emptycart'), cart, method: :delete, confirm: t('.confirm'), class: 'pure-button pure-button-error' %>
-  <% end %>
+  </div>
+  <div class="row">
+    <div class="span8">
+      <h2 class="pull-right">
+        <%= t('.total') %>
+        <%= number_to_currency(cart.total_price) %>
+      </h2>
+    </div>
+    <div class="span3">
+      <%= link_to t('.buy'), new_order_path, class: 'btn btn-primary btn-large', remote: true, data: { target: 'modal', modal: true } %>
+      <%= link_to t('.emptycart'), cart, method: :delete, confirm: t('.confirm'), class: 'btn btn-danger btn-small' %>
+    </div>
+  </div>
+  </div>
 </div>

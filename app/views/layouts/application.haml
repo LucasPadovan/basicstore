@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title Basic Store
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tag
+  %body#store
+    .banner
+      .rainbow-background
+        .banner-content
+          = render partial: 'shared/locale_selector'
+          = render partial: 'shared/login'
+          .title
+            = link_to APP_CONFIG['page_title'], promociones_path, data: { toggle: 'tooltip' }, title: 'Inicio'
+    = render 'carts/floating_cart'
+    .container.container-full
+      .content
+        .row-fluid
+          .span12
+            - if session[:user_id]
+              = render partial: 'shared/admin_menu', params: params
+            - else
+              = render partial: 'shared/store_menu', params: params
+            = yield
+    = render 'shared/footer'
+    #modal
+  = javascript_include_tag 'application'
+
+:javascript
+  $('[data-action="toggle-cart"').on('click', function(){
+    toggleFloatingCart()
+  })
+

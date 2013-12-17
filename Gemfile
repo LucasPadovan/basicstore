@@ -33,3 +33,8 @@ gem 'pry', group: :development
 group :test do
   gem 'turn', '0.8.2', :require => false
 end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end

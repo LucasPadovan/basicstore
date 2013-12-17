@@ -3,6 +3,7 @@
  *= require SrBuj
  *= require bootstrap_and_overrides
  *= require ./body
+ *= require ./cart
  *= require ./nav
  *= require ./orders
  *= require ./products

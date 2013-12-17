@@ -1,0 +1,27 @@
+.floating-cart {
+  transition: all 0.2s;
+  position: fixed;
+  top: 30%;
+  left: -290px;
+  display: inline-block;
+  z-index: 3;
+  opacity: 0.9;
+  .cart-tab {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    background-color: darkgray;
+    border-radius: 0px 10px 10px 0px;
+    .big-icon {
+
+    }
+  }
+  .cart {
+    display: inline-block;
+    background-color: darkgray;
+    padding: 15px;
+    position: relative;
+    left: 4px;
+    width: 250px;
+  }
+}

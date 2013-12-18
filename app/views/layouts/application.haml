@@ -12,7 +12,7 @@
           = render partial: 'shared/login'
           .title
             = link_to APP_CONFIG['page_title'], promociones_path, data: { toggle: 'tooltip' }, title: 'Inicio'
-    = render 'carts/floating_cart'
+    #floating_cart= render partial: 'carts/floating_cart', locals: { cart: @cart}
     .container.container-full
       .content
         .row-fluid

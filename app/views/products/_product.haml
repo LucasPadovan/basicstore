@@ -6,4 +6,9 @@
     .description= sanitize(product.descripcion)
     .price= number_to_currency(product.actual_public_price)
   = link_to t('store.index.addToCart'), line_items_path(product_id: product),
-    remote: true, method: :post, class: 'btn btn-warning add-to-cart-fill'
+    remote: true, data: { target: (@products_in_cart.include?(product.id) ? "line_#{dom_id(product)}" :'line_items_table_body'),
+                          error: 'line_items_table_body',
+                          replace: @products_in_cart.include?(product.id) ? true : false,
+                          respond_as: @products_in_cart.include?(product.id) ? :put : :post,
+                          callback: "changeTargetForButton('#{dom_id(product)}'); updateCartTotal" },
+    method: :post, class: 'btn btn-warning add-to-cart-fill', id: "add_#{dom_id(product)}"

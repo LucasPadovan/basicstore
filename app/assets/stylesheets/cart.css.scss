@@ -5,12 +5,11 @@
   left: -290px;
   display: inline-block;
   z-index: 3;
-  opacity: 0.9;
   .cart-tab {
     position: relative;
     display: inline-block;
     padding: 15px;
-    background-color: darkgray;
+    background-color: rgba(130, 130, 130, 0.8);
     border-radius: 0px 10px 10px 0px;
     .big-icon {
 
@@ -18,7 +17,7 @@
   }
   .cart {
     display: inline-block;
-    background-color: darkgray;
+    background-color: rgba(130, 130, 130, 0.8);
     padding: 15px;
     position: relative;
     left: 4px;

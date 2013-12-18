@@ -11,6 +11,8 @@ class StoreController < ApplicationController
     @title = product_type
     @products = Product.includes(:product_types).where('product_types.name = ?' , product_type)
     @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
+
+    @products_in_cart = @cart.line_items.map(&:product_id)
   end
 
   def promotions

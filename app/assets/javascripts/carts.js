@@ -23,3 +23,16 @@ var openCart = function(cart){
 var changeCartTooltip = function(new_title){
     $('[data-action="toggle-cart"]').attr('data-original-title', new_title)
 }
+
+var changeTargetForButton = function(target){
+    var
+        element = '#add_' + target
+        , new_target = 'line_' + target
+    $(element).attr('data-replace', true)
+    $(element).attr('data-target', new_target)
+    $(element).attr('data-respond-as', 'put')
+}
+
+var updateCartTotal = function(){
+
+}

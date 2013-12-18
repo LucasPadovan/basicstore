@@ -1,3 +1,5 @@
 %tr{id: "line_#{dom_id(floating_line_item.product)}"}
   %td= "#{floating_line_item.quantity} x #{floating_line_item.product}"
-  %td= floating_line_item.total_price
+  %td
+    $
+    %span{ data: { type: 'price' } }= floating_line_item.total_price

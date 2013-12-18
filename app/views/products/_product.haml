@@ -10,5 +10,5 @@
                           error: 'line_items_table_body',
                           replace: @products_in_cart.include?(product.id) ? true : false,
                           respond_as: @products_in_cart.include?(product.id) ? :put : :post,
-                          callback: "changeTargetForButton('#{dom_id(product)}'); updateCartTotal" },
+                          callback: "changeTargetForButton(#{product.id.to_s}); updateCart()" },
     method: :post, class: 'btn btn-warning add-to-cart-fill', id: "add_#{dom_id(product)}"

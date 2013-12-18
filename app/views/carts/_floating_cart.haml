@@ -12,7 +12,9 @@
       %tr
         %td Total:
         %td
-          %b= number_to_currency cart.total_price
+          %b
+            $
+            %span{ data: { type: 'cart-total' } }= cart.total_price.to_f
     = link_to t('carts.cart.buy'), new_order_path, class: 'btn btn-primary btn-large', remote: true, data: { target: 'modal', modal: true }
     = link_to t('carts.cart.emptycart'), cart, method: :delete, confirm: t('carts.cart.confirm'), class: 'btn btn-danger btn-small'
   .cart-tab{ data: { action: 'toggle-cart', toggle: 'tooltip' }, title: 'Abrir el carrito' }

@@ -32,13 +32,14 @@ var changeTargetForButton = function(target){
         element = '#add_product_' + target
         , new_id = 'add_product_' + target
         , new_target = 'line_product_' + target
-        , new_button = '<a href="/es/line_items?product_id=' + target + '" class="btn btn-warning add-to-cart-fill" data-callback="updateCart" data-error="' + new_target + '" data-method="post" data-remote="true" data-replace="true" data-respond-as="put" data-target="' + new_target + '" id="' + new_id + '" rel="nofollow">Añadir al Carrito</a>'
+        , new_button = '<a href="/es/line_items?product_id=' + target + '" class="btn btn-warning add-to-cart-fill" data-callback="updateCart(' + target + ')" data-error="' + new_target + '" data-method="post" data-remote="true" data-replace="true" data-respond-as="put" data-target="' + new_target + '" id="' + new_id + '" rel="nofollow">Añadir al Carrito</a>'
     $(element).replaceWith(new_button)
 }
 
-var updateCart = function(){
+var updateCart = function(target){
+    changeTargetForButton(target)
     updateCartTotal()
-    animatePurchase()
+    animatePurchase(target)
 }
 
 var updateCartTotal = function(){
@@ -52,15 +53,16 @@ var updateCartTotal = function(){
     cart_total.innerHTML = total
 }
 
-var animatePurchase = function(){
+var animatePurchase = function(target){
     toggleFloatingCart()
-    highlightItem()
+    highlightItem(target)
     setTimeout(function(){
         toggleFloatingCart()
-    }, 2000)
+    }, 1500)
 }
 
-var highlightItem = function(){
-
+var highlightItem = function(target){
+    $('#line_product_' + target).hide().toggle('highlight', 'slow')
 }
 
+//todo: usar variable de entorno para saber si el carro esta abierto o cerrado.

@@ -1,9 +1,13 @@
+var
+    cartOpen = false
+    , timeOpen = 0;
+
 var toggleFloatingCart = function(){
     var
         cart = $('[data-element="floating-cart"]')
         , $button = $('[data-action="toggle-cart"]')
 
-    if($(cart).css('left') == '-10px') {
+    if(cartOpen) {
         changeCartTooltip('Abrir el carrito')
         closeCart(cart)
         $button.tooltip('hide')
@@ -15,12 +19,18 @@ var toggleFloatingCart = function(){
     }
 }
 
-var  closeCart= function(cart){
-    $(cart).css('left', '-290px')
+var closeCart= function(cart){
+    if(cartOpen) {
+        $(cart).css('left', '-290px')
+        cartOpen = false;
+    }
 }
 
 var openCart = function(cart){
-    $(cart).css('left', '-10px')
+    if(cartOpen == false) {
+        $(cart).css('left', '-10px')
+        cartOpen = true
+    }
 }
 
 var changeCartTooltip = function(new_title){
@@ -54,15 +64,17 @@ var updateCartTotal = function(){
 }
 
 var animatePurchase = function(target){
-    toggleFloatingCart()
     highlightItem(target)
+    openCart($('[data-element="floating-cart"]'))
+    timeOpen = +new Date
     setTimeout(function(){
-        toggleFloatingCart()
+        var timeElapsed = +new Date - timeOpen
+        if(cartOpen && ( timeElapsed > 1500))
+            closeCart($('[data-element="floating-cart"]'))
     }, 1500)
+
 }
 
 var highlightItem = function(target){
     $('#line_product_' + target).hide().toggle('highlight', 'slow')
 }
-
-//todo: usar variable de entorno para saber si el carro esta abierto o cerrado.

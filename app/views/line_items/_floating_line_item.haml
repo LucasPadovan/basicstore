@@ -1,5 +1,12 @@
-%tr{id: "line_#{dom_id(floating_line_item.product)}"}
-  %td= "#{floating_line_item.quantity} x #{floating_line_item.product}"
-  %td
-    $
-    %span{ data: { type: 'price' } }= floating_line_item.total_price
+- if floating_line_item.product
+  %tr{id: "line_#{dom_id(floating_line_item.product)}"}
+    %td= "#{floating_line_item.quantity} x #{floating_line_item.product}"
+    %td
+      $
+      %span{ data: { type: 'price' } }= floating_line_item.total_price
+- else
+  %tr{id: "line_#{dom_id(floating_line_item.promotion)}"}
+    %td= "#{floating_line_item.quantity} x #{floating_line_item.promotion}"
+    %td
+      $
+      %span{ data: { type: 'price' } }= floating_line_item.total_price

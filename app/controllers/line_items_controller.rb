@@ -43,12 +43,14 @@ class LineItemsController < ApplicationController
   # POST /line_items.xml
   def create
     @cart = current_cart
-    product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id)
+    new_item = Product.find(params[:product_id]) if params[:product_id]
+    new_item = Promotion.find(params[:promotion_id]) if params[:promotion_id]
+    @line_item = @cart.add_product(new_item)
 
+    #todo: que responda con js tambien y que actualice el carrito
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(store_index_url) }
+        format.html { redirect_to :back }
         format.js { render partial: 'line_items/floating_line_item',
                            locals: { floating_line_item: @line_item },
                            content_type: 'text/html' }

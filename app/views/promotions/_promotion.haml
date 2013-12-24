@@ -9,6 +9,5 @@
     %h2
       Todo por
       %span= number_to_currency promotion.total
-    = link_to t('store.index.addToCart'), line_items_path(promotion_id: promotion),
-      remote: true, method: :post, class: 'btn btn-warning btn-large'
+    = link_to t('store.index.addToCart'), line_items_path(promotion_id: promotion), method: :post, class: 'btn btn-warning btn-large'
   .clearfix

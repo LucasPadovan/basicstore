@@ -25,4 +25,8 @@ class Promotion < ActiveRecord::Base
   def published?
     self.state == 'published'
   end
+
+  def to_s
+    title
+  end
 end

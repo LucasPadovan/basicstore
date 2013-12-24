@@ -9,5 +9,6 @@
     %h2
       Todo por
       %span= number_to_currency promotion.total
+    -#todo: con ajax, y revisar como se muestra esto en las ordenes.
     = link_to t('store.index.addToCart'), line_items_path(promotion_id: promotion), method: :post, class: 'btn btn-warning btn-large'
   .clearfix

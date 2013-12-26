@@ -17,6 +17,7 @@ class StoreController < ApplicationController
 
   def promotions
     @promotions = Promotion.published
+    @promotions_in_cart = @cart.line_items.map(&:promotion_id)
   end
 
   protected

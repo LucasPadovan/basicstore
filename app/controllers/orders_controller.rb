@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      Notifier.order_received(@order).deliver
+      OrderMailer.received(@order).deliver
       #todo: mensaje de agradecimiento
       js_redirect to: promociones_path
     else

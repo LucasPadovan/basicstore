@@ -1,4 +1,7 @@
 Tienda::Application.routes.draw do
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 
   resources :estadordens
 
@@ -41,16 +44,16 @@ Tienda::Application.routes.draw do
     resources :precioproductos
 
     resources :products do
-      get :who_bought, :on => :member
+      get :who_bought, on: :member
     end
 
-    root :to => 'store#promotions', :as => 'promociones'
+    root to: 'store#promotions', as: 'promociones'
 
     resources :orders do
        resources :mediopagos
     end
   end
 
-  get '/products/:id/precionuevo' => "products#precionuevo", :as => :precionuevo
-  post '/products/:id/precionuevo' => "products#guardarprecionuevo", :as => :precionuevo
+  get '/products/:id/precionuevo' => "products#precionuevo", as: :precionuevo
+  post '/products/:id/precionuevo' => "products#guardarprecionuevo", as: :precionuevo
 end

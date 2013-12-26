@@ -155,7 +155,7 @@ es:
       edit:     "Editar: "
       back:     "Volver: "
 
-  notifier:
+  order_mailer:
 
   orders:
     form:

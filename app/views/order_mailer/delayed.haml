@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+  %body
+    %h1= "Sr./Sra. #{@order.name}"
+
+    Su orden de:
+    = render partial: 'order_mailer/order'
+
+    Está actualmente demorada porque alguno de los artículos no dispone de stock.
+    Nos comunicaremos con usted en cuanto este disponible y lista para su entrega.
+
+    Muchas gracias.
+
+    Un Mundo De Ovejitas.

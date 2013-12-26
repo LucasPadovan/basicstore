@@ -37,4 +37,5 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'mail_view', '~> 1.0.3'
 end

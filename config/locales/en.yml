@@ -112,7 +112,7 @@ en:
       back:     "Back"
       
       
-  notifier:
+  order_mailer:
 
 
   orders:

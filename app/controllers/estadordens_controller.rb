@@ -97,7 +97,7 @@ class EstadordensController < ApplicationController
         producto.update_attributes(cantidad: c)
       end
 
-      Notifier.order_ready(@order).deliver
+      OrderMailer.ready(@order).deliver
 
     elsif (penultimoestado != "Demorada" && ultimoestado == "Cancelada") || ultimoestado == "Demorada"
       @order.line_items.each do |l|

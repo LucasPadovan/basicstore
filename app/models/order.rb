@@ -11,11 +11,6 @@ class Order < ActiveRecord::Base
   before_validation :asignar_mediopago
   after_commit :assign_number
   
-  scope :cheques, where(mediopago_id: 1)
-  scope :efectivo, where(mediopago_id: 2)
-  scope :tarjetaC, where(mediopago_id: 3)
-  scope :tarjetaD, where(mediopago_id: 4)
-  
   def add_line_items_from_cart(cart)
     cart.line_items.each do |item|
       item.cart_id = nil

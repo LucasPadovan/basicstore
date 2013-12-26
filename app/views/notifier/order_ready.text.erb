@@ -1,14 +1,16 @@
 Sr./Sra. <%= @order.name %>
 
 Su orden de:
-<% @total=0 %>
 <% @order.line_items.each do |item| %>
-    <% precio = item.total_price %>
-<%= item.quantity %> x <%= item.product.titulo %> = <%= number_to_currency(precio) %>
-<% @total+= precio %>
+  <% case item %>
+  <% when product %>
+    <%= item.quantity %> x <%= item.product.titulo %> = <%= number_to_currency(item.total_price) %>
+  <% else %>
+    <%= item.quantity %> x <%= item.promotion.title %> = <%= number_to_currency(item.total_price) %>
+  <% end %>
 <% end %>
 
-Total: <%= number_to_currency(@total) %>
+Total: <%= number_to_currency(@order.total) %>
 
 
 Ya esta preparada y lista para ser entregada. Nos comunicaremos a la brevedad para establecer hora y punto de encuentro.

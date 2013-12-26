@@ -3,7 +3,12 @@ Gracias por su pedido, en este momento esta en período de revisión.
 
 Usted ordenó:
 <% @order.line_items.each do |item| %>
-    <%= item.quantity %> x <%= item.product.titulo %> = <%= number_to_currency item.product.actual_public_price %>
+  <% case item %>
+<% when product %>
+    <%= item.quantity %> x <%= item.product.titulo %> = <%= number_to_currency(item.total_price) %>
+  <% else %>
+    <%= item.quantity %> x <%= item.promotion.title %> = <%= number_to_currency(item.total_price) %>
+  <% end %>
 <% end %>
 ------------------------------------------------------------------------------------
 Total: <%= number_to_currency @order.total %>

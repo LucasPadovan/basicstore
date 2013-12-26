@@ -31,6 +31,7 @@ class Order < ActiveRecord::Base
     end
   end
 
+  #todo: whatefuckisthis
   def self.buscarConEstado(o, estado)
     orden = Order.find(o)
     orden.estadordens.each do |estadorden|

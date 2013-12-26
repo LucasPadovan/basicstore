@@ -5,7 +5,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :promotion
 
   def total_price
-    if product
+    if product_id
       product.actual_public_price * quantity
     else
       promotion.total * quantity

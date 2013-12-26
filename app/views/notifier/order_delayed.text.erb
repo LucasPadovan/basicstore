@@ -2,7 +2,12 @@ Sr./Sra. <%= @order.name %>
 
 Su orden de:
 <% @order.line_items.each do |item| %>
+  <% case item %>
+<% when product %>
     <%= item.quantity %> x <%= item.product.titulo %>
+  <% else %>
+    <%= item.quantity %> x <%= item.promotion.title %>
+  <% end %>
 <% end %>
 
 Está actualmente demorada porque alguno de los artículos no dispone de stock.

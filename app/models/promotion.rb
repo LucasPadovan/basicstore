@@ -28,11 +28,15 @@ class Promotion < ActiveRecord::Base
   end
 
   def published?
-    self.state == 'published'
+    state == 'published'
   end
 
   #pricing
   def total_cost
     promotion_lines.sum(&:cost)
+  end
+
+  def total_price
+    promotion_lines.sum(&:total)
   end
 end

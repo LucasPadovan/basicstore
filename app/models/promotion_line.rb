@@ -12,13 +12,17 @@ class PromotionLine < ActiveRecord::Base
 
   def total
     if percent?
-      self.quantity * self.product.actual_public_price * (100 - self.discount) / 100
+      quantity * product.actual_public_price * (100 - discount) / 100
     else
-      self.quantity * (self.product.actual_public_price - self.discount)
+      quantity * (product.actual_public_price - discount)
     end
   end
 
+  def cost
+    quantity * product.actual_cost
+  end
+
   def percent?
-    self.discount_type == '%'
+    discount_type == '%'
   end
 end

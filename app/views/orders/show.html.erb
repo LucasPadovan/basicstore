@@ -37,7 +37,7 @@
         <tr>
             <td><%= item.quantity %> x <%= link_to item.promotion.title, item.promotion %></td>
             <td id="segundaCol"><%= number_to_currency(item.total_price) %></td>
-            <%# @costo += item.total_costo %>
+            <% @costo += item.total_costo %>
             <% @total += item.total_price %>
             <td></td>
           </tr>

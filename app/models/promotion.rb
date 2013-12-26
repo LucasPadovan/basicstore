@@ -12,6 +12,11 @@ class Promotion < ActiveRecord::Base
 
   scope :published, -> { where(state: 'published') }
 
+  def to_s
+    title
+  end
+
+  #states
   def publish
     self.state = 'published'
     self.save
@@ -26,7 +31,8 @@ class Promotion < ActiveRecord::Base
     self.state == 'published'
   end
 
-  def to_s
-    title
+  #pricing
+  def total_cost
+    promotion_lines.sum(&:cost)
   end
 end

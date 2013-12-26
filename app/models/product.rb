@@ -26,7 +26,11 @@ class Product < ActiveRecord::Base
   end
 
   def actual_public_price
-    self.precioproductos.last.preciopublico
+    precioproductos.last.preciopublico
+  end
+
+  def actual_cost
+    precioproductos.last.costo
   end
 
   private

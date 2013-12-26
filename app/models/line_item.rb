@@ -12,9 +12,9 @@ class LineItem < ActiveRecord::Base
     end
   end
 
-  #todo: para promotions tambien
   def total_costo
-    product.precioproductos.last.costo * quantity
+    cost = ( product_id ? product.actual_cost : promotion.total_cost )
+    cost * quantity
   end
 
 end

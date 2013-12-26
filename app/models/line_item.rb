@@ -12,6 +12,7 @@ class LineItem < ActiveRecord::Base
     end
   end
 
+  #todo: para promotions tambien
   def total_costo
     product.precioproductos.last.costo * quantity
   end

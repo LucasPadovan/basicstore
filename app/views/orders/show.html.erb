@@ -20,17 +20,28 @@
   <%= @order.mediopago.nombre %>
 </p>
 
+<!--todo: esto en el controlador pelotudo!-->
 <% @total=0 %>
 <% @costo=0 %>
   <table class="detalleOrden">
     <% @order.line_items.each do |item| %>
-    <tr>
-      <td><%= item.quantity %> x <%= link_to item.product.titulo, item.product %></td>
-      <td id="segundaCol"><%= number_to_currency(item.total_price) %></td>
+      <% if item.product_id %>
+        <tr>
+          <td><%= item.quantity %> x <%= link_to item.product.titulo, item.product %></td>
+          <td id="segundaCol"><%= number_to_currency(item.total_price) %></td>
           <% @costo += item.total_costo %>
           <% @total += item.total_price %>
-      <td></td>
-    </tr>    
+          <td></td>
+        </tr>
+      <% else %>
+        <tr>
+            <td><%= item.quantity %> x <%= link_to item.promotion.title, item.promotion %></td>
+            <td id="segundaCol"><%= number_to_currency(item.total_price) %></td>
+            <%# @costo += item.total_costo %>
+            <% @total += item.total_price %>
+            <td></td>
+          </tr>
+      <% end %>
     <%  end %>
     <tr id="total_orden">
       <td id="total"><b>Total:</b></td>

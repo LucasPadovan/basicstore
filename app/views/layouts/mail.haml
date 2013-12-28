@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    -#= csrf_meta_tag
+
+  %body
+    -#todo: hacer con imagen
+    %div{ style: 'height: 80px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25); margin-bottom: 10px;' }
+      %div{ style: 'height: 100%; background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #cc0000), color-stop(12.5%, #cc0000), color-stop(12.5%, #ff9900), color-stop(25%, #ff9900), color-stop(25%, #ffff66), color-stop(37.5%, #ffff66), color-stop(37.5%, #669933), color-stop(50%, #669933), color-stop(50%, #33cccc), color-stop(62.5%, #33cccc), color-stop(62.5%, #0099cc), color-stop(75%, #0099cc), color-stop(75%, #3333cc), color-stop(87.5%, #3333cc), color-stop(87.5%, #9966cc), color-stop(100%, #9966cc)); background-image: -webkit-linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc); background-image: -moz-linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc); background-image: -o-linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc); background-image: linear-gradient(left, #cc0000, #cc0000 12.5%, #ff9900 12.5%, #ff9900 25%, #ffff66 25%, #ffff66 37.5%, #669933 37.5%, #669933 50%, #33cccc 50%, #33cccc 62.5%, #0099cc 62.5%, #0099cc 75%, #3333cc 75%, #3333cc 87.5%, #9966cc 87.5%, #9966cc); -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset; -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;' }
+        -#%div{ style: 'padding: 30px 5px 5px 5px;' para pacificoregular}
+        %div{ style: 'padding: 5px 5px 5px 5px;' }
+          %div{ style: 'display: inline-block; font-size: 4em; font-family: pacificoregular;' }
+            = link_to APP_CONFIG['page_title'], promociones_path, data: { toggle: 'tooltip' }, title: 'Inicio', style: 'text-decoration: none; background-color: #565656; color: transparent; text-shadow: -2px 1px 0px rgba(255,255,255,0.95); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text;'
+    .container
+      = yield
+      .signature
+        %h3 Un Mundo De Ovejitas
+  %footer{ style: 'width: 100%; color: white; background-color: #666666; text-align: center;' }
+    footer

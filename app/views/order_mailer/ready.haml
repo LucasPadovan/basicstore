@@ -1,18 +1,11 @@
-!!!
-%html
-  %head
-    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-  %body
-    %h1= "Sr./Sra. #{@order.name}"
-
+%h1= "Sr./Sra. #{@order.name}"
+.row
+  .span6
     Su orden de:
     = render partial: 'order_mailer/order'
+  .span5
+    %p
+      El número de su pedido es:
+      %span{style: 'font-size: 1.5em; color: green;'}= @order.number
 
-    = "Total: #{number_to_currency(@order.total)}"
-
-
-    Ya esta preparada y lista para ser entregada. Nos comunicaremos a la brevedad para establecer hora y punto de encuentro.
-
-    Muchas gracias.
-
-    Un Mundo De Ovejitas.
+%p Ya esta preparada y lista para ser entregada. Nos comunicaremos a la brevedad para establecer hora y punto de encuentro.

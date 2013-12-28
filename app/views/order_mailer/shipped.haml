@@ -1,18 +1,13 @@
-!!!
-%html
-  %head
-    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-  %body
-    %h1= "Sr./Sra. #{@order.name}"
-    Gracias por su compra, su pedido ya esta listo y en camino.
-    
-    Usted ordenó:
+%h1= "Sr./Sra. #{@order.name}"
+Gracias por su compra, su pedido ya esta listo y en camino.
+
+.row
+  .span6
+    Su orden:
     = render partial: 'order_mailer/order'
+  .span5
+    %p
+      El número de su pedido es:
+      %span{style: 'font-size: 1.5em; color: green;'}= @order.number
 
-    = "Total: #{number_to_currency @order.total}"
-
-    = "Para futuras referncias, el número de su pedido es: #{@order.number}"
-
-    Muchas gracias.
-    
-    Un Mundo De Ovejitas.
+Un Mundo De Ovejitas.

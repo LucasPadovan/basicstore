@@ -1,16 +1,12 @@
-!!!
-%html
-  %head
-    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-  %body
-    %h1= "Sr./Sra. #{@order.name}"
-
+%h1= "Sr./Sra. #{@order.name}"
+.row
+  .span6
     Su orden de:
     = render partial: 'order_mailer/order'
+  .span5
+    %p
+      El número de su pedido es:
+      %span{style: 'font-size: 1.5em; color: green;'}= @order.number
 
-    Está actualmente demorada porque alguno de los artículos no dispone de stock.
-    Nos comunicaremos con usted en cuanto este disponible y lista para su entrega.
-
-    Muchas gracias.
-
-    Un Mundo De Ovejitas.
+%p Está actualmente demorada porque alguno de los artículos no dispone de stock.
+%p Nos comunicaremos con usted en cuanto este disponible y lista para su entrega.

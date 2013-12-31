@@ -300,3 +300,11 @@ es:
     delete: "Eliminar"
   messages:
     confirmation: "¿Está seguro que desea eliminar este registro?"
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: ","
+        delimiter: "."
+        precision: 2

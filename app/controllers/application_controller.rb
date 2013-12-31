@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
 
   private
     def current_cart
-      Cart.find(session[:cart_id])
+      Cart.find( session[:cart_id] )
     rescue ActiveRecord::RecordNotFound
       cart = Cart.create
-      session[:cart_id]=cart.id
+      session[:cart_id] = cart.id
       cart
     end
     
@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
         if I18n.available_locales.include?(params[:locale].to_sym)
           I18n.locale = params[:locale]
         else
+          I18n.locale = :es
           flash.now[:notice] =
             "#{params[:locale]} translation not available"
           logger.error flash.now[:notice]
@@ -33,7 +34,7 @@ class ApplicationController < ActionController::Base
   
     def authorize
       unless User.find_by_id(session[:user_id])
-        redirect_to login_url, :notice => "Please log in"
+        redirect_to login_url, notice: 'Por favor ingrese al sistema'
       end
     end
 

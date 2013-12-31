@@ -33,10 +33,10 @@ Tienda::Application.configure do
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
-      domain: 'storeOnline.com',
+      domain: 'unmundodeovejitas.com.ar',
       authentication: 'plain',
-      user_name: 'lucaslockon@gmail.com',
-      password: 'xfcctnzffbqspamr',
+      user_name: 'unmundodeovejitas@gmail.com',
+      password: 'gxlpmbhecujituva',
       enable_starttls_auto: true
   }
 

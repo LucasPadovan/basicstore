@@ -61,12 +61,12 @@ Tienda::Application.configure do
   config.action_mailer.default_url_options = { host: 'unmundodeovejitas.com.ar'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: "smtp.live.com",
+      address: 'smtp.gmail.com',
       port: 25,
-      domain: "unmundodeovejitas.com.ar",
-      authentication: "plain",
-      user_name: "onepieceanimestore@hotmail.com.ar",
-      password: "32562287",
+      domain: 'unmundodeovejitas.com.ar',
+      authentication: 'plain',
+      user_name: 'unmundodeovejitas@gmail.com',
+      password: 'gxlpmbhecujituva',
       enable_starttls_auto: true
   }
 end

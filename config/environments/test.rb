@@ -29,14 +29,15 @@ Tienda::Application.configure do
   # ActionMailer::Base.deliveries array.
 
   config.action_mailer.default_url_options = { host: 'localhost:3000'}
+  config.action_controller.asset_host = 'http://localhost:3000'
   config.action_mailer.delivery_method = :test
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
-      domain: 'storeOnline.com',
+      domain: 'unmundodeovejitas.com.ar',
       authentication: 'plain',
-      user_name: 'lucaslockon@gmail.com',
-      password: 'xfcctnzffbqspamr',
+      user_name: 'unmundodeovejitas@gmail.com',
+      password: 'gxlpmbhecujituva',
       enable_starttls_auto: true
   }
 

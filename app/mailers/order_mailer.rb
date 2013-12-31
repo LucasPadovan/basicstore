@@ -1,5 +1,5 @@
 class OrderMailer < ActionMailer::Base
-  default from: 'Lucas Padovan <lucaslockon@gmail.com>'
+  default from: 'Un Mundo De Ovejitas <unmundodeovejitas@gmail.com>'
   layout 'mail'
 
   #todo: definir cual de estos se queda

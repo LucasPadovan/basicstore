@@ -19,9 +19,4 @@ class StoreController < ApplicationController
     @promotions = Promotion.published
     @promotions_in_cart = @cart.line_items.map(&:promotion_id)
   end
-
-  protected
-  def set_current_cart
-    @cart = current_cart
-  end
 end

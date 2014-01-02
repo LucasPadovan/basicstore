@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  skip_before_filter :authorize, :only => :show
-  # GET /products
-  # GET /products.xml
+  before_filter :set_current_cart, only: :show
+  skip_before_filter :authorize, only: :show
+
   def index
     @products = Product.paginate :page=>params[:page],:per_page => 17
 
@@ -11,8 +11,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1
-  # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
     @precio_actual = @product.precioproductos.last
@@ -23,8 +21,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/new
-  # GET /products/new.xml
   def new
     @product = Product.new
     @precioproducto = @product.precioproductos.build
@@ -35,14 +31,11 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
     @precioproducto = @product.precioproductos.last
   end
 
-  # POST /products
-  # POST /products.xml
   def create
     @product = Product.new(params[:product])
     @precioproducto = @product.precioproductos.build(params[:precioproducto])
@@ -65,8 +58,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
 
@@ -81,8 +72,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.xml
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
@@ -101,7 +90,6 @@ class ProductsController < ApplicationController
     end      
   end
 
-  #GET /product/precionuevo
   def precionuevo
     @product = Product.find(params[:id])
     @precioproducto = @product.precioproductos.build
@@ -112,7 +100,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  #POST /product/guardarprecionuevo
   def guardarprecionuevo
     #validacion usuario
 

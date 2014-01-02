@@ -1,10 +1,63 @@
 .add-to-cart-fill {
+  margin-top: 15px;
   padding: 0.5em 0em;
-  width: 100%;
+  width: 95%;
 }
 
 //fix para cuando quiero usar los iconos como links sin usar un btn
 a [class^="icon-"] {
   display: inline-block;
   text-decoration: none;
+}
+
+// Stitched styled for boxes and buttons
+.stitched {
+    border: 1px dashed #fff;
+    border-radius: 5px;
+}
+
+.floating-cart a.stitched {
+  margin: 0 5px;
+}
+
+.btn-primary.stitched {
+  box-shadow: 0 0 0 4px #08c, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+.btn-primary.stitched:hover {
+  box-shadow: 0 0 0 4px #0055cc, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+
+.btn-warning.stitched {
+  box-shadow: 0 0 0 4px #fbb450, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+.btn-warning.stitched:hover {
+  box-shadow: 0 0 0 4px #f89406, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+
+.btn-danger.stitched {
+  box-shadow: 0 0 0 4px #ee5f5b, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+.btn-danger.stitched:hover {
+  box-shadow: 0 0 0 4px #bd362f, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+
+.btn-success.stitched {
+  box-shadow: 0 0 0 4px #62c462, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+.btn-success.stitched:hover {
+  box-shadow: 0 0 0 4px #51a351, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+
+.btn-info.stitched {
+  box-shadow: 0 0 0 4px #5bc0de, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+.btn-info.stitched:hover {
+  box-shadow: 0 0 0 4px #2f96b4, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+
+.btn-inverse.stitched {
+  box-shadow: 0 0 0 4px #444, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+.btn-inverse.stitched:hover {
+  box-shadow: 0 0 0 4px #222, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
 }

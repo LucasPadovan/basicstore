@@ -14,5 +14,5 @@
                             replace: @promotions_in_cart.include?(promotion.id) ? true : false,
                             respond_as: @promotions_in_cart.include?(promotion.id) ? :put : :post,
                             callback: "updateCart(#{promotion.id.to_s}, 'promotion')" },
-      method: :post, class: 'btn btn-warning add-to-cart-fill', id: "add_#{dom_id(promotion)}"
+      method: :post, class: 'btn btn-warning add-to-cart-fill stitched', id: "add_#{dom_id(promotion)}"
   .clearfix

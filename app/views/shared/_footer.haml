@@ -1,8 +1,10 @@
 %footer.footer
   .row-fluid
-    .span6
-      %ul
-        %li= link_to t('.faq'), preguntas_path
-    .span6
-      %ul
-        %li= link_to t('.contact'), contacto_path
+    .span3
+      = link_to t('.news'), preguntas_path
+    .span3
+      = link_to t('.faq'), preguntas_path
+    .span3
+      = link_to t('.contact'), contacto_path
+    .span3
+      = link_to t('.about_us'), contacto_path

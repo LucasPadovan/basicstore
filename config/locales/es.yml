@@ -3,7 +3,7 @@ es:
     models:
       cart:         "Carrito"
       mediopago:    "Medio de pago"
-      order:        "Pedido"
+      order:        "Orden"
       product:      "Producto"
       product_type: "Tipo de producto"
       user:         "Usuario"
@@ -58,8 +58,9 @@ es:
       products: "Productos"
     footer:
       news:     "Noticias"
-      faq:      "Preguntas"
+      faq:      "Preguntas frequentes"
       contact:  "Contacto"
+      about_us:  "Conozcanos"
     admin_menu:
       orders:   "Órdenes"
       catalog:  "Catálogo"
@@ -164,7 +165,7 @@ es:
       paytype:    "Medio de Pago"
       prompt:     "Seleccione su medio de pago"
       submit:     "Enviar orden"
-      submiting: "Generando pedido"
+      submiting: "Generando orden..."
     edit:
       title:  "Editando la orden"
       show:   "Ver"

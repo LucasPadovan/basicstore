@@ -1,0 +1,47 @@
+.container-full.product-show
+  %h1.align-center= @product.titulo
+  .row
+    .span6
+      .pull-right
+        = image_tag(@product.image_url, class: 'imagen')
+    .span6
+      %p
+        = @product.descripcion
+      - if @product.product_types.any?
+        %p
+          - @product.product_types.each do |pt|
+            %span.badge= pt.name
+      %hr
+      .price= number_to_currency(@product.actual_public_price)
+      .clearfix
+      - if session[:user_id]
+        %p
+          %b= t('.imgurl')
+          = @product.image_url
+        %p
+          %b Cantidad:
+          = @product.cantidad
+        %p
+          %b Costo:
+          = @product.actual_cost
+      - else
+        .span3
+          = link_to t('store.index.addToCart'), line_items_path(product_id: @product),
+              remote: true, data: { target: (@products_in_cart.include?(@product.id) ? "line_#{dom_id(@product)}" :'line_items_table_body'),
+                                    replace: @products_in_cart.include?(@product.id) ? true : false,
+                                    respond_as: @products_in_cart.include?(@product.id) ? :put : :post,
+                                    callback: "updateCart(#{@product.id.to_s}, 'product')" },
+              method: :post, class: 'btn btn-warning add-to-cart-fill stitched', id: "add_#{dom_id(@product)}"
+        .clearfix
+        %br
+        .span3
+          = link_to t('.backstore'), :back, class: 'btn btn-inverse stitched'
+      - if session[:user_id]
+        = link_to 'Nuevo precio', precionuevo_path(@product)
+        |
+        \#{link_to t('.edit'), edit_product_path(@product)} |
+        \#{link_to 'Histórico de precios', precioproductos_path(:product => @product)}
+  .row
+    %hr
+    %h2 Quizá te interese alguna de estas promociones
+    = render partial: 'promotions/promotion', collection: @related_promotions

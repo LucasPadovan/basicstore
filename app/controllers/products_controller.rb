@@ -13,7 +13,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @precio_actual = @product.precioproductos.last
+    @related_promotions = Promotion.includes(:promotion_lines).where('promotion_lines.product_id = ?', @product.id)
+
+    @products_in_cart = @cart.line_items.map(&:product_id)
+    @promotions_in_cart = @cart.line_items.map(&:promotion_id)
 
     respond_to do |format|
       format.html # show.html.erb

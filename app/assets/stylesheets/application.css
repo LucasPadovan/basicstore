@@ -9,6 +9,7 @@
  *= require ./products
  *= require ./fonts
  *= require ./promotions
+ *= require ./util
  *= require ./customization/buttons
  *= require ./customization/grid
  *= require ./customization/datepicker

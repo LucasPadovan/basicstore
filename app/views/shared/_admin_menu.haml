@@ -1,9 +1,10 @@
-%ul.main-nav
-  %li= link_to t('.promotions'), promotions_path, class: current_section([promotions_path])
-  %li= link_to t('.orders'), orders_path, class: current_section([orders_path])
-  -#- Estadorden::ESTADOS.each do |estado|
-  -#  %li= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
-  %li= link_to t('.catalog'), products_path, class: current_section([products_path])
-  %li= link_to 'Tipos de productos', product_types_path, class: current_section([product_types_path])
-  %li= link_to t('.paytypes'), mediopagos_path, class: current_section([mediopagos_path])
-  %li= link_to t('.users'), users_path, class: current_section([users_path])
+.colorFullMenu.left
+  %ul.unstyled
+    %li.header.border.red= link_to t('.promotions'), promotions_path, class: current_section([promotions_path])
+    %li.header.border.orange= link_to t('.orders'), orders_path, class: current_section([orders_path])
+    -#- Estadorden::ESTADOS.each do |estado|
+    -#  %li.header.border.lightBlue= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
+    %li.header.border.yellow= link_to t('.catalog'), products_path, class: current_section([products_path])
+    %li.header.border.green= link_to 'Tipos de productos', product_types_path, class: current_section([product_types_path])
+    %li.header.border.lightBlue= link_to t('.paytypes'), mediopagos_path, class: current_section([mediopagos_path])
+    %li.header.border.blue= link_to t('.users'), users_path, class: current_section([users_path])

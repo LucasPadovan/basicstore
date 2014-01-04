@@ -1,7 +1,7 @@
 .colorFullMenu.left
   %ul.unstyled
-    %li.header.border.lightBlue= link_to t('.offers'), promociones_path, class: current_section( ['/', promociones_path] )
-    %li.header.border.lightBlue= link_to t('.products'), store_index_path, class: current_section( product_urls )
+    %li.header.border.red= link_to t('.offers'), promociones_path, class: current_section( ['/', promociones_path] )
+    %li.header.border.orange= link_to t('.products'), store_index_path, class: current_section( product_urls )
     %li.sublist
       = render partial: 'store/store_submenu'
-    %li.header.border.lightBlue= link_to t('.cart'), @cart, class: current_section( cart_urls )
+    %li.header.border.yellow= link_to t('.cart'), @cart, class: current_section( cart_urls )

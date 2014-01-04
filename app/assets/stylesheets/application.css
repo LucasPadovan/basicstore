@@ -1,6 +1,7 @@
 /*
  *= require_self
  *= require SrBuj
+ *= require bootstrap
  *= require bootstrap_and_overrides
  *= require ./body
  *= require ./cart

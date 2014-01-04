@@ -73,8 +73,6 @@ GEM
     less-rails (2.4.2)
       actionpack (>= 3.1)
       less (~> 2.4.0)
-    less-rails-bootstrap (3.0.6)
-      less-rails (~> 2.4.2)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -144,11 +142,6 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.8.2)
       ansi (>= 1.2.2)
-    twitter-bootstrap-rails (2.2.8)
-      actionpack (>= 3.1)
-      execjs
-      rails (>= 3.1)
-      railties (>= 3.1)
     tzinfo (0.3.38)
     uglifier (2.3.3)
       execjs (>= 0.3.0)
@@ -175,7 +168,6 @@ DEPENDENCIES
   jquery-ui-rails
   less
   less-rails
-  less-rails-bootstrap
   mail_view (~> 1.0.3)
   pg
   pry
@@ -185,7 +177,6 @@ DEPENDENCIES
   simple_form
   therubyracer
   turn (= 0.8.2)
-  twitter-bootstrap-rails
   uglifier
   unicorn
   will_paginate

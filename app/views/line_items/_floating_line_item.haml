@@ -5,9 +5,11 @@
     %td
       $
       %span{ data: { type: 'price' } }= floating_line_item.total_price
+    %td= link_to_destroy line_item_path(floating_line_item), confirm: t('line_items.index.confirm'), class: 'red'
 - else
   %tr{id: "line_#{dom_id(floating_line_item.promotion)}"}
     %td= "#{floating_line_item.quantity} x #{floating_line_item.promotion}"
     %td
       $
       %span{ data: { type: 'price' } }= floating_line_item.total_price
+    %td= link_to_destroy line_item_path(floating_line_item), confirm: t('line_items.index.confirm'), class: 'red'

@@ -1,3 +1,20 @@
 .align-center {
   text-align: center;
 }
+
+.margin-5 {
+  margin: 0 5px;
+}
+
+// Colorizing
+.white {
+  color: white;
+}
+
+.red {
+  color: #b3001d;
+}
+
+.red:hover {
+  color: #6e000d;
+}

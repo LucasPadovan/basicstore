@@ -1,4 +1,5 @@
 /config/app_config.yml
+/config/app_config_backup.yml
 /.bundle
 /db/*.sqlite3
 /log/*.log

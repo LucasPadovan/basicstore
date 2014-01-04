@@ -1,3 +1,3 @@
-%ul.store-nav
-  - @product_types.each do |type|
-    %li= link_to type, store_index_path( product_type: type.name ), class: current_subsection( store_urls(type) )
+%ul.unstyled
+  - @product_types.each_with_index do |type, i|
+    %li.border{ class: ['blue', 'red', 'orange', 'yellow', 'green', 'light_blue'][i] }= link_to type, store_index_path( product_type: type.name ), class: current_subsection( store_urls(type) )

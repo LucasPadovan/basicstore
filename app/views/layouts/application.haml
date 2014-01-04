@@ -16,12 +16,14 @@
     .container.container-full
       .content
         .row-fluid
-          .span12
+          .span2
             - if session[:user_id]
               = render partial: 'shared/admin_menu', params: params
             - else
               = render partial: 'shared/store_menu', params: params
-            = yield
+          .span10
+            .margin-left--30
+              = yield
     = render 'shared/footer'
     #modal
   = javascript_include_tag 'application'

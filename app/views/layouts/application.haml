@@ -29,7 +29,8 @@
   = javascript_include_tag 'application'
 
 :javascript
-  $('[data-action="toggle-cart"').on('click', function(){
-    toggleFloatingCart()
-  })
-
+  $(document).ready(function(){
+     $('[data-action="toggle-cart"').on('click', function(){
+       toggleFloatingCart()
+     })
+  });

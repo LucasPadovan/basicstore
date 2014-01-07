@@ -1,3 +1,12 @@
+$darkred: #cc0000;
+$orange: #ff9900;
+$yellow: #ffff66;
+$green: #669933;
+$lightblue: #33cccc;
+$cyan: #0099cc;
+$blue: #3333cc;
+$violet: #9966cc;
+
 .colorFullMenu{
   margin-top: 10px;
   margin-left: -10px;
@@ -87,7 +96,6 @@
   border-radius:4px 0px 0px 0px;
 }
 
-
 /*Bordes*/
 
 .colorFullMenu.left .border{
@@ -99,26 +107,12 @@
   border-right-style: solid;
 }
 
-/*Azul*/
-.colorFullMenu.left .border.blue{
-  border-left-color: #4095CC;
-}
-.colorFullMenu.right .border.blue{
-  border-right-color: #4095CC;
-}
-.colorFullMenu .border.blue a:hover,
-.colorFullMenu.left .border.blue a.current-section,
-.colorFullMenu.left .border.blue a.current-subsection {
-  color:#fff;
-  background-color: rgba(64, 149, 204, 0.5);
-}
-
 /*Rojo*/
 .colorFullMenu.left .border.red{
-  border-left-color: #BD0012;
+  border-left-color: $darkred;
 }
 .colorFullMenu.right .border.red{
-  border-right-color: #BD0012;
+  border-right-color: $darkred;
 }
 .colorFullMenu .border.red a:hover,
 .colorFullMenu.left .border.red a.current-section,
@@ -129,10 +123,10 @@
 
 /*Naranja*/
 .colorFullMenu.left .border.orange{
-  border-left-color: #F39A00;
+  border-left-color: $orange;
 }
 .colorFullMenu.right .border.orange{
-  border-right-color: #F39A00;
+  border-right-color: $orange;
 }
 .colorFullMenu .border.orange a:hover,
 .colorFullMenu.left .border.orange a.current-section,
@@ -143,10 +137,10 @@
 
 /*Amarillo*/
 .colorFullMenu.left .border.yellow{
-  border-left-color: #FFCE42;
+  border-left-color: $yellow;
 }
 .colorFullMenu.right .border.yellow{
-  border-right-color: #FFCE42;
+  border-right-color: $yellow;
 }
 .colorFullMenu .border.yellow a:hover,
 .colorFullMenu.left .border.yellow a.current-section,
@@ -157,10 +151,10 @@
 
 /*Verde*/
 .colorFullMenu.left .border.green{
-  border-left-color: #6E9A2E;
+  border-left-color: $green;
 }
 .colorFullMenu.right .border.green{
-  border-right-color: #6E9A2E;
+  border-right-color: $green;
 }
 .colorFullMenu .border.green a:hover,
 .colorFullMenu.left .border.green a.current-section,
@@ -171,14 +165,56 @@
 
 /*Celeste*/
 .colorFullMenu.left .border.lightBlue{
-  border-left-color: #60CBCA;
+  border-left-color: $lightblue;
 }
 .colorFullMenu.right .border.lightBlue{
-  border-right-color: #60CBCA;
+  border-right-color: $lightblue;
 }
 .colorFullMenu .border.lightBlue a:hover,
 .colorFullMenu.left .border.lightBlue a.current-section,
 .colorFullMenu.left .border.lightBlue a.current-subsection {
   color:#fff;
   background-color: rgba(96, 203, 202, 0.5);
+}
+
+/*Cyan*/
+.colorFullMenu.left .border.cyan{
+  border-left-color: $cyan;
+}
+.colorFullMenu.right .border.cyan{
+  border-right-color: $cyan;
+}
+.colorFullMenu .border.cyan a:hover,
+.colorFullMenu.left .border.cyan a.current-section,
+.colorFullMenu.left .border.cyan a.current-subsection {
+  color:#fff;
+  background-color: rgba(3, 107, 204, 0.5);
+}
+
+/*Azul*/
+.colorFullMenu.left .border.blue{
+  border-left-color: $blue;
+}
+.colorFullMenu.right .border.blue{
+  border-right-color: $blue;
+}
+.colorFullMenu .border.blue a:hover,
+.colorFullMenu.left .border.blue a.current-section,
+.colorFullMenu.left .border.blue a.current-subsection {
+  color:#fff;
+  background-color: rgba(64, 149, 204, 0.5);
+}
+
+/*Violeta*/
+.colorFullMenu.left .border.violet{
+  border-left-color: $violet;
+}
+.colorFullMenu.right .border.violet{
+  border-right-color: $violet;
+}
+.colorFullMenu .border.violet a:hover,
+.colorFullMenu.left .border.violet a.current-section,
+.colorFullMenu.left .border.violet a.current-subsection {
+  color:#fff;
+  background-color: rgba(134, 50, 204, 0.5);
 }

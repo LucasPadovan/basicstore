@@ -18,7 +18,7 @@
     <div class="span6">
       <h2 class="pull-right">
         <%= t('.total') %>
-        <%= number_to_currency(cart.total_price) %>
+        <span class="cart-total"><%= number_to_currency(cart.total_price) %></span>
       </h2>
     </div>
     <div class="span3">

@@ -1,6 +1,6 @@
 .product
   .product-image-container
-    = link_to image_tag(product.image_url, class: 'product-image'), product
+    = link_to image_tag(product.image_url, class: 'product-image'), product, data: { show_tooltip: true }, title: 'Ver detalle del producto'
   %h3.product-title= product.titulo
   .product-description
     .description= sanitize(product.descripcion)

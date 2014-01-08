@@ -1,0 +1,6 @@
+- @posts.each do |post|
+  %h2
+    = post.title
+    %small= "#{l post.created_at}hs."
+  %p= post.body
+  %hr

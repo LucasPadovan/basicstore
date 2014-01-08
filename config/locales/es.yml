@@ -68,6 +68,7 @@ es:
       paytypes: "Medios de Pago"
       promotions: "Promociones"
       exit:     "Salir"
+      news: "Novedades"
 
   admin:
     index:

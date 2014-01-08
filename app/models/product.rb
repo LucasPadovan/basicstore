@@ -8,11 +8,11 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  validates :titulo, :descripcion, :image_url, :presence => true
-  validates :titulo, :uniqueness => true
-  validates :image_url, :format =>{
-    :with => %r{\.(gif|png|jpg)$}i,
-    :message => 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
+  validates :titulo, :descripcion, :image_url, presence: true
+  validates :titulo, uniqueness: true
+  validates :image_url, format: {
+    with: %r{\.(gif|png|jpg)$}i,
+    message: 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
   }
 
   attr_accessible :titulo, :descripcion, :image_url, :cantidad

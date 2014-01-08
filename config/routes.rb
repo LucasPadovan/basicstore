@@ -1,4 +1,10 @@
 Tienda::Application.routes.draw do
+  resources :posts
+
+
+  resources :information
+
+
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end
@@ -22,6 +28,8 @@ Tienda::Application.routes.draw do
   get 'admin' => 'admin#index'
   get 'contacto' => 'store#contacto'
   get 'preguntas' => 'store#faq'
+  get 'novedades' => 'store#news'
+
   get 'nuevoEstado' => 'estadordens#nuevo'
 
   controller :session do

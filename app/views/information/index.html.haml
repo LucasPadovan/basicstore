@@ -1,0 +1,25 @@
+%h1 Listing information
+
+%table
+  %tr
+    %th Title
+    %th Body
+    %th Active
+    %th User
+    %th
+    %th
+    %th
+
+  - @information.each do |information|
+    %tr
+      %td= information.title
+      %td= information.body
+      %td= information.active
+      %td= information.user_id
+      %td= link_to 'Show', information
+      %td= link_to 'Edit', edit_information_path(information)
+      %td= link_to 'Destroy', information, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Information', new_information_path

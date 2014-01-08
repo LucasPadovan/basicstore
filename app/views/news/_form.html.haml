@@ -1,0 +1,11 @@
+= simple_form_for(@news) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :body
+    = f.input :user_id
+    = f.input :active
+
+  .form-actions
+    = f.button :submit

@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   after_destroy :ensure_an_admin_remains
 
   has_many :estadordens
-  
+  has_many :posts
+
   def User.authenticate(name, password)
     if user = find_by_name(name)
       if user.hashed_password == encrypt_password(password, user.salt)

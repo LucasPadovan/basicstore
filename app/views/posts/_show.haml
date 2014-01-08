@@ -1,0 +1,13 @@
+.modal
+  .modal-title
+    %h2= @post.title
+  .modal-body
+    %p= @post.body
+    %p
+      %b Activo?:
+      = @post.active
+    %p
+      %b Usuario:
+      = @post.user.name
+  .modal-footer
+    = link_to_function 'Cerrar', "$('#modal').modal('toggle');", class: 'btn'

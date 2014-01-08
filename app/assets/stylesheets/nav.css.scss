@@ -7,6 +7,31 @@ $cyan: #0099cc;
 $blue: #3333cc;
 $violet: #9966cc;
 
+hr.red {
+ border-color: $darkred;
+}
+hr.orange {
+  border-color: $orange;
+}
+hr.yellow {
+  border-color: $yellow;
+}
+hr.green {
+  border-color: $green;
+}
+hr.lightBlue {
+  border-color: $lightblue;
+}
+hr.cyan {
+  border-color: $cyan;
+}
+hr.blue {
+  border-color: $blue;
+}
+hr.violet {
+  border-color: $violet;
+}
+
 .colorFullMenu{
   margin-top: 10px;
   margin-left: -10px;

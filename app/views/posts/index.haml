@@ -1,0 +1,17 @@
+%h1= @title
+
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Titulo
+      %th Cuerpo
+      %th Activa?
+      %th Usuario
+      %th
+      %th
+      %th
+  %tbody#posts_body
+    = render @posts
+%br
+
+= link_to 'Agregar novedad', new_post_path, class: 'btn btn-primary', remote: true, data: { target: 'modal', modal: true }

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @title = 'Listado de novedades'
     @posts = Post.all
 
     respond_to do |format|
@@ -14,11 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
+    render partial: 'show', content_type: 'text/html'
   end
 
   # GET /posts/new
@@ -26,15 +23,14 @@ class PostsController < ApplicationController
   def new
     @post = current_user.posts.build
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
-    end
+    render partial: 'new', content_type: 'text/html'
   end
 
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+
+    render partial: 'edit', content_type: 'text/html'
   end
 
   # POST /posts
@@ -42,14 +38,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(params[:post])
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      render partial: 'post', content_type: 'text/html', locals: { post: @post }
+    else
+      render partial: 'new', status: :unprocessable_entity
     end
   end
 
@@ -57,15 +49,10 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update_attributes(params[:post])
+      render partial: 'post', content_type: 'text/html', locals: { post: @post }
+    else
+      render partial: 'edit', status: :unprocessable_entity
     end
   end
 
@@ -75,9 +62,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
-    end
+    render nothing: true, content_type: 'text/html'
   end
 end

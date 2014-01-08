@@ -1,0 +1,9 @@
+.modal
+  = simple_form_for @post, html: { remote: true, data: { target: 'posts_body', modal: true, error: 'modal' } } do |f|
+    .modal-header
+      %h1 Nueva novedad
+    .modal-body
+      = render partial: 'form', locals: { f: f }
+    .modal-footer
+      = yield :form_actions
+      = f.submit t('orders.form.submit'), class: 'btn btn-primary', disable_with: t('orders.form.submiting')

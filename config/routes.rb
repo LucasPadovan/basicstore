@@ -29,6 +29,7 @@ Tienda::Application.routes.draw do
   get 'contacto' => 'store#contacto'
   get 'preguntas' => 'store#faq'
   get 'novedades' => 'store#news'
+  get 'conozcanos' => 'store#about_us'
 
   get 'nuevoEstado' => 'estadordens#nuevo'
 

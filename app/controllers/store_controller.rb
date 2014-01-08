@@ -21,6 +21,15 @@ class StoreController < ApplicationController
   end
 
   def news
+    @title = 'Noticias'
     @posts = Post.all_active
+  end
+
+  def about_us
+    @title = 'Conozcanos'
+  end
+
+  def faq
+    @title = 'Preguntas frecuentes'
   end
 end

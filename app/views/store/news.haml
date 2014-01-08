@@ -1,6 +1,7 @@
-- @posts.each do |post|
-  %h2
+%h1= @title
+- @posts.each_with_index do |post, index|
+  %h3
     = post.title
     %small= "#{l post.created_at}hs."
   %p= post.body
-  %hr
+  %hr{ class: RAINBOW_COLORS[index] }

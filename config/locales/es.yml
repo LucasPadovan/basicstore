@@ -27,6 +27,7 @@ es:
         descripcion:  "Descripcion"
         image_url:    "Url de la imagen"
         precio:       "Precio"
+        type_tokens:  "Tipos de producto"
       promotion:
         title: "Título"
         start_date: "Fecha inicio"
@@ -206,10 +207,11 @@ es:
       desc:       "Descripcion"
       imgurl:     "Url de la imagen"
       price:      "Precio"
-      submit:     "Crear producto"
+      submit:     "Guardar producto"
       productType: "Tipo de producto"
       promptTP:   "Seleccione el tipo de producto"
       cant:       "Cantidad"
+      submiting: "Guardando producto..."
     edit: 
       title:      "Editando el producto"
       show:       "Ver"

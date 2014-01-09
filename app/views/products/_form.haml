@@ -1,0 +1,14 @@
+= simple_form_for(@product) do |f|
+  = f.error_notification
+
+  = f.input :titulo
+  = f.input :descripcion, input_html: { rows: 4, cols: 40 }
+  = f.input :image_url, class: "caja_image_url"
+
+  - if params[:action] == 'new'
+    = simple_fields_for @precioproducto do |cf|
+      = cf.input :costo
+      = cf.input :preciopublico
+  = f.input :type_tokens, data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto'
+  = f.input :cantidad
+  = f.button :submit, t('.submit'), class: 'btn btn-primary', disable_with: t('products.form.submiting')

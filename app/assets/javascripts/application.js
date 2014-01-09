@@ -15,6 +15,7 @@ $(document).ready(function(){
 
     tooltipsOn();
     datepickerOn();
+    tokeninputOn();
 });
 
 

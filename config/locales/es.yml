@@ -4,6 +4,7 @@ es:
       cart:         "Carrito"
       mediopago:    "Medio de pago"
       order:        "Orden"
+      post:         "Novedad"
       product:      "Producto"
       product_type: "Tipo de producto"
       user:         "Usuario"
@@ -13,6 +14,10 @@ es:
         name:       "Nombre"
         email:      "E-mail"
         mediopago:  "Medio de pago"
+      post:
+        active: "Activo"
+        body:   "Texto"
+        title:  "Titulo"
       product_type:
         name:         "Nombre"
         description:  "Descripción"
@@ -310,3 +315,7 @@ es:
         separator: ","
         delimiter: "."
         precision: 2
+  posts:
+    form:
+      submit: "Guardar novedad"
+      submiting: "Guardando novedad..."

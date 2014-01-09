@@ -15,7 +15,12 @@ class Product < ActiveRecord::Base
     message: 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
   }
 
-  attr_accessible :titulo, :descripcion, :image_url, :cantidad
+  attr_accessible :titulo, :descripcion, :image_url, :cantidad, :type_tokens
+  attr_reader :type_tokens
+
+  def type_tokens=(ids)
+    self.product_type_ids = ids.split(",")
+  end
 
   def self.last_products
     Product.last(5).reverse

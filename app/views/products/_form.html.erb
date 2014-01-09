@@ -39,8 +39,8 @@
   <% end %>
 
   <div class="field">
-      <%= f.label :product_types, t('.productType') %><br />
-      <%= f.text_field :product_types, value: '', placeholder: 'Ingrese los tipos de producto' %>
+    <%= f.label :type_tokens, t('.productType') %><br />
+    <%= f.text_field :type_tokens, data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto' %>
   </div>
   <div class="field">
     <%= f.label :cantidad, t('.cant') %> <br />

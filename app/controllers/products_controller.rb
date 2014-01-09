@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   skip_before_filter :authorize, only: :show
 
   def index
-    @products = Product.paginate :page=>params[:page],:per_page => 17
+    @products = Product.paginate page: params[:page], per_page: 10
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,15 +42,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     @precioproducto = @product.precioproductos.build(params[:precioproducto])
-    product_types = params[:product][:product_types].split(' ')
 
     respond_to do |format|
       if @product.save
         format.html {
-          product_types.each do |pt|
-            product_type = ProductType.where(name: pt).first
-            @product.habtm_products.build(product_type_id: product_type.id).save if product_type
-          end
           redirect_to(@product, :notice => 'Product was successfully created.')
         }
         format.xml  { render :xml => @product, :status => :created, :location => @product }

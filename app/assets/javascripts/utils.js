@@ -6,3 +6,11 @@ var tooltipsOn = function() {
 var datepickerOn = function() {
     $('.datepicker').datepicker();
 };
+
+var tokeninputOn = function() {
+    $("#product_type_tokens").tokenInput("/product_types.json", {
+        crossDomain: false,
+        prePopulate: $("#product_type_tokens").data("pre"),
+        theme: "facebook"
+    });
+}

@@ -2,11 +2,11 @@ class ProductTypesController < ApplicationController
   # GET /product_types
   # GET /product_types.json
   def index
-    @product_types = ProductType.all
-
+    q = "%#{params[:q]}%"
+    @product_types = ProductType.where('lower(name) LIKE :query', query: q)
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @product_types }
+      format.html
+      format.json { render json: @product_types.map(&:attributes) }
     end
   end
 

@@ -9,6 +9,6 @@
     = simple_fields_for @precioproducto do |cf|
       = cf.input :costo
       = cf.input :preciopublico
-  = f.input :type_tokens, data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto'
+  = f.input :type_tokens, input_html: { data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto' }
   = f.input :cantidad
   = f.button :submit, t('.submit'), class: 'btn btn-primary', disable_with: t('products.form.submiting')

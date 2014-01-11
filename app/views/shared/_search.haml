@@ -1,0 +1,4 @@
+.search
+  = form_tag store_index_path , method: :get, html: { class: 'form-search' } do |f|
+    = text_field_tag :search, params[:search], placeholder: 'Coloque el nombre del producto a buscar', class: 'search-query'
+    = submit_tag 'Buscar', name: nil, class: 'btn btn-small btn-inverse stitched', disable_with: 'Buscando...'

@@ -1,5 +1,5 @@
 .modal
-  = simple_form_for @order, html: { remote: true, data: { target: 'modal', modal: true, error: 'modal' } } do |f|
+  = simple_form_for @order, html: { remote: true, data: { target: 'modal', modal: true, error: 'modal' }, class: 'form-horizontal' } do |f|
     .modal-header
       %h1= t('.title')
     .modal-body

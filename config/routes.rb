@@ -1,13 +1,9 @@
 Tienda::Application.routes.draw do
-  resources :posts
-
-
-  resources :information
-
-
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end
+
+  resources :posts
 
   resources :estadordens
 

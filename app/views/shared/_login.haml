@@ -1,5 +1,6 @@
-.pull-right
-  - if session[:user_id]
-    = link_to t('.exit'), logout_path, method: :delete, class: 'btn', style: 'color: black;'
-  - else
-    = link_to 'Login', login_path, class: 'btn'
+.login
+  .login-buttons
+    - if session[:user_id]
+      = link_to t('.exit'), logout_path, method: :delete, class: 'btn btn-danger btn-small stitched'
+    - else
+      = link_to t('.login'), login_path, class: 'btn btn-info btn-small stitched'

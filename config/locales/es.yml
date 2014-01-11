@@ -73,8 +73,10 @@ es:
       users:    "Usuarios"
       paytypes: "Medios de Pago"
       promotions: "Promociones"
-      exit:     "Salir"
       news: "Novedades"
+    login:
+      login:    "Ingresar"
+      exit:     "Salir"
 
   admin:
     index:
@@ -170,7 +172,7 @@ es:
       name:       "Nombre"
       address:    "Dirección"
       paytype:    "Medio de Pago"
-      prompt:     "Seleccione su medio de pago"
+      prompt:     "Medio de pago"
       submit:     "Enviar orden"
       submiting: "Generando orden..."
     edit:
@@ -209,7 +211,7 @@ es:
       price:      "Precio"
       submit:     "Guardar producto"
       productType: "Tipo de producto"
-      promptTP:   "Seleccione el tipo de producto"
+      promptTP:   "Tipo de producto"
       cant:       "Cantidad"
       submiting: "Guardando producto..."
     edit: 

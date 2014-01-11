@@ -10,6 +10,7 @@
         .banner-content
           = render partial: 'shared/locale_selector'
           = render partial: 'shared/login'
+          = render partial: 'shared/search'
           .title
             = link_to APP_CONFIG['page_title'], promociones_path, data: { toggle: 'tooltip' }, title: 'Inicio'
     #floating_cart= render partial: 'carts/floating_cart', locals: { cart: @cart}

@@ -8,8 +8,16 @@ class StoreController < ApplicationController
   
   def index
     product_type = params[:product_type] || 'Novedades'
+    if params[:search]
+      product_type = "Productos que responden a <#{params[:search]}>"
+      search = "%#{params[:search].downcase}%"
+      @products = Product.where('lower(titulo) LIKE :title OR lower(descripcion) LIKE :description', title: search, description: search)
+    else
+      @products = ProductType.where(name: product_type).first.products
+    end
+
     @title = product_type
-    @products = Product.includes(:product_types).where('product_types.name = ?' , product_type)
+
     @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
 
     @products_in_cart = @cart.line_items.map(&:product_id)

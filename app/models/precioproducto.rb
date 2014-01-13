@@ -2,10 +2,9 @@ class Precioproducto < ActiveRecord::Base
 
   belongs_to :product
 
-  validates :preciopublico, numericality: { greater_than_or_equal_to: 0.01 }
-  validates :costo, numericality: { greater_than_or_equal_to: 0.01 }
+  attr_accessible :preciopublico, :costo
 
-  validates_presence_of :costo
-  validates_presence_of :preciopublico
+  validates :preciopublico, :costo, numericality: { greater_than_or_equal_to: 0.01 }
+  validates :costo, :preciopublico, presence: true
 
 end

@@ -26,8 +26,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @precioproducto = @product.precioproductos.build
-
+    @prices = @product.precioproductos.build
     respond_to do |format|
       format.html # new.html.erb
       #format.xml  { render :xml => @product }
@@ -36,17 +35,15 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @precioproducto = @product.precioproductos.last
   end
 
   def create
     @product = Product.new(params[:product])
-    @precioproducto = @product.precioproductos.build(params[:precioproducto])
 
     respond_to do |format|
       if @product.save
         format.html {
-          redirect_to(@product, :notice => 'Product was successfully created.')
+          redirect_to( products_path, notice: 'Product was successfully created.')
         }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
@@ -61,7 +58,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
+        format.html { redirect_to( products_path, notice: 'Product was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,10 +69,13 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
+    unless @product.destroy
+      #todo: agregar los mensajes de error aca, los generados por los before filter del product
+      notice = 'No se puede borrar por alguna razon'
+    end
 
     respond_to do |format|
-      format.html { redirect_to(products_url) }
+      format.html { redirect_to products_url, notice: notice }
       format.xml  { head :ok }
     end
   end

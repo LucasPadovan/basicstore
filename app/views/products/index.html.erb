@@ -1,5 +1,7 @@
 <h1><%= t('.title') %></h1>
-
+<% if flash[:notice] %>
+  <p><%=h flash[:notice] %></p>
+<% end -%>
 <table class="table table-bordered table-striped">
 
 <% @products.each do |product| %>
@@ -11,7 +13,11 @@
       <dl>
         <h3><%=  product.titulo %></h3>
         <dd><%= truncate(strip_tags(product.descripcion), :length => 80) %></dd>
-        <dd><b>Tipo de Producto:</b> <%#= product.product_type.nombre if product.product_type %></dd>
+        <dd>
+          <% product.product_types.each do |type| %>
+            <label class="label"><%= type.name %></label>
+          <% end %>
+        </dd>
         <dd><b>Costo actual:</b> $<%= product.precioproductos.last.costo %></dd>
         <dd><b>Precio al público actual:</b> $<%= product.actual_public_price %></dd>
       </dl>

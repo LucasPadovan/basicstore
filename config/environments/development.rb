@@ -25,8 +25,9 @@ Tienda::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
-  # Expands the lines which load the assets
-  config.assets.debug = true
+  # Silence assets loggin partialy
+  config.assets.logger = false
+  config.assets.debug = false
 
   #email_config under load_config
 end

@@ -1,0 +1,63 @@
+%h1 Pedido número -:#{ @order.number }:-
+- unless session[:user_id]
+  .alert.alert-success
+    %h4 Su pedido ha sido realizado con éxito. ¡Muchas gracias!
+    %p En breve recibirá un correo con esta información.
+.span3
+  %p
+    %b= t('.name')
+    = @order.name
+  %p
+    %b= t('.address')
+    = @order.address
+  %p
+    %b= t('.email')
+    = @order.email
+  %p
+    %b= t('.paytype')
+    = @order.mediopago.nombre
+  %p
+    %b Estado:
+    = @order.estadordens.last.estado
+    - if @order.estadordens.last.user
+      por #{@order.estadordens.last.user.name }
+.span6
+  %table.table.table-striped
+    %thead
+      %tr
+        %th.pull-right Cantidad
+        %th Producto
+        %th Subtotal
+    %tbody
+      = render @order.line_items
+      %tr
+        %td
+        %td.pull-right
+          %b Total:
+        %td.cart-total= number_to_currency(@order.total)
+      - if session[:user_id]
+        %tr
+          %td
+          %td.pull-rightl
+            %b Costo:
+          %td= number_to_currency @order.cost
+.span2
+  -#todo: get rid of this
+  - if session[:user_id] && @order.estadordens.last.estado != 'Cancelada'
+    .state-panel
+      Estados:
+      %br/
+      - if @order.estadordens.last.estado == 'Lista'
+        .state-line
+          = link_to 'Entregada', nuevoEstado_path(order_id: @order.id, estado: 'Entregada')
+      - Estadorden::STATUSES.each do |estado|
+        - if Order.buscarConEstado(@order, estado) || estado == 'Demorada'
+          #lineaEstado
+            = link_to estado, nuevoEstado_path(order_id: @order.id, estado: estado)
+        - elsif @order.estadordens.last.estado == 'Demorada'
+          - unless(estado == 'Demorada' || estado == 'Pendiente' || estado == 'Leido')
+            #lineaEstado
+              = link_to estado, nuevoEstado_path(order_id: @order.id, estado: estado)
+.clearfix
+= link_to t('.edit'), edit_order_path(@order) if session[:user_id]
+= link_to t('.back'), :back

@@ -4,11 +4,13 @@ class Order < ActiveRecord::Base
   has_many :estadordens
 
   belongs_to :mediopago
+
+  attr_accessible :name, :address, :email, :mediopago_id
+
   validates :name, :address, :email, :mediopago_id, presence: true
   validates :email, email_format: true
 
-  attr_accessor :auto_mediopago
-  before_validation :asignar_mediopago
+  before_save :assign_status
   after_commit :assign_number
   
   def add_line_items_from_cart(cart)
@@ -18,14 +20,6 @@ class Order < ActiveRecord::Base
     end
   end
   
-  def asignar_mediopago
-    if self.auto_mediopago.present?
-      self.mediopago = Mediopago.find_by_nombre(
-        self.auto_mediopago
-      )
-    end
-  end
-
   #todo: whatefuckisthis
   def self.buscarConEstado(o, estado)
     orden = Order.find(o)
@@ -49,10 +43,18 @@ class Order < ActiveRecord::Base
     line_items.sum(&:total_price)
   end
 
+  def cost
+    line_items.sum(&:total_costo)
+  end
+
   private
 
   def assign_number
     self.update_column :number, 2013 + self.id
+  end
+
+  def assign_status
+    estadordens.build( estado: Estadorden::STATUSES[0] )
   end
 
 end

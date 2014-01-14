@@ -2,7 +2,7 @@
   %ul.unstyled
     %li.header.border.red= link_to t('.promotions'), promotions_path, class: current_section([promotions_path])
     %li.header.border.orange= link_to t('.orders'), orders_path, class: current_section([orders_path])
-    -#- Estadorden::ESTADOS.each do |estado|
+    -#- Estadorden::STATUSES.each do |estado|
     -#  %li.header.border.lightBlue= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
     %li.header.border.yellow= link_to t('.catalog'), products_path, class: current_section([products_path])
     %li.header.border.green= link_to 'Tipos de productos', product_types_path, class: current_section([product_types_path])

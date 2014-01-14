@@ -55,7 +55,6 @@ class LineItemsController < ApplicationController
                            locals: { floating_line_item: @line_item },
                            content_type: 'text/html' }
         format.json { render json: @line_item, status: :created, location: @line_item }
-        format.xml  { render :xml => @line_item, :status => :created, :location => @line_item }
       else
         format.html { render action: "new" }
         format.json { render json: @line_item.errors,

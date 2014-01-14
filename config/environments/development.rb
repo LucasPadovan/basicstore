@@ -29,5 +29,6 @@ Tienda::Application.configure do
   config.assets.logger = false
   config.assets.debug = false
 
-  #email_config under load_config
+  # more email_config under load_config
+  config.action_mailer.default_url_options = { host: 'localhost:3000'}
 end

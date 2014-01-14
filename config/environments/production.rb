@@ -58,5 +58,6 @@ Tienda::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  #email_config under load_config
+  # more email_config under load_config
+  config.action_mailer.default_url_options = { host: 'mundoovejitas.herokuapp.com'}
 end

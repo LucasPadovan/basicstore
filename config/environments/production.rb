@@ -60,4 +60,6 @@ Tienda::Application.configure do
 
   # more email_config under load_config
   config.action_mailer.default_url_options = { host: 'mundoovejitas.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
 end

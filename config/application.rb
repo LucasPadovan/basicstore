@@ -44,5 +44,18 @@ module Tienda
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.after_initialize do
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.smtp_settings = {
+          address: APP_CONFIG['smtp']['address'],
+          port: APP_CONFIG['smtp']['port'],
+          domain: APP_CONFIG['smtp']['domain'],
+          authentication: APP_CONFIG['smtp']['authentication'],
+          user_name: APP_CONFIG['smtp']['user_name'],
+          password: APP_CONFIG['smtp']['password'],
+          enable_starttls_auto: true
+      }
+    end
   end
 end

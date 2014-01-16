@@ -21,6 +21,7 @@
     = @order.estadordens.last.estado
     - if @order.estadordens.last.user
       por #{@order.estadordens.last.user.name }
+  = link_to t('products.show.backstore'), :back, class: 'btn btn-inverse stitched'
 .span6
   %table.table.table-striped
     %thead
@@ -60,4 +61,3 @@
               = link_to estado, nuevoEstado_path(order_id: @order.id, estado: estado)
 .clearfix
 = link_to t('.edit'), edit_order_path(@order) if session[:user_id]
-= link_to t('.back'), :back

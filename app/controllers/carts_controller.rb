@@ -1,20 +1,11 @@
 class CartsController < ApplicationController
   skip_before_filter :authorize, :only => [:create, :update, :destroy, :show]
-  
-  # GET /carts
-  # GET /carts.xml
-  def index
-    @carts = Cart.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @carts }
-    end
-  end
 
   # GET /carts/1
   # GET /carts/1.xml
   def show
+    @title = I18n.translate('carts.cart.title')
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound
@@ -26,22 +17,6 @@ class CartsController < ApplicationController
         format.xml  { render :xml => @cart }
       end
     end
-  end
-
-  # GET /carts/new
-  # GET /carts/new.xml
-  def new
-    @cart = Cart.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @cart }
-    end
-  end
-
-  # GET /carts/1/edit
-  def edit
-    @cart = Cart.find(params[:id])
   end
 
   # POST /carts

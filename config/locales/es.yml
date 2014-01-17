@@ -132,7 +132,7 @@ es:
       name:       "Nombre"
       desc:       "Descripcion"
     edit:
-      title:    "Editar Medios de Pago"
+      title:    "Editar Medio de Pago"
       show:     "Ver"
       back:     "Volver"
     index:
@@ -152,7 +152,7 @@ es:
       desc:     "Descripcion: "
       edit:     "Editar: "
       back:     "Volver: "
-
+      title:    "Medio de pago: %{name}"
   order_mailer:
 
   orders:
@@ -189,6 +189,7 @@ es:
       edit:     "Editar"
       back:     "Volver"
 
+      title: "Pedido número -:%{number}:-"
   product_types:
 
   products:
@@ -207,7 +208,7 @@ es:
       show:       "Ver"
       back:       "Volver"
     index:
-      title:    "Lista de Productos"
+      title:    "Listado de Productos"
       show:     "Ver"
       edit:     "Editar"
       destroy:  "Eliminar"
@@ -274,7 +275,8 @@ es:
       salt:       "Salt:"
       edit:       "Editar"
       back:       "Volver"
-        
+
+      title: "Usuario: %{name}"
   errors:
     template:
       body:     "Hay problemas con los siguientes campos:"
@@ -311,3 +313,6 @@ es:
     form:
       submit: "Guardar novedad"
       submiting: "Guardando novedad..."
+  precioproductos:
+    index:
+      title: "Histórico de precios de %{product}"

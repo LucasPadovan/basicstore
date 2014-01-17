@@ -6,14 +6,14 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
+    @title = t('orders.index.title')
     if params[:estadoOrden]
       @o = Order.buscarEstado(params[:estadoOrden])
-      @orders = @o.paginate :page=>params[:page], :order => 'created_at desc'
+      @orders = @o.paginate page: params[:page], order: 'created_at desc'
 
     else
-
-      @orders = Order.paginate :page=>params[:page], :order=>'created_at desc',
-        :per_page => 28
+      @orders = Order.paginate page: params[:page], order: 'created_at desc',
+        per_page: 15
 
     end
     respond_to do |format|
@@ -27,9 +27,10 @@ class OrdersController < ApplicationController
   # GET /orders/1.xml
   def show
     @order = Order.find(params[:id])
+    @title = t('orders.show.title', number: @order.number)
 
     unless @order.estadordens.count > 1
-      @estado = Estadorden.create(user_id: session[:user_id], order_id: @order.id, estado: "Leido") if session[:user_id].present?
+      @estado = Estadorden.create(user_id: session[:user_id], order_id: @order.id, estado: 'Leido') if session[:user_id].present?
     end
 
     respond_to do |format|
@@ -43,7 +44,7 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if @cart.line_items.empty?
-      redirect_to store_index_url, :notice => "Su carro esta vacio"
+      redirect_to store_index_url, notice: 'Su carro esta vacio'
       return
     end
     

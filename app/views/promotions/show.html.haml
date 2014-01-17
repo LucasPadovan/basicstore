@@ -1,4 +1,3 @@
-%h1 Promocion: "#{@promotion.title}"
 .span3
   %p
     %b Descripcion:
@@ -18,7 +17,7 @@
     %b Total:
     %span{ data: { promotion_total: true } }= @promotion.total
 .span8
-  %h2 Agrega productos a tu promoción!
+  %h2 Ahora agrega productos a tu promoción!
   #promotion_lines
     = render partial: 'promotion_lines/promotion_line', collection: @promotion_lines
   = link_to 'Agregar producto', new_promotion_line_path(@promotion), class: 'btn btn-primary', remote: true, data: { target: 'modal', modal: true }

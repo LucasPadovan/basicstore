@@ -4,7 +4,7 @@ class PrecioproductosController < ApplicationController
   def index
     @producto = Product.find(params[:product])
     @precioproductos = Precioproducto.find_all_by_product_id(@producto)
-
+    @title = t('precioproductos.index.title', product: @producto.titulo)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @precioproductos }

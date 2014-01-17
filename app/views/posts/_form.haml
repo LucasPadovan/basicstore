@@ -1,7 +1,7 @@
 = f.error_notification
 
-= f.input :title
-= f.input :body
+= f.input :title, input_html: { class: 'span4' }
+= f.input :body, input_html: { class: 'span4', rows: 6 }
 = f.input :active
 
 = content_for :form_actions do

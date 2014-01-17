@@ -4,6 +4,7 @@ class PromotionsController < ApplicationController
   # GET /promotions
   # GET /promotions.json
   def index
+    @title = 'Listado de Promociones'
     @promotions = ( @product ? @product.promotions : Promotion.all )
 
     respond_to do |format|
@@ -17,6 +18,7 @@ class PromotionsController < ApplicationController
   def show
     @promotion = Promotion.includes(:promotion_lines).find(params[:id])
     @promotion_lines = @promotion.promotion_lines
+    @title = "Promocion: #{@promotion.title}"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +29,7 @@ class PromotionsController < ApplicationController
   # GET /promotions/new
   # GET /promotions/new.json
   def new
+    @title = 'Nueva promocion'
     @promotion = Promotion.new
     respond_to do |format|
       format.html # new.html.erb
@@ -36,12 +39,14 @@ class PromotionsController < ApplicationController
 
   # GET /promotions/1/edit
   def edit
+    @title = 'Editando la promocion'
     @promotion = Promotion.find(params[:id])
   end
 
   # POST /promotions
   # POST /promotions.json
   def create
+    @title = 'Nueva promocion'
     @promotion = Promotion.new params[:promotion]
     @promotion.state = 'not-published'
     respond_to do |format|
@@ -58,6 +63,7 @@ class PromotionsController < ApplicationController
   # PUT /promotions/1
   # PUT /promotions/1.json
   def update
+    @title = 'Editando la promocion'
     @promotion = Promotion.find(params[:id])
     params[:promotion][:state] = 'not-published'
 

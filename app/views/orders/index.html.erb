@@ -1,36 +1,36 @@
-<div id="order_list"><h1><%= t('.title') %>
-<%= params[:estadoOrden]+"s" if params[:estadoOrden]%>
-</h1>
-
-<table class="table table-bordered table-striped">
-  <tr>
-    <th>Número</th>
-    <th><%= t('.name') %></th>
-    <th><%= t('.address') %></th>
-    <th><%= t('.email') %></th>
-    <th><%= t('.paytype') %></th>
-    <th><%= t('.date') %></th>
-    <th>Estado actual </th>
-    <th></th>
-  </tr>
-
-<% @orders.each do |order| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-      <td><%= order.number %></td>
-      <td><%= order.name %></td>
-      <td><%= order.address %></td>
-      <td><%= order.email %></td>
-      <td><%= order.mediopago.nombre %></td>
-      <td><%=  l order.created_at %>Hs.</td>
-      <td><%= order.estadordens.last.estado %></td>
-      <td>
-      <%= link_to t('.show'), order %><br />
-      <%= link_to t('.edit'), edit_order_path(order) %><br />
-      <%= link_to t('.destroy'), order, :confirm => t('.confirm'), :method => :delete %>
-      </td>
-    </tr>
+<div id="order_list">
+  <% if params[:estadoOrden] %>
+    <h3><%= params[:estadoOrden].pluralize %></h3>
   <% end %>
-</table>
-<br />
-<div id="paginacion"><%= will_paginate @orders %></div>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Número</th>
+      <th><%= t('.name') %></th>
+      <th><%= t('.address') %></th>
+      <th><%= t('.email') %></th>
+      <th><%= t('.paytype') %></th>
+      <th><%= t('.date') %></th>
+      <th>Estado actual </th>
+      <th></th>
+    </tr>
+
+  <% @orders.each do |order| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= order.number %></td>
+        <td><%= order.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.email %></td>
+        <td><%= order.mediopago.nombre %></td>
+        <td><%=  l order.created_at %>Hs.</td>
+        <td><%= order.estadordens.last.estado %></td>
+        <td>
+        <%= link_to t('.show'), order %><br />
+        <%= link_to t('.edit'), edit_order_path(order) %><br />
+        <%= link_to t('.destroy'), order, :confirm => t('.confirm'), :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <div id="paginacion"><%= will_paginate @orders %></div>
 </div>

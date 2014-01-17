@@ -1,5 +1,4 @@
 <div id="carrito">
-  <h1 class="cart_title"><%= t('.title') %></h1>
   <div class="span6">
     <table class="table table-bordered table-striped">
       <thead>
@@ -10,10 +9,11 @@
       </tr>
       </thead>
       <tbody>
-      <%= render @cart.line_items %>
+        <%= render @cart.line_items %>
       </tbody>
     </table>
   </div>
+  <div class="clearfix"></div>
   <div class="row">
     <div class="span6">
       <h2 class="pull-right">

@@ -44,7 +44,7 @@ Tienda::Application.routes.draw do
     resources :users
     resources :orders
     resources :line_items
-    resources :carts
+    resources :carts, except: [:new, :edit, :index]
 
     resources :precioproductos
 

@@ -2,6 +2,7 @@ class ProductTypesController < ApplicationController
   # GET /product_types
   # GET /product_types.json
   def index
+    @title = 'Listado de tipos de productos'
     q = "%#{params[:q]}%"
     @product_types = ProductType.where('lower(name) LIKE :query', query: q)
     respond_to do |format|
@@ -14,7 +15,7 @@ class ProductTypesController < ApplicationController
   # GET /product_types/1.json
   def show
     @product_type = ProductType.find(params[:id])
-
+    @title = "Tipo de producto: #{@product_type.name}"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product_type }

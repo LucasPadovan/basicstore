@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
+    @title = t('users.index.title')
     @users = User.order(:name)
 
     respond_to do |format|
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+    @title = t('users.show.title', name: @user.name)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +28,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
+    @title = t('users.new.title')
     @user = User.new
 
     respond_to do |format|
@@ -36,12 +39,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @title = t('users.edit.title')
     @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.xml
   def create
+    @title = t('users.new.title')
     @user = User.new(params[:user])
 
     respond_to do |format|
@@ -58,6 +63,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
+    @title = t('users.edit.title')
     @user = User.find(params[:id])
 
     respond_to do |format|

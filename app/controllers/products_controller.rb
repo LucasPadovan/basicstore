@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   skip_before_filter :authorize, only: :show
 
   def index
+    @title = t('products.index.title')
     @products = Product.paginate page: params[:page], per_page: 10
 
     respond_to do |format|
@@ -18,6 +19,7 @@ class ProductsController < ApplicationController
     @products_in_cart = @cart.line_items.map(&:product_id)
     @promotions_in_cart = @cart.line_items.map(&:promotion_id)
 
+    @title = @product.titulo
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product }

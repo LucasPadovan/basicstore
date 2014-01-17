@@ -1,6 +1,6 @@
 .modal
   = simple_form_for @promotion_line, html: { remote: true, data: { target: 'promotion_lines', error: 'modal', modal: true, callback: 'updatePromotionTotal' }, class: 'modal-form form-horizontal' } do |f|
-    .modal-title
+    .modal-header
       %h2 Escoje el producto a agregar
     .modal-body
       ='&#xe05a;'.html_safe

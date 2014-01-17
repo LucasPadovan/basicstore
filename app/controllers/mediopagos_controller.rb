@@ -2,6 +2,7 @@ class MediopagosController < ApplicationController
   # GET /mediopagos
   # GET /mediopagos.xml
   def index
+    @title = t('mediopagos.index.title')
     @mediopagos = Mediopago.all
 
     respond_to do |format|
@@ -14,6 +15,7 @@ class MediopagosController < ApplicationController
   # GET /mediopagos/1.xml
   def show
     @mediopago = Mediopago.find(params[:id])
+    @title = t('mediopagos.show.title', name: @mediopago.nombre)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,6 +26,7 @@ class MediopagosController < ApplicationController
   # GET /mediopagos/new
   # GET /mediopagos/new.xml
   def new
+    @title = t('mediopagos.new.title')
     @mediopago = Mediopago.new
 
     respond_to do |format|
@@ -34,12 +37,14 @@ class MediopagosController < ApplicationController
 
   # GET /mediopagos/1/edit
   def edit
+    @title = t('mediopagos.edit.title')
     @mediopago = Mediopago.find(params[:id])
   end
 
   # POST /mediopagos
   # POST /mediopagos.xml
   def create
+    @title = t('mediopagos.new.title')
     @mediopago = Mediopago.new(params[:mediopago])
 
     respond_to do |format|
@@ -56,6 +61,7 @@ class MediopagosController < ApplicationController
   # PUT /mediopagos/1
   # PUT /mediopagos/1.xml
   def update
+    @title = t('mediopagos.edit.title')
     @mediopago = Mediopago.find(params[:id])
 
     respond_to do |format|

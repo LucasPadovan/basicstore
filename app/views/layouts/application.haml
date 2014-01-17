@@ -29,10 +29,3 @@
     = render 'shared/footer'
     #modal
   = javascript_include_tag 'application'
-
-:javascript
-  $(document).ready(function(){
-     $('[data-action="toggle-cart"]').on('click', function(){
-       toggleFloatingCart()
-     })
-  });

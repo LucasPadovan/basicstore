@@ -11,7 +11,12 @@ $(document).ready(function(){
             $(".caja_image_url").val(imageLoc);
         }
         return false;
-    });
+    })
+
+    $('[data-action="toggle-cart"]').on('click', function(){
+        toggleFloatingCart()
+    })
+
 
     tooltipsOn();
     datepickerOn();

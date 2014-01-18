@@ -5,5 +5,5 @@
     .modal-body
       = render partial: 'form', locals: { f: f }
     .modal-footer
+      = f.submit t('orders.form.submit'), class: 'btn btn-primary stitched btn-large', disable_with: t('orders.form.submiting')
       = yield :form_actions
-      = f.submit t('orders.form.submit'), class: 'btn btn-primary', disable_with: t('orders.form.submiting')

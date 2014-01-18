@@ -6,4 +6,5 @@
       ='&#xe05a;'.html_safe
       = render partial: 'form', locals: { f: f }
     .modal-footer
-      = f.button :submit, class: 'btn btn-primary'
+      = f.button :submit, class: 'btn btn-primary stitched btn-large'
+      = yield :form_actions

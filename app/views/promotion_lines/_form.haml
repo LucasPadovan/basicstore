@@ -6,5 +6,7 @@
   = f.input :discount
   = f.input :discount_type
 .span4
+= content_for :form_actions do
+  = link_to_function 'Cerrar', "$('#modal').modal('toggle');", class: 'btn'
 
 

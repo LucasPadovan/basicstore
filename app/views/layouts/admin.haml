@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Un Mundo De Ovejitas - Administracion
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tag
+  %body#store
+    .banner
+      .rainbow-background
+        .banner-content
+          = render partial: 'shared/locale_selector'
+          = render partial: 'shared/login'
+          = render partial: 'shared/search'
+          .title
+            = link_to APP_CONFIG['page_title'], promociones_path, data: { toggle: 'tooltip' }, title: 'Inicio'
+    .container.container-full
+      .content
+        .row-fluid
+          .span2
+            = render partial: 'shared/admin_menu', params: params
+          .span10
+            .margin-left--30
+              = render 'shared/title'
+              = yield
+    #modal
+  = javascript_include_tag 'application'

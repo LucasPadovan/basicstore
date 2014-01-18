@@ -84,7 +84,7 @@ en:
       product:  "Product"
       cart:     "Cart"
       
-  mediopagos:
+  payment_methods:
     form:
       submit:     "Create Pay Type"
       name:       "Name"
@@ -231,14 +231,14 @@ en:
   activerecord:
     models:
       cart:         "cart"
-      mediopago:    "pay Type"
+      payment_method:    "pay Type"
       order:        "order"
       product:      "product"
       user:         "user"
     attributes:
       order:
         email:      "E-mail"
-        mediopago:  "Pay Type"  
+        payment_method:  "Pay Type"
       user:
         nombre:                 "Name"
         password_confirmation:  "Password confirmation"

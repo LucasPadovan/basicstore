@@ -2,7 +2,7 @@ es:
   activerecord:
     models:
       cart:         "Carrito"
-      mediopago:    "Medio de pago"
+      payment_method:    "Medio de pago"
       order:        "Orden"
       post:         "Novedad"
       product:      "Producto"
@@ -13,7 +13,10 @@ es:
         address:    "Dirección"
         name:       "Nombre"
         email:      "E-mail"
-        mediopago:  "Medio de pago"
+        payment_method:  "Medio de pago"
+      payment_method:
+        name:         "Nombre"
+        description:  "Descripción"
       post:
         active: "Activo"
         body:   "Texto"
@@ -67,12 +70,33 @@ es:
       exit:     "Salir"
 
   admin:
-    index:
-      title:    "Bienvenido"
-      its:        "Hoy es: "
-      wehave:     
-        one: "Tenemos solo una orden"
-        other: "Tenemos %{count} ordenes"
+    payment_methods:
+      form:
+        submit:     "Crear Medio de Pago"
+        name:       "Nombre"
+        desc:       "Descripcion"
+      edit:
+        title:    "Editar Medio de Pago"
+        show:     "Ver"
+        back:     "Volver"
+      index:
+        title:    "Listado de Medios de Pago"
+        name:     "Nombre"
+        desc:     "Descripcion"
+        show:     "Ver"
+        edit:     "Editar"
+        destroy:  "Eliminar"
+        confirm:  "¿Está usted seguro que desea eliminar este medio de pago?"
+        new:      "Nuevo medio de pago"
+      new:
+        title:    "Nuevo Medio de Pago"
+        back:     "Volver"
+      show:
+        name:     "Nombre: "
+        desc:     "Descripcion: "
+        edit:     "Editar: "
+        back:     "Volver: "
+        title:    "Medio de pago: %{name}"
 
   carts:
     cart:
@@ -124,35 +148,7 @@ es:
       edit:     "Editar"
       back:     "Volver"      
       product:  "Producto"
-      cart:     "Carrito"
 
-  mediopagos:
-    form:
-      submit:     "Crear Medio de Pago"
-      name:       "Nombre"
-      desc:       "Descripcion"
-    edit:
-      title:    "Editar Medio de Pago"
-      show:     "Ver"
-      back:     "Volver"
-    index:
-      title:    "Listado de Medios de Pago"
-      name:     "Nombre"
-      desc:     "Descripcion"
-      show:     "Ver"
-      edit:     "Editar"
-      destroy:  "Eliminar"
-      confirm:  "¿Está usted seguro que desea eliminar este medio de pago?"
-      new:      "Nuevo medio de pago"
-    new:
-      title:    "Nuevo Medio de Pago"
-      back:     "Volver"
-    show:
-      name:     "Nombre: "
-      desc:     "Descripcion: "
-      edit:     "Editar: "
-      back:     "Volver: "
-      title:    "Medio de pago: %{name}"
   order_mailer:
 
   orders:
@@ -283,9 +279,9 @@ es:
       header:
         one:    "1 error ha impedido que este %{model} se guarde"
         other:  "%{count} errores han impedido que este %{model} se guarde"
-  
+
   thanks: "Gracias por su compra"
-  
+
   time:
     formats:
       default: "%d/%m/%Y \n%H:%M"

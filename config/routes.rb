@@ -19,9 +19,6 @@ Tienda::Application.routes.draw do
 
   resources :product_types
 
-  resources :mediopagos
-
-  get 'admin' => 'admin#index'
   get 'contacto' => 'store#contacto'
   get 'preguntas' => 'store#faq'
   get 'novedades' => 'store#news'
@@ -54,11 +51,13 @@ Tienda::Application.routes.draw do
 
     root to: 'store#promotions', as: 'promociones'
 
-    resources :orders do
-       resources :mediopagos
-    end
+    resources :orders, except: [:edit, :update]
   end
 
   get '/products/:id/precionuevo' => "products#precionuevo", as: :precionuevo
   post '/products/:id/precionuevo' => "products#guardarprecionuevo", as: :precionuevo
+
+  namespace :admin do
+    resources :payment_methods
+  end
 end

@@ -4,10 +4,10 @@ one:
   name: MyString Complete
   address: MyText
   email: dave@example.org
-  mediopago: one
+  payment_method: one
 
 two:
   name: MyString
   address: MyText
   email: MyString
-  mediopago: two
+  payment_method: two

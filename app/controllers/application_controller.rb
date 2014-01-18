@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     {:locale => I18n.locale}
   end
 
+  #todo: quitar esto y poner devise
   def authorize
     unless User.find(session[:user_id])
       redirect_to login_url, notice: 'Por favor ingrese al sistema'

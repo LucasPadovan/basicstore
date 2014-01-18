@@ -3,7 +3,7 @@ class ProductType < ActiveRecord::Base
   has_many :habtm_products
   has_many :products, through: :habtm_products
 
-  before_destroy :verificar_no_uso
+  before_destroy :ensure_not_used
 
   validates_uniqueness_of :name
 
@@ -14,7 +14,7 @@ class ProductType < ActiveRecord::Base
   end
 
   private
-    def verificar_no_uso
+    def ensure_not_used
       if true
         return products.empty?
       else

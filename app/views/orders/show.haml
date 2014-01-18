@@ -14,7 +14,7 @@
     = @order.email
   %p
     %b= t('.paytype')
-    = @order.mediopago.nombre
+    = @order.payment_method.name
   %p
     %b Estado:
     = @order.estadordens.last.estado
@@ -59,4 +59,3 @@
             #lineaEstado
               = link_to estado, nuevoEstado_path(order_id: @order.id, estado: estado)
 .clearfix
-= link_to t('.edit'), edit_order_path(@order) if session[:user_id]

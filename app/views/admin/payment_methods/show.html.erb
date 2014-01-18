@@ -1,0 +1,13 @@
+<p>
+  <b><%= t('.name') %></b>
+  <%= @payment_method.name %>
+</p>
+
+<p>
+  <b><%= t('.desc') %></b>
+  <%= @payment_method.description %>
+</p>
+
+
+<%= link_to t('.edit'), edit_admin_payment_method_path(@payment_method) %> |
+<%= link_to t('.back'), admin_payment_methods_path %>

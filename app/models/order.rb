@@ -3,11 +3,11 @@ class Order < ActiveRecord::Base
 
   has_many :estadordens
 
-  belongs_to :mediopago
+  belongs_to :payment_method
 
-  attr_accessible :name, :address, :email, :mediopago_id
+  attr_accessible :name, :address, :email, :payment_method_id
 
-  validates :name, :address, :email, :mediopago_id, presence: true
+  validates :name, :address, :email, :payment_method_id, presence: true
   validates :email, email_format: true
 
   before_save :assign_status

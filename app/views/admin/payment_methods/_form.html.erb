@@ -1,0 +1,26 @@
+<%= form_for(['admin', @payment_method]) do |f| %>
+  <% if @payment_method.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('errors.template.header', :count=>@payment_method.errors.size, :model=>t('activerecord.models.payment_method')) %>.</h2>
+      <p><%= t('errors.template.body') %></p>
+
+      <ul>
+      <% @payment_method.errors.full_messages.each do |msg| %>
+        <li><%= raw msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, t('.name') %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description, t('.desc') %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('.submit')%>
+  </div>
+<% end %>

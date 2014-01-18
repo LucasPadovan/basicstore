@@ -58,6 +58,6 @@ Tienda::Application.routes.draw do
   post '/products/:id/precionuevo' => "products#guardarprecionuevo", as: :precionuevo
 
   namespace :admin do
-    resources :payment_methods
+    resources :payment_methods, except: :show
   end
 end

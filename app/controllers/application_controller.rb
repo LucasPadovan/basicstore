@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #todo: sacar esto para sacar el locale=es de la url, tengo que rehacer los controladores y cambiarlos a admin y eso.
   def default_url_options
     {:locale => I18n.locale}
   end

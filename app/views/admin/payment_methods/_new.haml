@@ -1,0 +1,11 @@
+.modal
+  = simple_form_for( ['admin', @payment_method], html: { remote: true,
+  data: { target: 'payment_methods_body', error: 'modal', modal: true },
+  class: 'form-horizontal'} ) do |f|
+    .modal-header
+      %h3= t('admin.payment_methods.new.title')
+    .modal-body
+      = render partial: 'form', locals: { f: f }
+    .modal-footer
+      = f.submit t('admin.payment_methods.new.submit'), class: 'btn btn-primary stitched', disable_with: t('commmon.saving')
+      = yield :form_actions

@@ -11,67 +11,42 @@ class Admin::PaymentMethodsController < Admin::AdminController
     end
   end
 
-  # GET /payment_methods/1
-  # GET /payment_methods/1.xml
-  def show
-    @payment_method = PaymentMethod.find(params[:id])
-    @title = t('admin.payment_methods.show.title', name: @payment_method.name)
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @payment_method }
-    end
-  end
-
   # GET /payment_methods/new
   # GET /payment_methods/new.xml
   def new
-    @title = t('admin.payment_methods.new.title')
     @payment_method = PaymentMethod.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @payment_method }
-    end
+    render partial: 'new', content_type: 'text/html'
   end
 
   # GET /payment_methods/1/edit
   def edit
-    @title = t('admin.payment_methods.edit.title')
     @payment_method = PaymentMethod.find(params[:id])
+    render partial: 'edit', content_type: 'text/html'
   end
 
   # POST /payment_methods
   # POST /payment_methods.xml
   def create
-    @title = t('admin.payment_methods.new.title')
     @payment_method = PaymentMethod.new(params[:payment_method])
 
-    respond_to do |format|
-      if @payment_method.save
-        format.html { redirect_to(['admin', @payment_method], :notice => 'PaymentMethod was successfully created.') }
-        format.xml  { render :xml => @payment_method, :status => :created, :location => @payment_method }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @payment_method.errors, :status => :unprocessable_entity }
-      end
+    if @payment_method.save
+      js_notify message: t('admin.payment_methods.create.success'), type: 'alert-success', time: 2500
+      render partial: 'payment_method', content_type: 'text/html', locals: { payment_method: @payment_method }
+    else
+      render partial: 'new', status: :unprocessable_entity
     end
   end
 
   # PUT /payment_methods/1
   # PUT /payment_methods/1.xml
   def update
-    @title = t('admin.payment_methods.edit.title')
     @payment_method = PaymentMethod.find(params[:id])
 
-    respond_to do |format|
-      if @payment_method.update_attributes(params[:payment_method])
-        format.html { redirect_to(['admin', @payment_method], :notice => 'payment_method was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @payment_method.errors, :status => :unprocessable_entity }
-      end
+    if @payment_method.update_attributes(params[:payment_method])
+      js_notify message: t('admin.payment_methods.update.success'), type: 'alert-success', time: 2500
+      render partial: 'payment_method', content_type: 'text/html', locals: { payment_method: @payment_method }
+    else
+      render partial: 'edit', status: :unprocessable_entity
     end
   end
 
@@ -79,19 +54,13 @@ class Admin::PaymentMethodsController < Admin::AdminController
   # DELETE /payment_methods/1.xml
   def destroy
     @payment_method = PaymentMethod.find(params[:id])
-    @payment_method.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admin_payment_methods_url) }
-      format.xml  { head :ok }
-    end
-  end
-  
-    def autocompletar
-    @payment_method = PaymentMethod.tipo_pago(params[:term])
-    
-    respond_to do |format|
-      format.js {render text: @payment_method.map(:name)}
+    if @payment_method.destroy
+      js_notify message: t('admin.payment_methods.destroy.success'), type: 'alert-error', time: 2500
+      render nothing: true, content_type: 'text/html'
+    else
+      message = "#{t('admin.payment_methods.destroy.error')}: #{@payment_method.errors[:base].first}"
+      js_notify message: message, type: 'alert-info', time: 2500
+      render nothing: true
     end
   end
 end

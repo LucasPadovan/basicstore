@@ -1,16 +1,9 @@
 %table.table.table-bordered.table-striped
-  %tr
-    %th= t('.name')
-    %th= t('.desc')
-    %th
-  - @payment_methods.each do |payment_method|
+  %thead
     %tr
-      %td= payment_method.name
-      %td= payment_method.description
-      %td
-        = link_to t('.show'), ['admin', payment_method]
-        %br/
-        = link_to t('.edit'), edit_admin_payment_method_path(payment_method)
-        %br/
-        = link_to t('.destroy'), ['admin', payment_method], method: :delete, confirm: t('.confirm')
-= link_to t('.new'), new_admin_payment_method_path, class: 'btn btn-primary stitched'
+      %th= PaymentMethod.human_attribute_name :name
+      %th= PaymentMethod.human_attribute_name :description
+      %th
+  %tbody#payment_methods_body
+    = render @payment_methods
+= link_to t('.new'), new_admin_payment_method_path, class: 'btn btn-primary stitched', remote: true, data: { target: 'modal', modal: true }

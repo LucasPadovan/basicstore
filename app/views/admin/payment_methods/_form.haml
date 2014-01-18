@@ -1,0 +1,7 @@
+= f.error_notification
+
+= f.input :name, autofocus: true
+= f.input :description
+
+= content_for :form_actions do
+  = link_to_function t('commmon.close'), "$('#modal').modal('toggle');", class: 'btn'

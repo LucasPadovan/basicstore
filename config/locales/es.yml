@@ -1,13 +1,13 @@
 es:
   activerecord:
     models:
-      cart:         "Carrito"
-      payment_method:    "Medio de pago"
-      order:        "Orden"
-      post:         "Novedad"
-      product:      "Producto"
-      product_type: "Tipo de producto"
-      user:         "Usuario"
+      cart:           "Carrito"
+      order:          "Orden"
+      payment_method: "Medio de pago"
+      post:           "Novedad"
+      product:        "Producto"
+      product_type:   "Tipo de producto"
+      user:           "Usuario"
     attributes:
       order:
         address:    "Dirección"
@@ -42,7 +42,17 @@ es:
         name: "Nombre"
         password: "Contraseña"
         password_confirmation: "Confirmacion de Contraseña"
-  
+
+  commmon:
+    back:     'Volver'
+    close:    'Cerrar'
+    send:     'Enviar'
+    submit:   'Guardar'
+    creating: 'Creando...'
+    saving:   'Guardando...'
+    sending:   'Enviando...'
+    updating: 'Actualizando...'
+
   layouts:
     application:
       title:    "Un Mundo De Ovejitas"
@@ -71,18 +81,11 @@ es:
 
   admin:
     payment_methods:
-      form:
-        submit:     "Crear Medio de Pago"
-        name:       "Nombre"
-        desc:       "Descripcion"
       edit:
-        title:    "Editar Medio de Pago"
-        show:     "Ver"
-        back:     "Volver"
+        title:      "Editar Medio de Pago"
+        submit:     "Actualizar medio de pago"
       index:
         title:    "Listado de Medios de Pago"
-        name:     "Nombre"
-        desc:     "Descripcion"
         show:     "Ver"
         edit:     "Editar"
         destroy:  "Eliminar"
@@ -90,13 +93,16 @@ es:
         new:      "Nuevo medio de pago"
       new:
         title:    "Nuevo Medio de Pago"
-        back:     "Volver"
-      show:
-        name:     "Nombre: "
-        desc:     "Descripcion: "
-        edit:     "Editar: "
-        back:     "Volver: "
-        title:    "Medio de pago: %{name}"
+        submit:     "Crear medio de pago"
+      destroy:
+        success: "Medio de pago eliminado"
+        error: "No se ha podido eliminar el medio de pago"
+      create:
+        success: "Medio de pago creado"
+      update:
+        success: "Medio de pago actualizado"
+      errors:
+        referenced_in_order: "se encuentra utilizado por alguna órden"
 
   carts:
     cart:

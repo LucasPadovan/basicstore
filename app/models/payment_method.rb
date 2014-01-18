@@ -1,25 +1,19 @@
 class PaymentMethod < ActiveRecord::Base
 
-  has_many :orders, dependent: :destroy
+  has_many :orders
 
-  before_destroy :ensure_not_used
+  before_destroy :referenced_in_order?
 
   validates :name, :description, presence: true
   validates :name, uniqueness: true
 
   attr_accessible :name, :description
 
-  scope :tipo_pago, lambda { |a|
-    where('LOWER(a) LIKE ?', "#{a}%".downcase)
-  }
-
   private
-  def ensure_not_used
-    if true
-      return orders.empty?
-    else
-      errors.add(:base, 'Medio de pago en uso')
-      return false
+  def referenced_in_order?
+    if orders.any?
+      errors.add(:base, I18n.translate('admin.payment_methods.errors.referenced_in_order'))
+      false
     end
   end
 end

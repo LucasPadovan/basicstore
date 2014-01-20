@@ -1,8 +1,8 @@
-class PostsController < ApplicationController
+class Admin::PostsController < Admin::AdminController
   # GET /posts
   # GET /posts.json
   def index
-    @title = 'Listado de novedades'
+    @title = t('admin.posts.index.title')
     @posts = Post.all
 
     respond_to do |format|

@@ -21,7 +21,7 @@ class PostsControllerTest < ActionController::TestCase
       post :create, post: { active: @post.active, body: @post.body, title: @post.title, user_id: @post.user_id }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to admin_post_path(assigns(:post))
   end
 
   test "should show post" do
@@ -36,7 +36,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should update post" do
     put :update, id: @post, post: { active: @post.active, body: @post.body, title: @post.title, user_id: @post.user_id }
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to admin_post_path(assigns(:post))
   end
 
   test "should destroy post" do
@@ -44,6 +44,6 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, id: @post
     end
 
-    assert_redirected_to posts_path
+    assert_redirected_to admin_posts_path
   end
 end

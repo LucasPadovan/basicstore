@@ -104,6 +104,16 @@ es:
         success: "Medio de pago actualizado"
       errors:
         referenced_in_order: "se encuentra utilizado por alguna órden"
+    posts:
+      form:
+        submit: "Guardar novedad"
+        submiting: "Guardando novedad..."
+      index:
+        title: "Listado de novedades"
+        add: "Agregar novedad"
+        add_tooltip: "Agrege una novedad para mostrar en su página"
+        delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
+        delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
 
   carts:
     cart:
@@ -313,15 +323,6 @@ es:
         separator: ","
         delimiter: "."
         precision: 2
-  posts:
-    form:
-      submit: "Guardar novedad"
-      submiting: "Guardando novedad..."
-    index:
-      add: "Agregar novedad"
-      add_tooltip: "Agrege una novedad para mostrar en su página"
-      delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
-      delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
   precioproductos:
     index:
       title: "Histórico de precios de %{product}"

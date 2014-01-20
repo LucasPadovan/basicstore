@@ -1,0 +1,10 @@
+%tr{ id: dom_id(post) }
+  %td= post.title
+  %td= truncate(strip_tags(post.body), length: 40)
+  %td= post.active
+  %td= post.user.name
+  %td
+    = srbuj_link_to_show ['admin', post]
+    = srbuj_link_to_edit edit_admin_post_path(post)
+    = srbuj_link_to_destroy ['admin', post], data: { target: dom_id(post) },
+      confirm: ( post.active ? t('admin.posts.index.delete_confirm_active') : t('admin.posts.index.delete_confirm') )

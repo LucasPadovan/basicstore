@@ -3,8 +3,6 @@ Tienda::Application.routes.draw do
     mount MailPreview => 'mail_view'
   end
 
-  resources :posts
-
   resources :estadordens
 
   resources :promotions do
@@ -59,5 +57,6 @@ Tienda::Application.routes.draw do
 
   namespace :admin do
     resources :payment_methods, except: :show
+    resources :posts
   end
 end

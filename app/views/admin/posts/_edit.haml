@@ -1,0 +1,9 @@
+.modal
+  = simple_form_for ['admin', @post], html: { method: :put, remote: true, data: { target: dom_id(@post), modal: true, error: 'modal', replace: true, respond_as: :put } } do |f|
+    .modal-header
+      %h1 Editando novedad
+    .modal-body
+      = render partial: 'form', locals: { f: f }
+    .modal-footer
+      = f.submit t('admin.posts.form.submit'), class: 'btn btn-primary stitched btn-large', disable_with: t('admin.posts.form.submiting')
+      = yield :form_actions

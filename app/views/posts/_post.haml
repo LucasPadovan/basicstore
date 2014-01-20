@@ -3,6 +3,7 @@
   %td= truncate(strip_tags(post.body), length: 40)
   %td= post.active
   %td= post.user.name
-  %td= link_to 'Ver', post, remote: true, data: { target: 'modal', modal: true }
-  %td= link_to 'Editar', edit_post_path(post), remote: true, data: { target: 'modal', modal: true }
-  %td= link_to 'Destruir', post, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true, data: { target: dom_id(post) }
+  %td
+    = srbuj_link_to_show post
+    = srbuj_link_to_edit edit_post_path(post)
+    = srbuj_link_to_destroy post, data: { target: dom_id(post) }, confirm: ( post.active ? t('posts.index.delete_confirm_active') : t('posts.index.delete_confirm') )

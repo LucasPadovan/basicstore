@@ -91,6 +91,7 @@ es:
         destroy:  "Eliminar"
         confirm:  "¿Está usted seguro que desea eliminar este medio de pago?"
         new:      "Nuevo medio de pago"
+        new_tooltip: "Agrege un medio de pago"
       new:
         title:    "Nuevo Medio de Pago"
         submit:     "Crear medio de pago"
@@ -301,6 +302,7 @@ es:
     show: "Ver"
     edit: "Editar"
     delete: "Eliminar"
+    new: "Crea un nuevo elemento"
   messages:
     confirmation: "¿Está seguro que desea eliminar este registro?"
   number:
@@ -315,6 +317,11 @@ es:
     form:
       submit: "Guardar novedad"
       submiting: "Guardando novedad..."
+    index:
+      add: "Agregar novedad"
+      add_tooltip: "Agrege una novedad para mostrar en su página"
+      delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
+      delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
   precioproductos:
     index:
       title: "Histórico de precios de %{product}"

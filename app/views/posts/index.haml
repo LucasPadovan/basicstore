@@ -5,11 +5,8 @@
       %th= t('activerecord.attributes.post.body')
       %th= t('activerecord.attributes.post.active') + '?'
       %th Usuario
-      %th
-      %th
-      %th
+      %th.span2
   %tbody#posts_body
     = render @posts
-%br
 
-= link_to 'Agregar novedad', new_post_path, class: 'btn btn-primary stitched', remote: true, data: { target: 'modal', modal: true }
+= srbuj_link_to_new t('posts.index.add'), new_post_path, title: t('posts.index.add_tooltip')

@@ -6,4 +6,4 @@
       %th
   %tbody#payment_methods_body
     = render @payment_methods
-= link_to t('.new'), new_admin_payment_method_path, class: 'btn btn-primary stitched', remote: true, data: { target: 'modal', modal: true }
+= srbuj_link_to_new t('.new'), new_admin_payment_method_path, title: t('admin.payment_methods.index.new_tooltip')

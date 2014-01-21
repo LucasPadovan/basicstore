@@ -42,6 +42,8 @@ es:
         name: "Nombre"
         password: "Contraseña"
         password_confirmation: "Confirmacion de Contraseña"
+        hashed_password: "Hash de la contraseña"
+        created_at: "Fecha de creación"
 
   commmon:
     back:     'Volver'
@@ -114,6 +116,38 @@ es:
         add_tooltip: "Agrege una novedad para mostrar en su página"
         delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
         delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
+    session:
+      new:
+        legend:     "Por favor acceda al sistema"
+        name:       "Nombre:"
+        pass:       "Contraseña:"
+        submit: "Ingresar"
+    users:
+      form:
+        submit:     "Crear usuario"
+        submiting: "Creando usuario"
+      edit:
+        title:  "Editando usuario"
+      index:
+        title:    "Listado de usuarios"
+        destroy:  "Eliminar"
+        confirm:  "¿Está usted seguro que desea eliminar este usuario?"
+        new:      "Nuevo usuario"
+      new:
+        title:    "Nuevo usuario"
+      show:
+        hashpass:   "Contraseña encriptada:"
+        title: "Usuario: %{name}"
+      create:
+        success: "Usuario creado"
+      update:
+        success: "Usuario actualizado"
+      destroy:
+        success: "Usuario eliminado"
+        error: "No se ha podido eliminar el usuario"
+      errors:
+        last_admin: "debe quedar al menos un administrador"
+        actual_admin: "no puedes auto eliminarte"
 
   carts:
     cart:
@@ -239,13 +273,6 @@ es:
       backstore: "Volver a la tienda"
       addcart:  "Añadir al carrito"
 
-  session:
-    new:
-      legend:     "Por favor acceda al sistema"
-      name:       "Nombre:"
-      pass:       "Contraseña:"
-      submitBttn: "Ingresar"
-
   store:
     index:
       title:      "Novedades"
@@ -258,38 +285,7 @@ es:
   will_paginate:
       previous_label: "Página anterior"
       next_label: "Próxima pagina"
-      
-  users:
-    form:
-      legend:     "Ingrese sus datos"
-      name:       "Nombre:"
-      pass:       "Contraseña:"
-      confirm:    "Confirmacion de contraseña:"
-      submit:     "Crear usuario"
-    edit:
-      title:  "Editando usuario"
-      show:   "Ver"
-      back:   "Volver"
-    index:
-      title:    "Listado de usuarios"
-      name:     "Nombre"
-      show:     "Ver"
-      edit:     "Editar"
-      destroy:  "Eliminar"
-      confirm:  "¿Está usted seguro que desea eliminar este usuario?"
-      new:      "Nuevo usuario"
-      date:     "Registrado el"
-    new:
-      title:    "Nuevo usuario"
-      back:     "Volver"
-    show:
-      name:       "Nombre:"
-      hashpass:   "Contraseña encriptada:"
-      salt:       "Salt:"
-      edit:       "Editar"
-      back:       "Volver"
 
-      title: "Usuario: %{name}"
   errors:
     template:
       body:     "Hay problemas con los siguientes campos:"

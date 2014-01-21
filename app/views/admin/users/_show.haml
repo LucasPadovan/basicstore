@@ -1,0 +1,15 @@
+.modal
+  .modal-header
+    %h3= t('admin.users.show.title', name: @user.name)
+  .modal-body
+    %p
+      %b= User.human_attribute_name(:name) + ': '
+      = @user.name
+    %p
+      %b= User.human_attribute_name(:hashed_password) + ': '
+      = @user.hashed_password
+    %p
+      %b= User.human_attribute_name(:salt) + ': '
+      = @user.salt
+  .modal-footer
+    = link_to_function 'Cerrar', "$('#modal').modal('toggle');", class: 'btn'

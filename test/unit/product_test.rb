@@ -58,7 +58,7 @@ class ProductTest < ActiveSupport::TestCase
     product = Product.new(:titulo => products(:ruby).titulo, :descripcion => "una descripcion",
       :precio => 1, :image_url => "url2.jpg")
     assert !product.save
-    assert_equal I18n.translate('activerecord.errors.messages.taken'),
+    assert_equal I18n.t('activerecord.errors.messages.taken'),
       product.errors[:titulo].join('; ')
   end
 end

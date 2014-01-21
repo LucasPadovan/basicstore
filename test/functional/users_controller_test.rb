@@ -27,7 +27,7 @@ class UsersControllerTest < ActionController::TestCase
       post :create, :user => @input_attributes
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to admin_users_path
   end
 
   test "should show user" do
@@ -42,7 +42,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should update user" do
     put :update, :id => @user.to_param, :user => @input_attributes
-    assert_redirected_to users_path
+    assert_redirected_to admin_users_path
   end
 
   test "should destroy user" do
@@ -50,6 +50,6 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, :id => @user.to_param
     end
 
-    assert_redirected_to users_path
+    assert_redirected_to admin_users_path
   end
 end

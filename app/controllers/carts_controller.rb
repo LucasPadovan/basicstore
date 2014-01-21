@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.xml
   def show
-    @title = I18n.translate('carts.cart.title')
+    @title = I18n.t('carts.cart.title')
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound

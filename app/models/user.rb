@@ -1,19 +1,19 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
-  
-  validates :name, :presence=>true,:uniqueness=>true
-  
-  validates :password, :confirmation=>true
-  attr_accessor :password_confirmation
-  attr_reader :password
-  
-  validate :password_must_be_present
-  
-  after_destroy :ensure_an_admin_remains
 
   has_many :estadordens
   has_many :posts
+
+  validates :name, presence: true, uniqueness: true
+  validates :password, confirmation: true
+  validate :password_must_be_present
+
+  before_destroy :actual_admin?, :last_admin?
+
+  attr_accessible :name, :password, :password_confirmation
+  attr_accessor :password_confirmation
+  attr_reader :password
 
   def User.authenticate(name, password)
     if user = find_by_name(name)
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
   
   def User.encrypt_password(password,salt)
-    Digest::SHA2.hexdigest(password + "wibble" + salt)
+    Digest::SHA2.hexdigest(password + 'wibble' + salt)
   end
     
   def password=(password)
@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
   end
   
   private
-  
   def password_must_be_present
     errors.add(:password, "Missing password") unless hashed_password.present?
   end
@@ -46,9 +45,17 @@ class User < ActiveRecord::Base
     self.salt = self.object_id.to_s + rand.to_s
   end
   
-  def ensure_an_admin_remains
-    if User.count.zero?
-      raise "Can't delete last user"
+  def last_admin?
+    if User.count == 1
+      errors.add(:base, I18n.t('admin.users.errors.last_admin'))
+      false
+    end
+  end
+
+  def actual_admin?
+    if User.count == 1
+      errors.add(:base, I18n.t('admin.users.errors.actual_admin'))
+      false
     end
   end
 end

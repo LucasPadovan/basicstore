@@ -36,7 +36,6 @@ Tienda::Application.routes.draw do
         match '/:product_type', to: 'store#index', via: :get
       end
     end
-    resources :users
     resources :orders
     resources :line_items
     resources :carts, except: [:new, :edit, :index]
@@ -58,5 +57,6 @@ Tienda::Application.routes.draw do
   namespace :admin do
     resources :payment_methods, except: :show
     resources :posts
+    resources :users
   end
 end

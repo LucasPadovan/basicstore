@@ -12,7 +12,7 @@ class PaymentMethod < ActiveRecord::Base
   private
   def referenced_in_order?
     if orders.any?
-      errors.add(:base, I18n.translate('admin.payment_methods.errors.referenced_in_order'))
+      errors.add(:base, I18n.t('admin.payment_methods.errors.referenced_in_order'))
       false
     end
   end

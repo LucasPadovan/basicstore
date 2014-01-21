@@ -1,0 +1,9 @@
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= User.human_attribute_name :name
+      %th= User.human_attribute_name :created_at
+      %th
+  %tbody#users_body
+    = render @users
+= srbuj_link_to_new t('.new'), new_admin_user_path

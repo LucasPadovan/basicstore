@@ -1,0 +1,8 @@
+%tr{ id: dom_id(product_type) }
+  %td= product_type.name
+  %td= product_type.description
+  %td= product_type.position
+  %td
+    = srbuj_link_to_show ['admin', product_type]
+    = srbuj_link_to_edit edit_admin_product_type_path(product_type)
+    = srbuj_link_to_destroy ['admin', product_type], confirm: t('admin.product_types.destroy.confirm'), data: { target: dom_id(product_type) }

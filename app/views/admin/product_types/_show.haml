@@ -1,0 +1,15 @@
+.modal
+  .modal-header
+    %h3= @title
+  .modal-body
+    %p
+      %b= ProductType.human_attribute_name(:name) + ': '
+      = @product_type.name
+    %p
+      %b= ProductType.human_attribute_name(:description) + ': '
+      = @product_type.description
+    %p
+      %b= ProductType.human_attribute_name(:position) + ': '
+      = @product_type.position
+  .modal-footer
+    = link_to_function 'Cerrar', "$('#modal').modal('toggle');", class: 'btn'

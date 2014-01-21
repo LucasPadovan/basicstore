@@ -15,8 +15,6 @@ Tienda::Application.routes.draw do
 
   resources :precioproductos
 
-  resources :product_types
-
   get 'contacto' => 'store#contacto'
   get 'preguntas' => 'store#faq'
   get 'novedades' => 'store#news'
@@ -57,6 +55,7 @@ Tienda::Application.routes.draw do
   namespace :admin do
     resources :payment_methods, except: :show
     resources :posts
+    resources :product_types
     resources :users
   end
 end

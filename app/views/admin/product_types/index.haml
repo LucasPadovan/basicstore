@@ -1,0 +1,11 @@
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= ProductType.human_attribute_name :name
+      %th= ProductType.human_attribute_name :description
+      %th= ProductType.human_attribute_name :position
+      %th
+  %tbody#product_types_body
+    = render @product_types
+
+= srbuj_link_to_new t('admin.product_types.index.new'), new_admin_product_type_path, class: 'btn btn-primary stitched'

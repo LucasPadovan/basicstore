@@ -116,6 +116,32 @@ es:
         add_tooltip: "Agrege una novedad para mostrar en su página"
         delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
         delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
+    product_types:
+      index:
+        title: "Listado de tipos de productos"
+        new: "Nuevo tipo de producto"
+      new:
+        title: "Nuevo tipo de producto"
+        submit:     "Crear tipo de producto"
+        submiting: "Creando tipo de producto..."
+      edit:
+        title: "Editando: %{name}"
+        submit:     "Actualizar tipo de producto"
+        submiting: "Actualizando tipo de producto..."
+      show:
+        title: "Tipo de producto: %{name}"
+      destroy:
+        confirm: "Estas seguro que desea eliminar este tipo de producto?"
+        error: "No se ha podido eliminar el tipo de producto"
+        success: "Tipo de producto eliminado"
+      errors:
+        first: "es el primer tipo de producto"
+        used: "esta en uso actualmente"
+      create:
+        success: "Tipo de producto creado"
+      update:
+        success: "Tipo de producto actualizado"
+
     session:
       new:
         legend:     "Por favor acceda al sistema"
@@ -125,7 +151,7 @@ es:
     users:
       form:
         submit:     "Crear usuario"
-        submiting: "Creando usuario"
+        submiting: "Creando usuario..."
       edit:
         title:  "Editando usuario"
       index:
@@ -235,9 +261,7 @@ es:
       paytype:  "Medio de Pago: "
       edit:     "Editar"
       back:     "Volver"
-
       title: "Pedido número -:%{number}:-"
-  product_types:
 
   products:
     form:

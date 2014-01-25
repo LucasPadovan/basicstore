@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  #todo: fijar el producto/promocion con el precio en el momento en el que se compro
   has_many :line_items, dependent: :destroy
 
   has_many :estadordens

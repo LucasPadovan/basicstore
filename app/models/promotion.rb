@@ -4,7 +4,7 @@ class Promotion < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  has_many :promotion_lines
+  has_many :promotion_lines, dependent: :destroy
   has_many :line_items
 
   accepts_nested_attributes_for :promotion_lines, allow_destroy: true

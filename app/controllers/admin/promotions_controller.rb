@@ -1,10 +1,10 @@
-class PromotionsController < ApplicationController
+class Admin::PromotionsController < Admin::AdminController
   before_filter :get_product, except: :index
 
   # GET /promotions
   # GET /promotions.json
   def index
-    @title = 'Listado de Promociones'
+    @title = t('admin.promotions.index.title')
     @promotions = ( @product ? @product.promotions : Promotion.all )
 
     respond_to do |format|
@@ -29,7 +29,7 @@ class PromotionsController < ApplicationController
   # GET /promotions/new
   # GET /promotions/new.json
   def new
-    @title = 'Nueva promocion'
+    @title = t('admin.promotions.new.title')
     @promotion = Promotion.new
     respond_to do |format|
       format.html # new.html.erb
@@ -39,22 +39,22 @@ class PromotionsController < ApplicationController
 
   # GET /promotions/1/edit
   def edit
-    @title = 'Editando la promocion'
+    @title = t('admin.promotions.edit.title')
     @promotion = Promotion.find(params[:id])
   end
 
   # POST /promotions
   # POST /promotions.json
   def create
-    @title = 'Nueva promocion'
+    @title = t('admin.promotions.new.title')
     @promotion = Promotion.new params[:promotion]
     @promotion.state = 'not-published'
     respond_to do |format|
       if @promotion.save
-        format.html { redirect_to @promotion, notice: 'Promotion was successfully created.' }
+        format.html { redirect_to ['admin', @promotion], notice: 'Promotion was successfully created.' }
         format.json { render json: @promotion, status: :created, location: @promotion }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @promotion.errors, status: :unprocessable_entity }
       end
     end
@@ -63,16 +63,16 @@ class PromotionsController < ApplicationController
   # PUT /promotions/1
   # PUT /promotions/1.json
   def update
-    @title = 'Editando la promocion'
+    @title = t('admin.promotions.edit.title')
     @promotion = Promotion.find(params[:id])
     params[:promotion][:state] = 'not-published'
 
     respond_to do |format|
       if @promotion.update_attributes(params[:promotion])
-        format.html { redirect_to @promotion, notice: 'Promotion was successfully updated.' }
+        format.html { redirect_to ['admin', @promotion], notice: 'Promotion was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @promotion.errors, status: :unprocessable_entity }
       end
     end
@@ -82,11 +82,14 @@ class PromotionsController < ApplicationController
   # DELETE /promotions/1.json
   def destroy
     @promotion = Promotion.find(params[:id])
-    @promotion.destroy
 
-    respond_to do |format|
-      format.html { redirect_to promotions_url }
-      format.json { head :no_content }
+    if @promotion.destroy
+      js_notify message: t('admin.promotions.destroy.success'), type: 'alert-error', time: 2500
+      render nothing: true, content_type: 'text/html'
+    else
+      message = "#{t('admin.promotions.destroy.error')}: #{@promotion.errors[:base].first}"
+      js_notify message: message, type: 'alert-info', time: 2500
+      render nothing: true
     end
   end
 

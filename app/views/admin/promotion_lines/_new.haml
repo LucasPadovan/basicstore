@@ -1,0 +1,10 @@
+.modal
+  = simple_form_for ['admin', @promotion_line], html: { remote: true, data: { target: 'promotion_lines', error: 'modal', modal: true, callback: 'updatePromotionTotal' }, class: 'modal-form form-horizontal' } do |f|
+    .modal-header
+      %h2= t('admin.promotion_lines.new.title')
+    .modal-body
+      ='&#xe05a;'.html_safe
+      = render partial: 'form', locals: { f: f }
+    .modal-footer
+      = f.button :submit, t('admin.promotion_lines.new.submit'), class: 'btn btn-primary stitched btn-large'
+      = yield :form_actions

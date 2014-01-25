@@ -1,0 +1,6 @@
+#state
+  .label= t("admin.promotions.show.#{@promotion.state}")
+  - if @promotion.published?
+    = link_to t('admin.promotions.show.unpublish'), ['unpublish', 'admin', @promotion], class: 'btn btn-warning stitched', method: :put, remote: true, data: { target: 'state', replace: true }
+  - else
+    = link_to t('admin.promotions.show.publish'), ['publish', 'admin', @promotion], class: 'btn btn-success stitched', method: :put, remote: true, data: { target: 'state', replace: true }

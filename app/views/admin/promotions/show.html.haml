@@ -1,0 +1,26 @@
+.span3
+  = link_to_edit edit_admin_promotion_path(@promotion)
+  %p
+    %b= Promotion.human_attribute_name :description
+    = @promotion.description
+  %p
+    %b= Promotion.human_attribute_name :color_combo
+    = @promotion.color_combo
+  %p
+    %b= Promotion.human_attribute_name :start_date
+    = @promotion.start_date.strftime('%d/%m/%Y')
+  %p
+    %b= Promotion.human_attribute_name :end_date
+    = @promotion.end_date.strftime('%d/%m/%Y')
+  = render partial: 'state'
+
+  %h2
+    %b= Promotion.human_attribute_name :total
+    %span{ data: { promotion_total: true } }= number_to_currency @promotion.total
+.span8
+  %h3= t('admin.promotions.show.subtitle')
+  #promotion_lines
+    = render partial: 'admin/promotion_lines/promotion_line', collection: @promotion_lines
+  = srbuj_link_to_new t('admin.promotions.show.add_product'), new_admin_promotion_line_path(@promotion), title: t('admin.promotions.show.add_product_tooltip')
+.clearfix
+= link_to_back admin_promotions_path

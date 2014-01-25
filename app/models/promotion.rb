@@ -2,7 +2,10 @@ class Promotion < ActiveRecord::Base
 
   AVAILABLE_COLORS = [['Amarillo', 'yellow'], ['Azul', 'blue'], ['Negro', 'black'] , ['Rojo', 'red'], ['Verde', 'green']]
 
+  before_destroy :ensure_not_referenced_by_any_line_item
+
   has_many :promotion_lines
+  has_many :line_items
 
   accepts_nested_attributes_for :promotion_lines, allow_destroy: true
 
@@ -38,5 +41,13 @@ class Promotion < ActiveRecord::Base
 
   def total_price
     promotion_lines.sum(&:total)
+  end
+
+  private
+  def ensure_not_referenced_by_any_line_item
+    if line_items.any?
+      errors.add(:base, I18n.t('admin.promotions.errors.referenced_by_line_item'))
+      false
+    end
   end
 end

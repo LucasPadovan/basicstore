@@ -1,4 +1,4 @@
-class PromotionLinesController < ApplicationController
+class Admin::PromotionLinesController < Admin::AdminController
   before_filter :get_promotion
 
   def new
@@ -10,22 +10,13 @@ class PromotionLinesController < ApplicationController
     @promotion_line = @promotion.promotion_lines.build(params[:promotion_line])
 
     if @promotion_line.save!
-      #todo: hacer con update
-      @promotion.total += @promotion_line.total
-      @promotion.save
-      js_notify message: 'Item de la promocion agregado correctamente', type: 'alert-success'
-      render partial: 'promotion_lines/promotion_line', locals: { promotion_line: @promotion_line }, content_type: 'text/html'
+      total = @promotion.total + @promotion_line.total
+      @promotion.update_attributes(total: total)
+      js_notify message: t('admin.promotion_lines.create.success'), type: 'alert-success'
+      render partial: 'admin/promotion_lines/promotion_line', locals: { promotion_line: @promotion_line }, content_type: 'text/html'
     else
       render partial: 'new', status: :unprocessable_entity
     end
-  end
-
-  def edit
-
-  end
-
-  def update
-
   end
 
   def destroy
@@ -33,10 +24,10 @@ class PromotionLinesController < ApplicationController
     if @promotion_line.destroy
       @promotion_line.promotion.total -= @promotion_line.total
       @promotion_line.promotion.save
-      js_notify message: 'Item de la promocion eliminado correctamente', type: 'alert-danger'
+      js_notify message: t('admin.promotion_lines.destroy.success'), type: 'alert-danger'
       render nothing: true, content_type: 'text/html'
     else
-      js_notify message: 'No se pudo eliminar, intente nuevamente.'
+      js_notify message: t('admin.promotion_lines.destroy.error')
     end
   end
 

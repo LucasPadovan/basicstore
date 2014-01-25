@@ -32,12 +32,18 @@ es:
         precio:       "Precio"
         type_tokens:  "Tipos de producto"
       promotion:
-        title: "Título"
-        start_date: "Fecha inicio"
-        end_date: "Fecha fin"
         color_combo: "Combinación de colores"
-        total: "Total"
+        description: "Descripción"
+        end_date: "Fecha fin"
+        start_date: "Fecha inicio"
         state: "Estado"
+        title: "Título"
+        total: "Total"
+      promotion_line:
+        product: "Producto"
+        quantity: "Cantidad"
+        discount: "Descuento"
+        discount_type: "Tipo de descuento"
       user:
         name: "Nombre"
         password: "Contraseña"
@@ -141,7 +147,43 @@ es:
         success: "Tipo de producto creado"
       update:
         success: "Tipo de producto actualizado"
+    promotions:
+      index:
+        new: "Nueva promoción"
+        title: "Listado de Promociones"
+      new:
+        submit: "Crear promoción"
+        title: "Nueva promoción"
+      destroy:
+        confirm: "¿Estás seguro que deseas eliminar esta promoción?"
+        success: "Promoción eliminada"
+        error: "No se pudo eliminar la promoción"
+      edit:
+        submit: "Actualizar promoción"
+        title: "Editando la promoción"
+      show:
+        subtitle: "Ahora agrega productos a tu promoción!"
+        add_product: "Agregar producto"
+        add_product_tooltip: "Agregar un nuevo producto a la promoción"
+        unpublish: "Ocultar"
+        publish: "Publicar"
+        not-published: "No publicada"
+        published: "Publicada"
+      errors:
+        referenced_by_line_item: "se esta utilizando en alguna orden."
+    promotion_lines:
+      new:
+        title: "Escoje el producto a agregar"
+        submit: "Agregar producto"
+      line:
+        discount: "Descuento: %{discount}%{type}"
+        total: "Precio con descuento: %{total}"
 
+      create:
+        success: "Item de la promocion agregado correctamente"
+      destroy:
+        success: "Item de la promocion eliminado correctamente"
+        error: "No se pudo eliminar, intente nuevamente"
     session:
       new:
         legend:     "Por favor acceda al sistema"

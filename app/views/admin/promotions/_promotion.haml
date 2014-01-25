@@ -1,0 +1,11 @@
+%tr{ id: dom_id(promotion) }
+  %td= promotion.title
+  %td= promotion.start_date.strftime('%d/%m/%Y')
+  %td= promotion.end_date.strftime('%d/%m/%Y')
+  %td= promotion.color_combo
+  %td= promotion.state
+  %td= promotion.total
+  %td
+    = link_to_show ['admin', promotion]
+    = link_to_edit edit_admin_promotion_path(promotion)
+    = srbuj_link_to_destroy ['admin', promotion], data: { confirm: t('admin.promotions.destroy.confirm'), target: dom_id(promotion) }

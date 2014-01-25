@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   before_destroy :ensure_not_referenced_by_any_line_item
   before_destroy :ensure_not_referenced_by_any_promotion_line
+  after_commit :update_promotion
 
   has_many :line_items
   has_many :orders, through: :line_items
@@ -42,17 +43,21 @@ class Product < ActiveRecord::Base
   end
 
   private
-    def ensure_not_referenced_by_any_line_item
-      unless line_items.empty?
-        errors.add(:base, 'Line Items present')
-        true
-      end
+  def ensure_not_referenced_by_any_line_item
+    unless line_items.empty?
+      errors.add(:base, 'Line Items present')
+      true
     end
+  end
 
-    def ensure_not_referenced_by_any_promotion_line
-      unless promotion_lines.empty?
-        errors.add(:base, 'Promotion Line present')
-        false
-      end
+  def ensure_not_referenced_by_any_promotion_line
+    unless promotion_lines.empty?
+      errors.add(:base, 'Promotion Line present')
+      false
     end
+  end
+
+  def update_promotion
+    #todo: actualizar total de las promociones asociadas y las lineas de promociones
+  end
 end

@@ -5,14 +5,6 @@ Tienda::Application.routes.draw do
 
   resources :estadordens
 
-  resources :promotions do
-    resources :promotion_lines, as: :lines, except: [:index, :show]
-    member do
-      put :publish
-      put :unpublish
-    end
-  end
-
   resources :precioproductos
 
   get 'contacto' => 'store#contacto'
@@ -56,6 +48,13 @@ Tienda::Application.routes.draw do
     resources :payment_methods, except: :show
     resources :posts
     resources :product_types
+    resources :promotions do
+      resources :promotion_lines, as: :lines, except: [:index, :show]
+      member do
+        put :publish
+        put :unpublish
+      end
+    end
     resources :users
   end
 end

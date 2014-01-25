@@ -1,6 +1,6 @@
 .colorFullMenu.left
   %ul.unstyled
-    %li.header.border.red= link_to t('.promotions'), promotions_path, class: current_section([promotions_path])
+    %li.header.border.red= link_to t('.promotions'), admin_promotions_path, class: current_section([admin_promotions_path])
     %li.header.border.orange= link_to t('.orders'), orders_path, class: current_section([orders_path])
     -#- Estadorden::STATUSES.each do |estado|
     -#  %li.header.border.lightBlue= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)

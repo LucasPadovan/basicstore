@@ -1,0 +1,5 @@
+= simple_form_for ['admin',@promotion] do |f|
+  = render partial: 'form', locals: { f: f }
+
+  = f.button :submit, t('admin.promotions.edit.submit'), class: 'btn btn-primary stitched btn-large side-margin'
+  = link_to_back admin_promotions_path

@@ -1,0 +1,14 @@
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th= Promotion.human_attribute_name :title
+      %th= Promotion.human_attribute_name :start_date
+      %th= Promotion.human_attribute_name :end_date
+      %th= Promotion.human_attribute_name :color_combo
+      %th= Promotion.human_attribute_name :state
+      %th= Promotion.human_attribute_name :total
+      %th
+  %tbody
+    = render @promotions
+
+= link_to_new t('admin.promotions.index.new'), new_admin_promotion_path

@@ -1,6 +1,0 @@
-#state
-  .label= @promotion.state
-  - if @promotion.published?
-    = link_to 'Unpublish', ['unpublish', @promotion], class: 'btn btn-warning', method: :put, remote: true, data: { target: 'state', replace: true}
-  - else
-    = link_to 'Publish', ['publish', @promotion], class: 'btn btn-success', method: :put, remote: true, data: { target: 'state', replace: true}

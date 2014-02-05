@@ -1,11 +1,12 @@
 class CartsController < ApplicationController
-  skip_before_filter :authorize, :only => [:create, :update, :destroy, :show]
+  skip_before_filter :authorize, only: [:create, :update, :destroy, :show]
 
 
   # GET /carts/1
   # GET /carts/1.xml
   def show
     @title = I18n.t('carts.cart.title')
+    set_page_meta_tags @title, nil
     begin
       @cart = Cart.find(params[:id])
     rescue ActiveRecord::RecordNotFound

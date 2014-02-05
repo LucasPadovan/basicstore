@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @title = t('orders.show.title', number: @order.number)
-
+    set_page_meta_tags @title, nil
     unless @order.estadordens.count > 1
       @estado = Estadorden.create(user_id: session[:user_id], order_id: @order.id, estado: 'Leido') if session[:user_id].present?
     end

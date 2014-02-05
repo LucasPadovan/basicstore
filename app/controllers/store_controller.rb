@@ -17,6 +17,7 @@ class StoreController < ApplicationController
     end
 
     @title = product_type
+    set_page_meta_tags @title, nil
 
     @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
 
@@ -27,18 +28,22 @@ class StoreController < ApplicationController
     @title = 'Promociones'
     @promotions = Promotion.published
     @promotions_in_cart = @cart.line_items.map(&:promotion_id)
+    set_page_meta_tags @title, nil
   end
 
   def news
     @title = 'Noticias'
     @posts = Post.all_active
+    set_page_meta_tags @title, nil
   end
 
   def about_us
     @title = 'Conozcanos'
+    set_page_meta_tags @title, nil
   end
 
   def faq
     @title = 'Preguntas frecuentes'
+    set_page_meta_tags @title, nil
   end
 end

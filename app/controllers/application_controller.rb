@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :set_i18n_locale_from_params
   before_filter :get_product_types
+  before_filter :set_page_description
   protect_from_forgery
 
   protected
@@ -49,5 +50,9 @@ class ApplicationController < ActionController::Base
     cart = Cart.create
     session[:cart_id] = cart.id
     cart
+  end
+
+  def set_page_description
+    @local_description = t('layouts.application.page_description')
   end
 end

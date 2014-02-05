@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
     @promotions_in_cart = @cart.line_items.map(&:promotion_id)
 
     @title = @product.titulo
+    @page_description = @product.descripcion + '. ' + t('layouts.application.page_description')
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product }

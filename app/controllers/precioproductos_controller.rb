@@ -1,4 +1,6 @@
 class PrecioproductosController < ApplicationController
+  #todo: no deberia dejar eliminar precios de productos
+
   # GET /precioproductos
   # GET /precioproductos.json
   def index

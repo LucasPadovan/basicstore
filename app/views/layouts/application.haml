@@ -4,6 +4,8 @@
     %title Un Mundo De Ovejitas
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tag
+    %meta{content: 'Un Mundo De Ovejitas', property: 'og:title'}/
+    %meta{content: @page_description, property: 'og:description'}/
   %body#store
     .banner
       .rainbow-background

@@ -64,6 +64,7 @@ es:
   layouts:
     application:
       title:    "Un Mundo De Ovejitas"
+      page_description: "Un Mundo De Ovejitas es tu tienda online local donde podrás conseguir las cosas mas coloridas y bonitas para regalar y adornar tu casa."
   shared:
     store_menu:
       cart: "Carrito"

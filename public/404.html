@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>La página que estas buscando no existe.</title>
+  <link href="/assets/application.css" media="all" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+<body id="store">
+<div class="banner">
+  <div class="rainbow-background">
+    <div class="banner-content">
+      <div class="login">
+        <div class="login-buttons">
+          <a href="/login?locale=es" class="btn btn-info btn-small stitched">Ingresar</a>
+        </div>
+      </div>
+      <div class="search">
+        <form accept-charset="UTF-8" action="/es/store" html="{:class=&gt;&quot;form-search&quot;}" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+          <input class="search-query" id="search" name="search" placeholder="Coloque el nombre del producto a buscar" type="text">
+          <input class="btn btn-small btn-inverse stitched" data-disable-with="Buscando..." type="submit" value="Buscar">
+        </form>
+      </div>
+      <div class="title">
+        <a href="/es" data-toggle="tooltip" title="" data-original-title="Inicio">Un Mundo De Ovejitas</a>
+      </div>
+    </div>
   </div>
+</div>
+<div class="container container-fluid">
+  <div class="content">
+
+    <div class="dialog align-center">
+      <h1>Parece que quieres acceder a una página que no existe.</h1>
+      <h3>Tal vez hayas colocado mal la direccion en el navegador.</h3>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="row-fluid">
+    <div class="span3">
+      <a href="/novedades?locale=es">Noticias</a>
+    </div>
+    <div class="span3">
+      <a href="/preguntas?locale=es">Preguntas frequentes</a>
+    </div>
+    <div class="span3">
+      <a href="/contacto?locale=es">Contacto</a>
+    </div>
+    <div class="span3">
+      <a href="/conozcanos?locale=es">Conozcanos</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

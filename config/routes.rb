@@ -20,31 +20,28 @@ Tienda::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  scope '(:locale)' do
-    resources :store, only: :index do
-      collection do
-        match '/:product_type', to: 'store#index', via: :get
-      end
+  resources :store, only: :index do
+    collection do
+      match '/:product_type', to: 'store#index', via: :get
     end
-    resources :orders
-    resources :line_items
-    resources :carts, except: [:new, :edit, :index]
-
-    resources :precioproductos
-
-    resources :products do
-      get :who_bought, on: :member
-    end
-
-    root to: 'store#promotions', as: 'promociones'
-
-    resources :orders, except: [:edit, :update]
   end
+  resources :orders, only: [:show, :new, :create]
+  resources :line_items
+  resources :carts, except: [:new, :edit, :index]
+
+  resources :precioproductos
+
+  resources :products do
+    get :who_bought, on: :member
+  end
+
+  root to: 'store#promotions', as: 'promociones'
 
   get '/products/:id/precionuevo' => "products#precionuevo", as: :precionuevo
   post '/products/:id/precionuevo' => "products#guardarprecionuevo", as: :precionuevo
 
   namespace :admin do
+    resources :orders, only: [:index, :show, :destroy]
     resources :payment_methods, except: :show
     resources :posts
     resources :product_types

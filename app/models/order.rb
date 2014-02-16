@@ -20,25 +20,6 @@ class Order < ActiveRecord::Base
       line_items << item
     end
   end
-  
-  #todo: whatefuckisthis
-  def self.buscarConEstado(o, estado)
-    orden = Order.find(o)
-    orden.estadordens.each do |estadorden|
-      if estadorden.estado == estado
-        true
-        break
-      end
-    end
-  end
-
-  def self.buscarEstado(estado)
-    ordenes = []
-    op = Order.all.each do |o|
-      ordenes << o if o.estadordens.last.estado == estado
-    end
-    ordenes
-  end
 
   def total
     line_items.sum(&:total_price)
@@ -46,6 +27,10 @@ class Order < ActiveRecord::Base
 
   def cost
     line_items.sum(&:total_costo)
+  end
+
+  def last_state
+    estadordens.last
   end
 
   private

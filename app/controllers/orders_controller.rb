@@ -1,26 +1,10 @@
 class OrdersController < ApplicationController
   skip_before_filter :authorize, only: [:new, :create, :show]
 
-  require 'will_paginate/array'
-
   # GET /orders
   # GET /orders.xml
   def index
-    @title = t('orders.index.title')
-    if params[:estadoOrden]
-      @o = Order.buscarEstado(params[:estadoOrden])
-      @orders = @o.paginate page: params[:page], order: 'created_at desc'
-
-    else
-      @orders = Order.paginate page: params[:page], order: 'created_at desc',
-        per_page: 15
-
-    end
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @orders }
-    end
-
+    #todo: index para el usuario
   end
 
   # GET /orders/1
@@ -67,18 +51,6 @@ class OrdersController < ApplicationController
     else
       @cart = current_cart
       render partial: 'new', status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /orders/1
-  # DELETE /orders/1.xml
-  def destroy
-    @order = Order.find(params[:id])
-    @order.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(orders_url) }
-      format.xml  { head :ok }
     end
   end
 

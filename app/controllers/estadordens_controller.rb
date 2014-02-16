@@ -82,7 +82,7 @@ class EstadordensController < ApplicationController
   end
 
 
-  #arreglar esta cochinada de codigo, hacer con case.
+  #arreglar esta cochinada de codigo, hacer con case y en un metodo de la orden.
   def nuevo
     @order = Order.find(params[:order_id])
     penultimoestado = @order.estadordens.last.estado
@@ -90,6 +90,7 @@ class EstadordensController < ApplicationController
                                                       order_id: @order.id,
                                                       estado: params[:estado])
     ultimoestado = @order.estadordens.last.estado
+    #descontaria dos veces cuando cancelo y vuelvo a ejecutar esto, cancelar una orden deberia sumar si ya ha pasado a lista.
     if  ultimoestado== "Lista" || (ultimoestado=="Entregada" && penultimoestado!="Lista")
       @order.line_items.each do |l|
         producto = Product.find(l.product)
@@ -108,7 +109,7 @@ class EstadordensController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {redirect_to @order}
+      format.html {redirect_to ['admin', @order]}
     end
   end
 

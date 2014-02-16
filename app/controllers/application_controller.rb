@@ -1,28 +1,15 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
-  before_filter :set_i18n_locale_from_params
+  before_filter :set_locale
   before_filter :get_product_types
   before_filter :set_page_meta_tags
   protect_from_forgery
 
   protected
-  def set_i18n_locale_from_params
-    if params[:locale]
-      if I18n.available_locales.include?(params[:locale].to_sym)
-        I18n.locale = params[:locale]
-      else
-        I18n.locale = :es
-        flash.now[:notice] =
-          "#{params[:locale]} translation not available"
-        logger.error flash.now[:notice]
-      end
-    end
+  def set_locale
+    I18n.locale = :es
   end
 
-  #todo: sacar esto para sacar el locale=es de la url, tengo que rehacer los controladores y cambiarlos a admin y eso.
-  def default_url_options
-    {:locale => I18n.locale}
-  end
 
   #todo: quitar esto y poner devise
   def authorize

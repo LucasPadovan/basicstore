@@ -1,0 +1,16 @@
+.span2
+  -#todo: mejorar esto
+  - unless @order.last_state.cancelled?
+    .state-panel
+      %h4.state-title Estados
+      - if @order.last_state.seen? || @order.last_state.delayed?
+        .state-line
+          = link_to 'Lista', nuevoEstado_path(order_id: @order.id, estado: 'Lista')
+      - if @order.last_state.seen? || @order.last_state.ready? || @order.last_state.delayed?
+        .state-line
+          = link_to 'Entregada', nuevoEstado_path(order_id: @order.id, estado: 'Entregada')
+      - if @order.last_state.seen? || @order.last_state.shipped?
+        .state-line
+          = link_to 'Demorada', nuevoEstado_path(order_id: @order.id, estado: 'Demorada')
+      .state-line
+        = link_to 'Cancelada', nuevoEstado_path(order_id: @order.id, estado: 'Cancelada')

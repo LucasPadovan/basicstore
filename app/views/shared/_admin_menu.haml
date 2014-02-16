@@ -1,9 +1,11 @@
 .colorFullMenu.left
   %ul.unstyled
     %li.header.border.red= link_to t('.promotions'), admin_promotions_path, class: current_section([admin_promotions_path])
-    %li.header.border.orange= link_to t('.orders'), orders_path, class: current_section([orders_path])
-    -#- Estadorden::STATUSES.each do |estado|
-    -#  %li.header.border.lightBlue= link_to ' | ' + estado + 's', orders_path(estadoOrden: estado)
+    %li.header.border.orange= link_to t('.orders'), admin_orders_path, class: current_section([admin_orders_path])
+    %li.sublist
+      %ul.unstyled
+        - Estadorden::STATUSES.each_with_index do |state, i|
+          %li.border{ class: RAINBOW_COLORS[i%RAINBOW_COLORS.size] }= link_to state.pluralize, admin_orders_path( filter: { state: state} ), class: ( current_subsection( [admin_orders_path] ) if @state == state )
     %li.header.border.yellow= link_to t('.catalog'), products_path, class: current_section([products_path])
     %li.header.border.green= link_to 'Tipos de productos', admin_product_types_path, class: current_section([admin_product_types_path])
     %li.header.border.lightBlue= link_to t('.paytypes'), admin_payment_methods_path, class: current_section([admin_payment_methods_path])

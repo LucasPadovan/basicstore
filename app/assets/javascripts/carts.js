@@ -42,7 +42,7 @@ var changeTargetForButton = function(target, type){
         element = '#add_' + type + '_' + target
         , new_id = 'add_' + type + '_' + target
         , new_target = 'line_' + type + '_' + target
-        , new_button = '<a href="/es/line_items?' + type + '_id=' + target + '" class="btn btn-warning add-to-cart-fill stitched" data-callback="updateCart(' + target + ', \'' + type + '\')" data-error="' + new_target + '" data-method="post" data-remote="true" data-replace="true" data-respond-as="put" data-target="' + new_target + '" id="' + new_id + '" rel="nofollow">Añadir al Carrito</a>'
+        , new_button = '<a href="/line_items?' + type + '_id=' + target + '" class="btn btn-warning add-to-cart-fill stitched" data-callback="updateCart(' + target + ', \'' + type + '\')" data-error="' + new_target + '" data-method="post" data-remote="true" data-replace="true" data-respond-as="put" data-target="' + new_target + '" id="' + new_id + '" rel="nofollow">Añadir al Carrito</a>'
     $(element).replaceWith(new_button)
 }
 

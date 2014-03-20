@@ -19,6 +19,7 @@
     %th= t('.date')
     %th Estado actual
     %th
+  -#todo: hacer un partial
   - @orders.each do |order|
     %tr
       %td= order.number

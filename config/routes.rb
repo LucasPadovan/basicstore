@@ -29,11 +29,10 @@ Tienda::Application.routes.draw do
   resources :line_items
   resources :carts, except: [:new, :edit, :index]
 
+  # todo: este deberia irse
   resources :precioproductos
 
-  resources :products do
-    get :who_bought, on: :member
-  end
+  resources :products
 
   root to: 'store#promotions', as: 'promociones'
 
@@ -45,6 +44,11 @@ Tienda::Application.routes.draw do
     resources :payment_methods, except: :show
     resources :posts
     resources :product_types
+    resources :products do
+      member do
+        resources :precioproductos
+      end
+    end
     resources :promotions do
       resources :promotion_lines, as: :lines, except: [:index, :show]
       member do

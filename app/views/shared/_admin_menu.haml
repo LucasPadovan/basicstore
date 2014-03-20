@@ -6,7 +6,7 @@
       %ul.unstyled
         - Estadorden::STATUSES.each_with_index do |state, i|
           %li.border{ class: RAINBOW_COLORS[i%RAINBOW_COLORS.size] }= link_to state.pluralize, admin_orders_path( filter: { state: state} ), class: ( current_subsection( [admin_orders_path] ) if @state == state )
-    %li.header.border.yellow= link_to t('.catalog'), products_path, class: current_section([products_path])
+    %li.header.border.yellow= link_to t('.catalog'), admin_products_path, class: current_section([admin_products_path])
     %li.header.border.green= link_to 'Tipos de productos', admin_product_types_path, class: current_section([admin_product_types_path])
     %li.header.border.lightBlue= link_to t('.paytypes'), admin_payment_methods_path, class: current_section([admin_payment_methods_path])
     %li.header.border.cyan= link_to t('.users'), admin_users_path, class: current_section([admin_users_path])

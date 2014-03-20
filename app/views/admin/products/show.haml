@@ -1,0 +1,40 @@
+.container-full.product-show
+  .row
+    .span6
+      .pull-right
+        = image_tag(@product.image_url, class: 'imagen')
+    .span3
+      %p
+        = @product.descripcion
+        = link_to_edit edit_admin_product_path(@product)
+      - if @product.product_types.any?
+        %p
+          - @product.product_types.each do |pt|
+            %span.badge= pt.name
+      %p
+        %b= t('.imgurl')
+        = @product.image_url
+    .span3
+      %p
+        %b Cantidad:
+        = @product.cantidad
+      %p
+        %b Costo:
+        .price= number_to_currency(@product.actual_cost)
+      .clearfix
+      %p
+        %b Precio:
+        .price= number_to_currency(@product.actual_public_price)
+      .clearfix
+      %p
+        %b Ganancia:
+        = number_to_currency(@product.actual_public_price - @product.actual_cost)
+      = link_to 'Historial de precios', precioproductos_path(product: @product)
+      %hr
+      = link_to_new 'Nuevo precio', precionuevo_path(@product)
+
+  - if @related_promotions.any?
+    .row
+      %hr
+      %h2 Estas son las promociones relacionadas
+      = render partial: 'promotions/promotion', collection: @related_promotions

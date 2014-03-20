@@ -148,6 +148,9 @@ es:
         success: "Tipo de producto creado"
       update:
         success: "Tipo de producto actualizado"
+    products:
+      index:
+        new: "Nuevo producto"
     promotions:
       index:
         new: "Nueva promoción"

@@ -1,0 +1,5 @@
+%table.table.table-bordered.table-striped
+  = render @products
+
+= will_paginate @products
+= link_to_new t('admin.products.index.new'), new_product_path

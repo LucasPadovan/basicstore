@@ -1,0 +1,16 @@
+= simple_form_for(@product) do |f|
+  = f.error_notification
+
+  = f.input :titulo, autofocus: true
+  = f.input :descripcion, input_html: { rows: 4, cols: 40 }
+  = f.input :image_url, class: "caja_image_url"
+
+  -#todo: mejorar esto
+  - unless params[:action] == 'edit' || params[:action] == 'update'
+    = f.simple_fields_for :precioproductos do |builder|
+      = builder.input :costo
+      = builder.input :preciopublico
+  -#todo: validar estos type_tokens, si no encuentra la categoria, que la cree si es posible.
+  = f.input :type_tokens, input_html: { data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto' }
+  = f.input :cantidad
+  = f.button :submit, t('.submit'), class: 'btn btn-primary', disable_with: t('products.form.submiting')

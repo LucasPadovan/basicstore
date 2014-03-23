@@ -27,56 +27,48 @@ class Admin::ProductsController < Admin::AdminController
   def new
     @product = Product.new
     @prices = @product.precioproductos.build
-    respond_to do |format|
-      format.html # new.html.erb
-      #format.xml  { render :xml => @product }
-    end
+
+    render partial: 'new', content_type: 'text/html'
   end
 
   def edit
     @product = Product.find(params[:id])
+
+    render partial: 'edit', content_type: 'text/html'
   end
 
   def create
     @product = Product.new(params[:product])
 
-    respond_to do |format|
-      if @product.save
-        format.html {
-          redirect_to( products_path, notice: 'Product was successfully created.')
-        }
-        format.xml  { render :xml => @product, :status => :created, :location => @product }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
-      end
+    if @product.save
+      js_notify message: t('admin.products.create.success'), type: 'alert-success', time: 2500
+      render partial: 'product', content_type: 'text/html', locals: { product: @product }
+    else
+      render partial: 'new', status: :unprocessable_entity
     end
   end
 
   def update
     @product = Product.find(params[:id])
 
-    respond_to do |format|
-      if @product.update_attributes(params[:product])
-        format.html { redirect_to( products_path, notice: 'Product was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
-      end
+    if @product.update_attributes(params[:product])
+      js_notify message: t('admin.products.update.success'), type: 'alert-success', time: 2500
+      render partial: 'product', content_type: 'text/html', locals: { product: @product }
+    else
+      render partial: 'edit', status: :unprocessable_entity
     end
   end
 
   def destroy
     @product = Product.find(params[:id])
-    unless @product.destroy
-      #todo: agregar los mensajes de error aca, los generados por los before filter del product
-      notice = 'No se puede borrar por alguna razon'
-    end
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: notice }
-      format.xml  { head :ok }
+    if @product.destroy
+      js_notify message: t('admin.products.destroy.success'), type: 'alert-error', time: 2500
+      render nothing: true, content_type: 'text/html'
+    else
+      message = "#{t('admin.products.destroy.error')}: #{@product.errors[:base].first}"
+      js_notify message: message, type: 'alert-info', time: 2500
+      render nothing: true
     end
   end
 

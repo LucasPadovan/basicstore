@@ -50,7 +50,11 @@ es:
         password_confirmation: "Confirmacion de Contraseña"
         hashed_password: "Hash de la contraseña"
         created_at: "Fecha de creación"
-
+  models:
+    products:
+      actual_cost: "Costo actual"
+      actual_public_price: "Precio al publico actual"
+      winnings: "Ganancia"
   commmon:
     back:     'Volver'
     close:    'Cerrar'
@@ -123,6 +127,12 @@ es:
         add_tooltip: "Agrege una novedad para mostrar en su página"
         delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
         delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
+    precioproductos:
+      index:
+        title:
+      create:
+        created:
+        error:
     product_types:
       index:
         title: "Listado de tipos de productos"
@@ -151,6 +161,30 @@ es:
     products:
       index:
         new: "Nuevo producto"
+        add_tooltip: "Agregue un nuevo producto a su catálogo"
+      new:
+        title: "Nuevo producto"
+        submit: "Crear producto"
+        submiting: "Creando producto..."
+      edit:
+        title: "Editando: %{name}"
+        submit:     "Actualizar producto"
+        submiting: "Actualizando producto..."
+      destroy:
+        confirm: "Estas seguro que desea eliminar este producto?"
+        error: "No se ha podido eliminar el producto"
+        success: "Producto eliminado"
+      show:
+        related_promotions: "Estas son las promociones relacionadas"
+        old_prices: "Historial de precios"
+        new_price: "Actualizar precio"
+        new_price_tooltip: "Agrega un nuevo precio al producto"
+      errors:
+        used: "esta en uso actualmente"
+      create:
+        success: "Producto creado"
+      update:
+        success: "Producto actualizado"
     promotions:
       index:
         new: "Nueva promoción"
@@ -310,20 +344,6 @@ es:
       title: "Pedido número -:%{number}:-"
 
   products:
-    form:
-      title:      "Titulo"
-      desc:       "Descripcion"
-      imgurl:     "Url de la imagen"
-      price:      "Precio"
-      submit:     "Guardar producto"
-      productType: "Tipo de producto"
-      promptTP:   "Tipo de producto"
-      cant:       "Cantidad"
-      submiting: "Guardando producto..."
-    edit: 
-      title:      "Editando el producto"
-      show:       "Ver"
-      back:       "Volver"
     index:
       title:    "Listado de Productos"
       show:     "Ver"
@@ -331,8 +351,6 @@ es:
       destroy:  "Eliminar"
       confirm:  "¿Está usted seguro que desea eliminar este producto?"
       new:      "Añadir producto"
-    new:
-      legend:   "Por favor, ingrese los datos del producto"
     show:
       name:     "Titulo: "
       desc:     "Descripcion: "

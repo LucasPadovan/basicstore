@@ -46,7 +46,7 @@ Tienda::Application.routes.draw do
     resources :product_types
     resources :products do
       member do
-        resources :precioproductos
+        resources :precioproductos, only: [:index, :create]
       end
     end
     resources :promotions do

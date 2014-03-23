@@ -2,39 +2,37 @@
   .row
     .span6
       .pull-right
-        = image_tag(@product.image_url, class: 'imagen')
-    .span3
-      %p
-        = @product.descripcion
-        = link_to_edit edit_admin_product_path(@product)
-      - if @product.product_types.any?
         %p
-          - @product.product_types.each do |pt|
-            %span.badge= pt.name
-      %p
-        %b= t('.imgurl')
-        = @product.image_url
+          = @product.descripcion
+        = image_tag(@product.image_url, class: 'imagen')
+        %p
+          %b= Product.human_attribute_name(:image_url) + ':'
+          = @product.image_url
+        - if @product.product_types.any?
+          %p
+            - @product.product_types.each do |pt|
+              %span.badge= pt.name
     .span3
       %p
-        %b Cantidad:
+        %b= Product.human_attribute_name :cantidad
         = @product.cantidad
       %p
-        %b Costo:
+        %b= t('models.products.actual_cost')
         .price= number_to_currency(@product.actual_cost)
       .clearfix
       %p
-        %b Precio:
+        %b= t('models.products.actual_public_price')
         .price= number_to_currency(@product.actual_public_price)
       .clearfix
       %p
-        %b Ganancia:
+        %b= t('models.products.winnings')
         = number_to_currency(@product.actual_public_price - @product.actual_cost)
-      = link_to 'Historial de precios', precioproductos_path(product: @product)
+      = link_to t('.old_prices'), precioproductos_path(product: @product)
       %hr
-      = link_to_new 'Nuevo precio', precionuevo_path(@product)
+      = link_to_new t('.new_price'), precionuevo_path(@product), title: t('.new_price_tooltip')
 
   - if @related_promotions.any?
     .row
       %hr
-      %h2 Estas son las promociones relacionadas
+      %h2= t('.related_promotions')
       = render partial: 'promotions/promotion', collection: @related_promotions

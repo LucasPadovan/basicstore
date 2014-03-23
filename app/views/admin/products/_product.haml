@@ -1,20 +1,20 @@
-%tr
+%tr{id: dom_id(product)}
   %td.admin-product-image
     = image_tag(product.image_url, class: 'admin-product-image')
   %td
     %dl
       %h3= product.titulo
-      %dd= truncate(strip_tags(product.descripcion), :length => 80)
+      %dd= truncate(strip_tags(product.descripcion), length: 80)
       %dd
         - product.product_types.each do |type|
           %label.label= type.name
       %dd
-        %b Costo actual:
+        %b= t('models.products.actual_cost')
         $#{product.actual_cost}
       %dd
-        %b Precio al público actual:
+        %b= t('models.products.actual_public_price')
         $#{product.actual_public_price}
   %td
     = link_to_show ['admin', product]
-    = link_to_edit edit_admin_product_path(product)
-    = link_to_destroy ['admin', product]
+    = srbuj_link_to_edit edit_admin_product_path(product)
+    = srbuj_link_to_destroy ['admin', product], confirm: t('admin.products.destroy.confirm'), data: { target: dom_id(product) }

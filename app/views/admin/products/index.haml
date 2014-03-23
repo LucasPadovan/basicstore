@@ -1,5 +1,7 @@
 %table.table.table-bordered.table-striped
-  = render @products
+  %thead
+  %tbody#products_body
+    = render @products
 
 = will_paginate @products
-= link_to_new t('admin.products.index.new'), new_product_path
+= srbuj_link_to_new t('admin.products.index.new'), new_admin_product_path, title: t('admin.products.index.add_tooltip')

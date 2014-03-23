@@ -26,7 +26,7 @@ class Admin::ProductsController < Admin::AdminController
 
   def new
     @product = Product.new
-    @prices = @product.precioproductos.build
+    @prices = @product.prices.build
 
     render partial: 'new', content_type: 'text/html'
   end
@@ -75,7 +75,7 @@ class Admin::ProductsController < Admin::AdminController
   # todo: esto volarlo
   def precionuevo
     @product = Product.find(params[:id])
-    @precioproducto = @product.precioproductos.build
+    @precioproducto = @product.prices.build
 
     respond_to do |format|
       format.html #precionuevo.html.erb
@@ -86,7 +86,7 @@ class Admin::ProductsController < Admin::AdminController
   def guardarprecionuevo
     if Product.exists?(params[:id])
       @product = Product.find(params[:id])
-      @precioproducto = @product.precioproductos.build(params[:precioproducto])
+      @precioproducto = @product.prices.build(params[:precioproducto])
 
     else
       redirect_to(products_path, :notice => "Especifique un producto valido")

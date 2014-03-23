@@ -127,7 +127,7 @@ es:
         add_tooltip: "Agrege una novedad para mostrar en su página"
         delete_confirm: "¿Estás seguro que deseas eliminar esta novedad?"
         delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
-    precioproductos:
+    prices:
       index:
         title:
       create:
@@ -407,6 +407,6 @@ es:
         separator: ","
         delimiter: "."
         precision: 2
-  precioproductos:
+  prices:
     index:
       title: "Histórico de precios de %{product}"

@@ -2,12 +2,12 @@
 
 one:
   product_id: 1
-  costo: 9.99
-  preciopublico: 9.99
-  detalle: MyString
+  cost: 9.99
+  public_price: 9.99
+  detail: MyString
 
 two:
   product_id: 1
-  costo: 9.99
-  preciopublico: 9.99
-  detalle: MyString
+  cost: 9.99
+  public_price: 9.99
+  detail: MyString

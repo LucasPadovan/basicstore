@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PrecioproductosControllerTest < ActionController::TestCase
+class PricesControllerTest < ActionController::TestCase
   setup do
     @precioproducto = precioproductos(:one)
   end
@@ -8,7 +8,7 @@ class PrecioproductosControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:precioproductos)
+    assert_not_nil assigns(:prices)
   end
 
   test "should get new" do
@@ -17,7 +17,7 @@ class PrecioproductosControllerTest < ActionController::TestCase
   end
 
   test "should create precioproducto" do
-    assert_difference('Precioproducto.count') do
+    assert_difference('Price.count') do
       post :create, precioproducto: @precioproducto.attributes
     end
 
@@ -40,7 +40,7 @@ class PrecioproductosControllerTest < ActionController::TestCase
   end
 
   test "should destroy precioproducto" do
-    assert_difference('Precioproducto.count', -1) do
+    assert_difference('Price.count', -1) do
       delete :destroy, id: @precioproducto.to_param
     end
 

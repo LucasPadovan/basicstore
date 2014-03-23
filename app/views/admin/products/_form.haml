@@ -4,9 +4,9 @@
 = f.input :descripcion, input_html: { rows: 4, cols: 40 }
 = f.input :image_url, class: "caja_image_url"
 - unless params[:action] == 'edit' || params[:action] == 'update'
-  = f.simple_fields_for :precioproductos do |builder|
-    = builder.input :costo
-    = builder.input :preciopublico
+  = f.simple_fields_for :prices do |builder|
+    = builder.input :cost
+    = builder.input :public_price
 -#todo: validar estos type_tokens, si no encuentra la categoria, que la cree si es posible.
 = f.input :type_tokens, input_html: { data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto' }
 = f.input :cantidad

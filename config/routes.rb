@@ -3,16 +3,10 @@ Tienda::Application.routes.draw do
     mount MailPreview => 'mail_view'
   end
 
-  resources :estadordens
-
-  resources :precioproductos
-
   get 'contacto' => 'store#contacto'
   get 'preguntas' => 'store#faq'
   get 'novedades' => 'store#news'
   get 'conozcanos' => 'store#about_us'
-
-  get 'nuevoEstado' => 'estadordens#nuevo'
 
   controller :session do
     get 'login' => :new
@@ -30,14 +24,15 @@ Tienda::Application.routes.draw do
   resources :carts, except: [:new, :edit, :index]
 
   # todo: este deberia irse
-  resources :precioproductos
-
-  resources :products
-
-  root to: 'store#promotions', as: 'promociones'
+  resources :estadordens
+  get 'nuevoEstado' => 'estadordens#nuevo'
 
   get '/products/:id/precionuevo' => "products#precionuevo", as: :precionuevo
   post '/products/:id/precionuevo' => "products#guardarprecionuevo", as: :precionuevo
+
+  resources :products, only: :show
+
+  root to: 'store#promotions', as: 'promociones'
 
   namespace :admin do
     resources :orders, only: [:index, :show, :destroy]
@@ -46,7 +41,7 @@ Tienda::Application.routes.draw do
     resources :product_types
     resources :products do
       member do
-        resources :precioproductos, only: [:index, :create]
+        resources :prices, only: [:index, :new, :create]
       end
     end
     resources :promotions do

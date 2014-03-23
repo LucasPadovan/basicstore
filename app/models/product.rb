@@ -4,14 +4,14 @@ class Product < ActiveRecord::Base
 
   has_many :line_items
   has_many :orders, through: :line_items
-  has_many :precioproductos
+  has_many :prices
   has_many :promotion_lines
   has_many :habtm_products
   has_many :product_types, through: :habtm_products
 
-  accepts_nested_attributes_for :precioproductos
+  accepts_nested_attributes_for :prices
 
-  attr_accessible :titulo, :descripcion, :image_url, :cantidad, :type_tokens, :precioproductos_attributes
+  attr_accessible :titulo, :descripcion, :image_url, :cantidad, :type_tokens, :prices_attributes
   attr_reader :type_tokens
 
   validates :titulo, :descripcion, :image_url, presence: true
@@ -34,11 +34,11 @@ class Product < ActiveRecord::Base
   end
 
   def actual_public_price
-    precioproductos.last.preciopublico
+    prices.last.public_price
   end
 
   def actual_cost
-    precioproductos.last.costo
+    prices.last.cost
   end
 
   def update_promotion

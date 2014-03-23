@@ -27,7 +27,7 @@
       %p
         %b= t('models.products.winnings')
         = number_to_currency(@product.actual_public_price - @product.actual_cost)
-      = link_to t('.old_prices'), precioproductos_path(product: @product)
+      = link_to t('.old_prices'), admin_prices_path(@product)
       %hr
       = link_to_new t('.new_price'), precionuevo_path(@product), title: t('.new_price_tooltip')
 

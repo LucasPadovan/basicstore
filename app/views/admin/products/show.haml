@@ -16,20 +16,10 @@
       %p
         %b= Product.human_attribute_name :cantidad
         = @product.cantidad
-      %p
-        %b= t('models.products.actual_cost')
-        .price= number_to_currency(@product.actual_cost)
-      .clearfix
-      %p
-        %b= t('models.products.actual_public_price')
-        .price= number_to_currency(@product.actual_public_price)
-      .clearfix
-      %p
-        %b= t('models.products.winnings')
-        = number_to_currency(@product.actual_public_price - @product.actual_cost)
+      = render partial: 'admin/prices/price', locals: { cost: @product.actual_cost, price: @product.actual_public_price}
       = link_to t('.old_prices'), admin_prices_path(@product)
       %hr
-      = link_to_new t('.new_price'), precionuevo_path(@product), title: t('.new_price_tooltip')
+      = srbuj_link_to_new t('.new_price'), new_admin_price_path(@product), title: t('.new_price_tooltip')
 
   - if @related_promotions.any?
     .row

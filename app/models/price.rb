@@ -3,7 +3,7 @@ class Price < ActiveRecord::Base
 
   belongs_to :product
 
-  attr_accessible :public_price, :cost
+  attr_accessible :public_price, :cost, :detail
 
   validates :public_price, :cost, numericality: { greater_than_or_equal_to: 0.01 }
   validates :public_price, :cost, presence: true

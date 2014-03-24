@@ -5,6 +5,7 @@ es:
       order:          "Orden"
       payment_method: "Medio de pago"
       post:           "Novedad"
+      price:          "Precio"
       product:        "Producto"
       product_type:   "Tipo de producto"
       user:           "Usuario"
@@ -17,6 +18,11 @@ es:
       payment_method:
         name:         "Nombre"
         description:  "Descripción"
+      price:
+        public_price: "Precio al público"
+        cost: "Costo"
+        detail: "Detalle"
+        created_at: "Fecha de creación"
       post:
         active: "Activo"
         body:   "Texto"
@@ -129,7 +135,11 @@ es:
         delete_confirm_active: "Esta es una novedad que esta activa en la página, ¿estás seguro que deseas eliminarla?"
     prices:
       index:
-        title:
+        title: "Historial de precios de %{product}"
+      new:
+        title: "Nuevo precio para %{product}"
+        submit: ""
+        submiting: ""
       create:
         created:
         error:
@@ -407,6 +417,3 @@ es:
         separator: ","
         delimiter: "."
         precision: 2
-  prices:
-    index:
-      title: "Histórico de precios de %{product}"

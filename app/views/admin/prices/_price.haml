@@ -1,0 +1,12 @@
+#product_price
+  %p
+    %b= t('models.products.actual_cost')
+    .price= number_to_currency(cost)
+  .clearfix
+  %p
+    %b= t('models.products.actual_public_price')
+    .price= number_to_currency(price)
+  .clearfix
+  %p
+    %b= t('models.products.winnings')
+    = number_to_currency(price - cost)

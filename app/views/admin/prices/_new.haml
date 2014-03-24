@@ -1,0 +1,10 @@
+.modal
+  = simple_form_for @price, url: admin_prices_path(@product), html: { remote: true, class: 'form-horizontal',
+    data: { target: 'product_price', modal: true, error: 'modal', replace: true } } do |f|
+    .modal-header
+      %h3= @title
+    .modal-body
+      = render partial: 'form', locals: { f: f }
+    .modal-footer
+      = f.submit t('admin.products.new.submit'), disable_with: t('admin.products.new.submiting'), class: 'btn btn-primary stitched btn-large'
+      = yield :form_actions

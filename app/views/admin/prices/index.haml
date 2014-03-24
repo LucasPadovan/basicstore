@@ -1,0 +1,11 @@
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th= Price.human_attribute_name :cost
+      %th= Price.human_attribute_name :public_price
+      %th= Price.human_attribute_name :detail
+      %th= Price.human_attribute_name :created_at
+  %tbody#prices_body
+    = render partial: 'file_row', collection: @prices, as: :price
+
+= srbuj_link_to_new t('admin.products.show.new_price'), new_admin_price_path(@product), title: t('admin.products.show.new_price_tooltip')

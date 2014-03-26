@@ -8,6 +8,10 @@ class Price < ActiveRecord::Base
   validates :public_price, :cost, numericality: { greater_than_or_equal_to: 0.01 }
   validates :public_price, :cost, presence: true
 
+  def winnings
+    public_price - cost
+  end
+
   private
   def update_promotion
     product.update_promotion

@@ -61,6 +61,8 @@ es:
       actual_cost: "Costo actual"
       actual_public_price: "Precio al publico actual"
       winnings: "Ganancia"
+    prices:
+      winnings: "Ganancias"
   commmon:
     back:     'Volver'
     close:    'Cerrar'
@@ -136,13 +138,14 @@ es:
     prices:
       index:
         title: "Historial de precios de %{product}"
+        back_to_product: "Volver a %{product}"
       new:
         title: "Nuevo precio para %{product}"
-        submit: ""
-        submiting: ""
+        submit: "Actualizar precio"
+        submiting: "Actualizando precio..."
       create:
-        created:
-        error:
+        success: "Precio actualizado con éxito"
+        error: "No se ha podido actualizar el precio del producto"
     product_types:
       index:
         title: "Listado de tipos de productos"
@@ -189,6 +192,7 @@ es:
         old_prices: "Historial de precios"
         new_price: "Actualizar precio"
         new_price_tooltip: "Agrega un nuevo precio al producto"
+        back_to_catalog: "Volver al catálgo"
       errors:
         used: "esta en uso actualmente"
       create:
@@ -264,7 +268,6 @@ es:
       errors:
         last_admin: "debe quedar al menos un administrador"
         actual_admin: "no puedes auto eliminarte"
-
   carts:
     cart:
       title:      "Su carrito"

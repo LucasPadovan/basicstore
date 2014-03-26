@@ -1,5 +1,6 @@
 %tr{ id: dom_id(price)}
-  %td= price.cost
-  %td= price.public_price
+  %td= number_to_currency price.cost
+  %td= number_to_currency price.public_price
+  %td= number_to_currency price.winnings
   %td= price.detail
   %td= price.created_at.strftime('%d/%m/%Y %H:%Mhs.')

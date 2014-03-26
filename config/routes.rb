@@ -27,9 +27,6 @@ Tienda::Application.routes.draw do
   resources :estadordens
   get 'nuevoEstado' => 'estadordens#nuevo'
 
-  get '/products/:id/precionuevo' => "products#precionuevo", as: :precionuevo
-  post '/products/:id/precionuevo' => "products#guardarprecionuevo", as: :precionuevo
-
   resources :products, only: :show
 
   root to: 'store#promotions', as: 'promociones'
@@ -40,9 +37,7 @@ Tienda::Application.routes.draw do
     resources :posts
     resources :product_types
     resources :products do
-      member do
-        resources :prices, only: [:index, :new, :create]
-      end
+      resources :prices, only: [:index, :new, :create]
     end
     resources :promotions do
       resources :promotion_lines, as: :lines, except: [:index, :show]

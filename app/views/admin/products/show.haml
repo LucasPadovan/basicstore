@@ -12,14 +12,15 @@
           %p
             - @product.product_types.each do |pt|
               %span.badge= pt.name
+        = link_to_back admin_products_path, title: t('admin.products.show.back_to_catalog')
     .span3
       %p
         %b= Product.human_attribute_name :cantidad
         = @product.cantidad
       = render partial: 'admin/prices/price', locals: { cost: @product.actual_cost, price: @product.actual_public_price}
-      = link_to t('.old_prices'), admin_prices_path(@product)
+      = link_to t('.old_prices'), admin_product_prices_path(@product)
       %hr
-      = srbuj_link_to_new t('.new_price'), new_admin_price_path(@product), title: t('.new_price_tooltip')
+      = srbuj_link_to_new t('.new_price'), ['new', 'admin', @product, 'price'], title: t('.new_price_tooltip')
 
   - if @related_promotions.any?
     .row

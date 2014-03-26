@@ -2,9 +2,9 @@ class Admin::PricesController < Admin::AdminController
   before_filter :get_product, only: [:new, :create]
 
   def index
-    @product = Product.includes(:prices).find(params[:id])
+    @product = Product.includes(:prices).find(params[:product_id])
     @prices = @product.prices.order('created_at DESC')
-    @title = t('prices.index.title', product: @product.titulo)
+    @title = t('admin.prices.index.title', product: @product.titulo)
     respond_to do |format|
       format.html
       format.json { render json: @prices }
@@ -20,10 +20,10 @@ class Admin::PricesController < Admin::AdminController
 
   def create
     @title = t('admin.prices.new.title', product: @product)
-    @price = Price.new(params[:price])
+    @price = @product.prices.build(params[:price])
 
     if @price.save
-      js_notify message: 'bien creado ql'
+      js_notify message: t('admin.prices.create.success'), type: 'alert-success', time: 2500
       render partial: 'price', locals: { cost: @price.cost, price: @price.public_price }, content_type: 'text/html'
     else
       render partial: 'new', status: :unprocessable_entity
@@ -32,6 +32,6 @@ class Admin::PricesController < Admin::AdminController
 
   private
   def get_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 end

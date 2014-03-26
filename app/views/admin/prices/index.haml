@@ -3,9 +3,10 @@
     %tr
       %th= Price.human_attribute_name :cost
       %th= Price.human_attribute_name :public_price
+      %th= t('models.prices.winnings')
       %th= Price.human_attribute_name :detail
       %th= Price.human_attribute_name :created_at
   %tbody#prices_body
     = render partial: 'file_row', collection: @prices, as: :price
 
-= srbuj_link_to_new t('admin.products.show.new_price'), new_admin_price_path(@product), title: t('admin.products.show.new_price_tooltip')
+= link_to_back :back, title: t('admin.prices.index.back_to_product', product: @product)

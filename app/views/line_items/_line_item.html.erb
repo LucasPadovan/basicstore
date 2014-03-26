@@ -4,7 +4,7 @@
     <span class="pull-right"><%= line_item.quantity %></span>
   </td>
   <% if line_item.product %>
-    <td><%= truncate(strip_tags(line_item.product.titulo), length: 40) %></td>
+    <td><%= truncate(strip_tags(line_item.product.to_s), length: 40) %></td>
 <% else %>
     <td><%= truncate(strip_tags(line_item.promotion.title), length: 40) %></td>
   <% end %>

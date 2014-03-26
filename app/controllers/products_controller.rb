@@ -9,9 +9,9 @@ class ProductsController < ApplicationController
     @products_in_cart = @cart.line_items.map(&:product_id)
     @promotions_in_cart = @cart.line_items.map(&:promotion_id)
 
-    @title = @product.titulo
+    @title = @product.to_s
 
-    set_page_meta_tags @title, @product.descripcion
+    set_page_meta_tags @title, @product.description
 
     respond_to do |format|
       format.html # show.html.erb

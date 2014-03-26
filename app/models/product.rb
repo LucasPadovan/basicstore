@@ -11,11 +11,11 @@ class Product < ActiveRecord::Base
 
   accepts_nested_attributes_for :prices
 
-  attr_accessible :titulo, :descripcion, :image_url, :cantidad, :type_tokens, :prices_attributes
+  attr_accessible :title, :description, :image_url, :quantity, :type_tokens, :prices_attributes
   attr_reader :type_tokens
 
-  validates :titulo, :descripcion, :image_url, presence: true
-  validates :titulo, uniqueness: true
+  validates :title, :description, :image_url, presence: true
+  validates :title, uniqueness: true
   validates :image_url, format: {
       with: %r{\.(gif|png|jpg)$}i,
       message: 'Debe ser una direccion de una imagen GIF, PNG o JPG.'
@@ -30,7 +30,7 @@ class Product < ActiveRecord::Base
   end
 
   def to_s
-    titulo
+    title
   end
 
   def actual_public_price

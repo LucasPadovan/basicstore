@@ -4,7 +4,7 @@ class Admin::PricesController < Admin::AdminController
   def index
     @product = Product.includes(:prices).find(params[:product_id])
     @prices = @product.prices.order('created_at DESC')
-    @title = t('admin.prices.index.title', product: @product.titulo)
+    @title = t('admin.prices.index.title', product: @product.to_s)
     respond_to do |format|
       format.html
       format.json { render json: @prices }

@@ -11,7 +11,7 @@ class StoreController < ApplicationController
     if params[:search]
       product_type = "Productos que responden a <#{params[:search]}>"
       search = "%#{params[:search].downcase}%"
-      @products = Product.where('lower(titulo) LIKE :title OR lower(descripcion) LIKE :description', title: search, description: search)
+      @products = Product.where('lower(title) LIKE :title OR lower(description) LIKE :description', title: search, description: search)
     else
       @products = ProductType.where(name: product_type).first.products
     end
@@ -19,7 +19,7 @@ class StoreController < ApplicationController
     @title = product_type
     set_page_meta_tags @title, nil
 
-    @products = @products.paginate(page: params[:page], order: 'titulo ASC', per_page: 15)
+    @products = @products.paginate(page: params[:page], order: 'title ASC', per_page: 15)
 
     @products_in_cart = @cart.line_items.map(&:product_id)
   end

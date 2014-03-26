@@ -94,8 +94,8 @@ class EstadordensController < ApplicationController
     if  ultimoestado== "Lista" || (ultimoestado=="Entregada" && penultimoestado!="Lista")
       @order.line_items.each do |l|
         producto = Product.find(l.product)
-        c=(producto.cantidad-l.quantity)
-        producto.update_attributes(cantidad: c)
+        c=(producto.quantity-l.quantity)
+        producto.update_attributes(quantity: c)
       end
 
       OrderMailer.ready(@order).deliver
@@ -103,8 +103,8 @@ class EstadordensController < ApplicationController
     elsif (penultimoestado != "Demorada" && ultimoestado == "Cancelada") || ultimoestado == "Demorada"
       @order.line_items.each do |l|
             producto = Product.find(l.product)
-            c=(producto.cantidad+l.quantity)
-            producto.update_attributes(cantidad: c)
+            c=(producto.quantity+l.quantity)
+            producto.update_attributes(quantity: c)
       end
     end
 

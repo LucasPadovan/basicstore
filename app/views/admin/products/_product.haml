@@ -3,8 +3,8 @@
     = image_tag(product.image_url, class: 'admin-product-image')
   %td
     %dl
-      %h3= product.titulo
-      %dd= truncate(strip_tags(product.descripcion), length: 80)
+      %h3= product.to_s
+      %dd= truncate(strip_tags(product.description), length: 80)
       %dd
         - product.product_types.each do |type|
           %label.label= type.name

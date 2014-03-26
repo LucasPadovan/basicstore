@@ -3,7 +3,7 @@
     .span6
       .pull-right
         %p
-          = @product.descripcion
+          = @product.description
         = image_tag(@product.image_url, class: 'imagen')
         %p
           %b= Product.human_attribute_name(:image_url) + ':'
@@ -15,8 +15,8 @@
         = link_to_back admin_products_path, title: t('admin.products.show.back_to_catalog')
     .span3
       %p
-        %b= Product.human_attribute_name :cantidad
-        = @product.cantidad
+        %b= Product.human_attribute_name :quantity
+        = @product.quantity
       = render partial: 'admin/prices/price', locals: { cost: @product.actual_cost, price: @product.actual_public_price}
       = link_to t('.old_prices'), admin_product_prices_path(@product)
       %hr

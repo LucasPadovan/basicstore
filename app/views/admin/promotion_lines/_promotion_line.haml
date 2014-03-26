@@ -1,6 +1,6 @@
 .well{id: dom_id(promotion_line)}
   .pull-right= link_to_destroy admin_promotion_line_path(@promotion, promotion_line), remote: true, data: { target: dom_id(promotion_line), callback: 'updatePromotionTotal' }, class: 'btn btn-danger btn-mini'
-  %h3 #{promotion_line.quantity} x #{promotion_line.product.titulo}
+  %h3 #{promotion_line.quantity} x #{promotion_line.product.to_s}
   %p= t('admin.promotion_lines.line.discount', discount: promotion_line.discount, type: promotion_line.discount_type)
   %p= t('admin.promotion_lines.line.total', total: number_to_currency(promotion_line.total))
   %span.hide{ data: { promotion_line_total: true } }= promotion_line.total

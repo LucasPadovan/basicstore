@@ -8,7 +8,7 @@
     - @order.line_items.each do |item|
       %tr{ style: 'padding:8px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #dddddd;' }
         %td{ style: 'padding:8px; line-height:20px; text-align:center;' }= item.quantity
-        %td{ style: 'padding:8px; line-height:20px; text-align:center;' }= ( item.product ? item.product.titulo : item.promotion.title )
+        %td{ style: 'padding:8px; line-height:20px; text-align:center;' }= ( item.product ? item.product.to_s : item.promotion.title )
         %td{ style: 'padding:8px; line-height:20px; text-align:center;' }= number_to_currency item.total_price
     %tr{ style: 'padding:8px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #dddddd;' }
       %td

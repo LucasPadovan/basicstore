@@ -32,11 +32,12 @@ es:
         description:  "Descripción"
         position:     "Posición"
       product:
-        titulo:       "Titulo"
-        descripcion:  "Descripcion"
+        title:        "Titulo"
+        description:  "Descripcion"
         image_url:    "Url de la imagen"
         precio:       "Precio"
         type_tokens:  "Tipos de producto"
+        quantity:     "Cantidad"
       promotion:
         color_combo: "Combinación de colores"
         description: "Descripción"

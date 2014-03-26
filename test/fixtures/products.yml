@@ -1,25 +1,25 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  titulo: MyString
-  descripcion: MyText
+  title: MyString
+  description: MyText
   image_url: MyString
   precio: 9.99
   product_type: one
-  cantidad: 1
+  quantity: 1
 
 two:
-  titulo: MyString
-  descripcion: MyText
+  title: MyString
+  description: MyText
   image_url: MyString
   precio: 9.99
   product_type: one
-  cantidad: 2
+  quantity: 2
 
 ruby:
-  titulo: programando en ruby 1.9
-  descripcion: una descripcion detallada
+  title: programando en ruby 1.9
+  description: una description detallada
   image_url: url1.jpg
   precio: 49.50
   product_type: one
-  cantidad: 3
+  quantity: 3

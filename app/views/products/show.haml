@@ -5,7 +5,7 @@
         = image_tag(@product.image_url, class: 'imagen')
     .span6
       %p
-        = @product.descripcion
+        = @product.description
       - if @product.product_types.any?
         %p
           - @product.product_types.each do |pt|

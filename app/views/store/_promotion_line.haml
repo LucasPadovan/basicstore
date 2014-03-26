@@ -6,7 +6,7 @@
       = "-#{promotion_line.discount}#{promotion_line.discount_type}"
   .promotion-line-image-container
     = link_to image_tag(promotion_line.product.image_url, class: 'promotion-line-image'), promotion_line.product, data: { show_tooltip: true }, title: 'Ver detalle del producto'
-  %h3.promotion-line-title= "#{promotion_line.quantity} x #{promotion_line.product.titulo}"
+  %h3.promotion-line-title= "#{promotion_line.quantity} x #{promotion_line.product.to_s}"
   .promotion-line-prices
     .normal-price= "#{number_to_currency(promotion_line.quantity * promotion_line.product.actual_public_price)}"
     %hr

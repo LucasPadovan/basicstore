@@ -6,14 +6,14 @@ class ProductTest < ActiveSupport::TestCase
   test "los atributos del producto no deben estar vacios" do
     product = Product.new
     assert product.invalid?
-    assert product.errors[:titulo].any?
-    assert product.errors[:descripcion].any?
+    assert product.errors[:title].any?
+    assert product.errors[:description].any?
     assert product.errors[:precio].any?
     assert product.errors[:image_url].any?
   end
   
   test "el precio del producto debe ser positivo" do
-    product = Product.new(:titulo => 'Plantilla 1', :descripcion => 'una descripcion detallada',
+    product = Product.new(:title => 'Plantilla 1', :description => 'una descripcion detallada',
       :image_url=> 'url1.jpg')
     
     product.precio =-1
@@ -31,7 +31,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   def new_product(image_url)
-    Product.new(:titulo => 'Plantilla 1', :descripcion => 'una descripcion detallada',
+    Product.new(:title => 'Plantilla 1', :description => 'una descripcion detallada',
       :precio => 1, :image_url => image_url)
   end
   
@@ -48,17 +48,17 @@ class ProductTest < ActiveSupport::TestCase
   end
   
   test "los productos no son validos sin nombre unico" do
-    product = Product.new(:titulo => products(:ruby).titulo, :descripcion => "una descripcion",
+    product = Product.new(:title => products(:ruby).title, :description => "una descripcion",
       :precio => 1, :image_url => "url2.jpg")
     assert !product.save
-    assert_equal "no se encuentra disponible", product.errors[:titulo].join('; ')
+    assert_equal "no se encuentra disponible", product.errors[:title].join('; ')
   end
   
   test "los productos no son validos sin nombre unico - i18n" do
-    product = Product.new(:titulo => products(:ruby).titulo, :descripcion => "una descripcion",
+    product = Product.new(:title => products(:ruby).title, :description => "una descripcion",
       :precio => 1, :image_url => "url2.jpg")
     assert !product.save
     assert_equal I18n.t('activerecord.errors.messages.taken'),
-      product.errors[:titulo].join('; ')
+      product.errors[:title].join('; ')
   end
 end

@@ -14,9 +14,9 @@ class Admin::ProductsController < Admin::AdminController
     @product = Product.find(params[:id])
     @related_promotions = Promotion.includes(:promotion_lines).where('promotion_lines.product_id = ?', @product.id)
 
-    @title = @product.titulo
+    @title = @product.to_s
 
-    set_page_meta_tags @title, @product.descripcion
+    set_page_meta_tags @title, @product.description
 
     respond_to do |format|
       format.html # show.html.erb

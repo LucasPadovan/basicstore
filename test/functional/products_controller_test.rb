@@ -4,12 +4,12 @@ class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
     @update ={
-      :titulo => 'Estilo no 1',
-      :descripcion => 'Esta es la prueba del primer estilo',
+      :title => 'Estilo no 1',
+      :description => 'Esta es la prueba del primer estilo',
       :image_url => 'url1.jpg',
       :precio => 20.25,
       :product_type => product_types(:two),
-      :cantidad => 3
+      :quantity=> 3
     }
   end
 

@@ -7,10 +7,14 @@ var datepickerOn = function() {
     $('.datepicker').datepicker();
 };
 
-var tokeninputOn = function() {
-    $("#product_type_tokens").tokenInput("/product_types.json", {
-        crossDomain: false,
-        prePopulate: $("#product_type_tokens").data("pre"),
-        theme: "facebook"
+var tokeninputOn = function(selector, url) {
+    $(selector).tokenInput(url + ".json", {
+        crossDomain: false
+        , prePopulate: $(selector).data("pre")
+        , theme: "facebook"
+        , preventDuplicates: true
+//        , hintText: ''
+//        , noResultsText: ''
+//        , searchingText: ''
     });
 }

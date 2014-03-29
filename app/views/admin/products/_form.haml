@@ -2,15 +2,19 @@
 
 = f.input :title, autofocus: true
 = f.input :description, input_html: { rows: 4, cols: 40 }
+-# todo: arreglar este caja imagen url
 = f.input :image_url, class: "caja_image_url"
 - unless params[:action] == 'edit' || params[:action] == 'update'
   = f.simple_fields_for :prices do |builder|
     = builder.input :cost
     = builder.input :public_price
--#todo: validar estos type_tokens, si no encuentra la categoria, que la cree si es posible.
+-# todo: validar estos type_tokens, si no encuentra la categoria, que la cree si es posible, traduccion placeholders.
 = f.input :type_tokens, input_html: { data: { pre: @product.product_types.map(&:attributes).to_json }, placeholder: 'Ingrese los tipos de producto' }
 = f.input :quantity
 
 
 = content_for :form_actions do
   = link_to_function 'Cerrar', "$('#modal').modal('toggle');", class: 'btn'
+
+:javascript
+  tokeninputOn('#product_type_tokens', "#{admin_product_types_path}");

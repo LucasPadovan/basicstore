@@ -15,4 +15,5 @@
  *= require ./customization/grid
  *= require ./customization/datepicker
  *= require ./tokeninput/token-input-facebook
+ *= require ./customization/tokeninput-overrides
 */

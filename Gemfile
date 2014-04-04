@@ -26,13 +26,14 @@ gem 'will_paginate-bootstrap'
 gem 'SrBuj'
 gem 'simple_form'
 gem 'rails-i18n', '~> 3.0.0'
-gem 'pry', group: :development
+gem 'rollbar'
 
 group :test do
   gem 'turn', '0.8.2', :require => false
 end
 
 group :development do
+  gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'mail_view', '~> 1.0.3'
